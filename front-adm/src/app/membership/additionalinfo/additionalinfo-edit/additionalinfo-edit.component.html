@@ -1,0 +1,894 @@
+<div class="edit" *ngIf="detail">
+	<div *ngIf="!embeddedView" class="action-buttons">
+		<!-- <a href="javascript:void(0)" (click)="goBack()" ><i class="fas fa-angle-double-left" title="Back"></i></a> -->
+	</div>
+
+	<div class="card" style="text-align: left;">
+		<div class="card-body">
+			<h4 class="card-title" *ngIf="!embeddedView && !options['title']">{{action}} AdditionalInfo</h4>
+			<h4 class="card-title" *ngIf="options['title']" [ngStyle]="style['card-title']">
+				{{options['title']}}
+			</h4>
+			<p	*ngIf="options['subtitle']" [ngStyle]="style['card-subtitle']">
+				{{options['subtitle']}}
+			</p>
+			<form (ngSubmit)="onSubmit()" #editForm="ngForm">
+
+				<div *ngIf="action == 'Edit'">
+<div *ngIf="!hiddenFields.includes('grade')">
+
+        <fieldset class="form-group">
+          <label for="EditGrade">Grade</label>
+          
+          
+
+          <div class="form-check"
+
+              [ngClass]="{'ng-valid': enums['grade'].includes(detail['grade']),
+                          'ng-invalid': !enums['grade'].includes(detail['grade'])}"
+            
+            >
+
+            <div class="form-check-inline">
+              <input type="radio" name="EditGrade"
+                class="form-check-input"
+                required
+                id="EditGrade8" [value]="'8'"
+                
+                [(ngModel)]="detail['grade']"
+                #EditGrade="ngModel">
+              <label class="form-check-label">8</label>
+            </div>
+
+            <div class="form-check-inline">
+              <input type="radio" name="EditGrade"
+                class="form-check-input"
+                required
+                id="EditGrade9" [value]="'9'"
+                
+                [(ngModel)]="detail['grade']"
+                #EditGrade="ngModel">
+              <label class="form-check-label">9</label>
+            </div>
+
+            <div class="form-check-inline">
+              <input type="radio" name="EditGrade"
+                class="form-check-input"
+                required
+                id="EditGrade10" [value]="'10'"
+                
+                [(ngModel)]="detail['grade']"
+                #EditGrade="ngModel">
+              <label class="form-check-label">10</label>
+            </div>
+
+            <div class="form-check-inline">
+              <input type="radio" name="EditGrade"
+                class="form-check-input"
+                required
+                id="EditGrade11" [value]="'11'"
+                
+                [(ngModel)]="detail['grade']"
+                #EditGrade="ngModel">
+              <label class="form-check-label">11</label>
+            </div>
+
+            <div class="form-check-inline">
+              <input type="radio" name="EditGrade"
+                class="form-check-input"
+                required
+                id="EditGrade12" [value]="'12'"
+                
+                [(ngModel)]="detail['grade']"
+                #EditGrade="ngModel">
+              <label class="form-check-label">12</label>
+            </div>
+
+            <div class="form-check-inline">
+              <input type="radio" name="EditGrade"
+                class="form-check-input"
+                required
+                id="EditGradeother" [value]="'other'"
+                
+                [(ngModel)]="detail['grade']"
+                #EditGrade="ngModel">
+              <label class="form-check-label">other</label>
+            </div>
+
+          </div>
+
+          <div [hidden]="EditGrade.valid || EditGrade.pristine || EditGrade.errors.minlength"
+           class="alert alert-danger">
+
+            <div *ngIf="EditGrade.errors && EditGrade.errors.required">
+              Grade is required.
+              </div>
+ 
+
+          </div>
+        
+        </fieldset>
+
+    
+</div>
+<div *ngIf="!hiddenFields.includes('team')">
+
+        <fieldset class="form-group">
+          <label for="EditTeam">Team</label>
+          
+          <span><i data-toggle="tooltip" title="which team do you want to join first?" class="far fa-question-circle"></i></span>
+
+          <div class="form-check"
+
+              [ngClass]="{'ng-valid': enums['team'].includes(detail['team']),
+                          'ng-invalid': !enums['team'].includes(detail['team'])}"
+            
+            >
+
+            <div class="form-check-inline">
+              <input type="radio" name="EditTeam"
+                class="form-check-input"
+                required
+                id="EditTeamWeb Development" [value]="'Web Development'"
+                
+                [(ngModel)]="detail['team']"
+                #EditTeam="ngModel">
+              <label class="form-check-label">Web Development</label>
+            </div>
+
+            <div class="form-check-inline">
+              <input type="radio" name="EditTeam"
+                class="form-check-input"
+                required
+                id="EditTeamUI Design" [value]="'UI Design'"
+                
+                [(ngModel)]="detail['team']"
+                #EditTeam="ngModel">
+              <label class="form-check-label">UI Design</label>
+            </div>
+
+          </div>
+
+          <div [hidden]="EditTeam.valid || EditTeam.pristine || EditTeam.errors.minlength"
+           class="alert alert-danger">
+
+            <div *ngIf="EditTeam.errors && EditTeam.errors.required">
+              Team is required.
+              </div>
+ 
+
+          </div>
+        
+        </fieldset>
+
+    
+</div>
+<div *ngIf="!hiddenFields.includes('guardianEmail')">
+
+        <fieldset class="form-group">
+          <label for="EditGuardianEmail">Guardian Email</label>
+          
+          
+
+          <div class="input-group">
+            <input type="text" class="form-control rounded" id="EditGuardianEmail" 
+                    
+                    
+                    maxlength="100"
+                
+                    [(ngModel)]="detail['guardianEmail']" name="EditGuardianEmail"
+                    #EditGuardianEmail="ngModel">
+            <div *ngIf="detail['guardianEmail']"
+                  class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('guardianEmail')">
+                  <i class="fas fa-times-circle" title="Clear"></i>
+            </div>
+          </div>
+
+          <div [hidden]="EditGuardianEmail.valid || EditGuardianEmail.pristine || EditGuardianEmail.errors.minlength"
+           class="alert alert-danger">
+
+ 
+
+            <div *ngIf="EditGuardianEmail.errors && EditGuardianEmail.errors.maxlength">
+                GuardianEmail must be at most 100 characters long.
+              </div>
+          </div>
+        
+        </fieldset>
+
+    
+</div>
+<div *ngIf="!hiddenFields.includes('programmingSkill')">
+
+        <fieldset class="form-group">
+          <label for="EditProgrammingSkill">Programming Skill</label>
+          
+          <span><i data-toggle="tooltip" title="How much do you know about programming? (1 is the lowest, 5 is the highest)" class="far fa-question-circle"></i></span>
+
+          <div class="form-check"
+
+              [ngClass]="{'ng-valid': enums['programmingSkill'].includes(detail['programmingSkill']),
+                          'ng-invalid': !enums['programmingSkill'].includes(detail['programmingSkill'])}"
+            
+            >
+
+            <div class="form-check-inline">
+              <input type="radio" name="EditProgrammingSkill"
+                class="form-check-input"
+                required
+                id="EditProgrammingSkill1" [value]="'1'"
+                
+                [(ngModel)]="detail['programmingSkill']"
+                #EditProgrammingSkill="ngModel">
+              <label class="form-check-label">1</label>
+            </div>
+
+            <div class="form-check-inline">
+              <input type="radio" name="EditProgrammingSkill"
+                class="form-check-input"
+                required
+                id="EditProgrammingSkill2" [value]="'2'"
+                
+                [(ngModel)]="detail['programmingSkill']"
+                #EditProgrammingSkill="ngModel">
+              <label class="form-check-label">2</label>
+            </div>
+
+            <div class="form-check-inline">
+              <input type="radio" name="EditProgrammingSkill"
+                class="form-check-input"
+                required
+                id="EditProgrammingSkill3" [value]="'3'"
+                
+                [(ngModel)]="detail['programmingSkill']"
+                #EditProgrammingSkill="ngModel">
+              <label class="form-check-label">3</label>
+            </div>
+
+            <div class="form-check-inline">
+              <input type="radio" name="EditProgrammingSkill"
+                class="form-check-input"
+                required
+                id="EditProgrammingSkill4" [value]="'4'"
+                
+                [(ngModel)]="detail['programmingSkill']"
+                #EditProgrammingSkill="ngModel">
+              <label class="form-check-label">4</label>
+            </div>
+
+            <div class="form-check-inline">
+              <input type="radio" name="EditProgrammingSkill"
+                class="form-check-input"
+                required
+                id="EditProgrammingSkill5" [value]="'5'"
+                
+                [(ngModel)]="detail['programmingSkill']"
+                #EditProgrammingSkill="ngModel">
+              <label class="form-check-label">5</label>
+            </div>
+
+          </div>
+
+          <div [hidden]="EditProgrammingSkill.valid || EditProgrammingSkill.pristine || EditProgrammingSkill.errors.minlength"
+           class="alert alert-danger">
+
+            <div *ngIf="EditProgrammingSkill.errors && EditProgrammingSkill.errors.required">
+              ProgrammingSkill is required.
+              </div>
+ 
+
+          </div>
+        
+        </fieldset>
+
+    
+</div>
+<div *ngIf="!hiddenFields.includes('designingSkill')">
+
+        <fieldset class="form-group">
+          <label for="EditDesigningSkill">Designing Skill</label>
+          
+          <span><i data-toggle="tooltip" title="How much do you know about designing? (1 is the lowest, 5 is the highest)" class="far fa-question-circle"></i></span>
+
+          <div class="form-check"
+
+              [ngClass]="{'ng-valid': enums['designingSkill'].includes(detail['designingSkill']),
+                          'ng-invalid': !enums['designingSkill'].includes(detail['designingSkill'])}"
+            
+            >
+
+            <div class="form-check-inline">
+              <input type="radio" name="EditDesigningSkill"
+                class="form-check-input"
+                required
+                id="EditDesigningSkill1" [value]="'1'"
+                
+                [(ngModel)]="detail['designingSkill']"
+                #EditDesigningSkill="ngModel">
+              <label class="form-check-label">1</label>
+            </div>
+
+            <div class="form-check-inline">
+              <input type="radio" name="EditDesigningSkill"
+                class="form-check-input"
+                required
+                id="EditDesigningSkill2" [value]="'2'"
+                
+                [(ngModel)]="detail['designingSkill']"
+                #EditDesigningSkill="ngModel">
+              <label class="form-check-label">2</label>
+            </div>
+
+            <div class="form-check-inline">
+              <input type="radio" name="EditDesigningSkill"
+                class="form-check-input"
+                required
+                id="EditDesigningSkill3" [value]="'3'"
+                
+                [(ngModel)]="detail['designingSkill']"
+                #EditDesigningSkill="ngModel">
+              <label class="form-check-label">3</label>
+            </div>
+
+            <div class="form-check-inline">
+              <input type="radio" name="EditDesigningSkill"
+                class="form-check-input"
+                required
+                id="EditDesigningSkill4" [value]="'4'"
+                
+                [(ngModel)]="detail['designingSkill']"
+                #EditDesigningSkill="ngModel">
+              <label class="form-check-label">4</label>
+            </div>
+
+            <div class="form-check-inline">
+              <input type="radio" name="EditDesigningSkill"
+                class="form-check-input"
+                required
+                id="EditDesigningSkill5" [value]="'5'"
+                
+                [(ngModel)]="detail['designingSkill']"
+                #EditDesigningSkill="ngModel">
+              <label class="form-check-label">5</label>
+            </div>
+
+          </div>
+
+          <div [hidden]="EditDesigningSkill.valid || EditDesigningSkill.pristine || EditDesigningSkill.errors.minlength"
+           class="alert alert-danger">
+
+            <div *ngIf="EditDesigningSkill.errors && EditDesigningSkill.errors.required">
+              DesigningSkill is required.
+              </div>
+ 
+
+          </div>
+        
+        </fieldset>
+
+    
+</div>
+<div *ngIf="!hiddenFields.includes('githubExp')">
+
+        <fieldset class="form-group">
+          <label for="EditGithubExp">Github Exp</label>
+          
+          <span><i data-toggle="tooltip" title="which team do you want to join first?" class="far fa-question-circle"></i></span>
+
+          <div class="form-check"
+
+              [ngClass]="{'ng-valid': enums['githubExp'].includes(detail['githubExp']),
+                          'ng-invalid': !enums['githubExp'].includes(detail['githubExp'])}"
+            
+            >
+
+            <div class="form-check-inline">
+              <input type="radio" name="EditGithubExp"
+                class="form-check-input"
+                required
+                id="EditGithubExpNo" [value]="'No'"
+                
+                [(ngModel)]="detail['githubExp']"
+                #EditGithubExp="ngModel">
+              <label class="form-check-label">No</label>
+            </div>
+
+            <div class="form-check-inline">
+              <input type="radio" name="EditGithubExp"
+                class="form-check-input"
+                required
+                id="EditGithubExpYes, web access only" [value]="'Yes, web access only'"
+                
+                [(ngModel)]="detail['githubExp']"
+                #EditGithubExp="ngModel">
+              <label class="form-check-label">Yes, web access only</label>
+            </div>
+
+            <div class="form-check-inline">
+              <input type="radio" name="EditGithubExp"
+                class="form-check-input"
+                required
+                id="EditGithubExpYes, web and git access" [value]="'Yes, web and git access'"
+                
+                [(ngModel)]="detail['githubExp']"
+                #EditGithubExp="ngModel">
+              <label class="form-check-label">Yes, web and git access</label>
+            </div>
+
+          </div>
+
+          <div [hidden]="EditGithubExp.valid || EditGithubExp.pristine || EditGithubExp.errors.minlength"
+           class="alert alert-danger">
+
+            <div *ngIf="EditGithubExp.errors && EditGithubExp.errors.required">
+              GithubExp is required.
+              </div>
+ 
+
+          </div>
+        
+        </fieldset>
+
+    
+</div>
+
+				</div>
+				<div *ngIf="action == 'Create' || action == 'Add' ">
+<div *ngIf="!hiddenFields.includes('member')">
+
+        <fieldset class="form-group">
+          <label for="EditMember">Member </label>
+          
+          
+          <!-- <a class="icon-search" [routerLink]="['.']" (click)="onRefSelect('member')"><i class="fas fa-list" title="Search"></i></a>  -->
+          <div class="input-group">
+            <!--  [attr.disabled]="true" -->
+              <input class="form-control rounded" id="EditMember" 
+                  [ngClass]="{'pointer ref-badge': detail['member']['_id']}"
+                  (focus)="onRefSelect('member')"
+                    
+                 
+                  [ngModel]="detail['member']['value']" name="EditMember"
+                  #EditMember="ngModel"> 
+              <div *ngIf="detail['member']['value']" 
+                class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('member')">
+                <i class="fas fa-times-circle" title="Clear"></i>
+              </div>
+          </div>
+          <div [hidden]="EditMember.valid || EditMember.pristine"
+               class="alert alert-danger">
+
+ 
+          </div>
+        </fieldset>
+    
+</div>
+<div *ngIf="!hiddenFields.includes('grade')">
+
+        <fieldset class="form-group">
+          <label for="EditGrade">Grade</label>
+          
+          
+
+          <div class="form-check"
+
+              [ngClass]="{'ng-valid': enums['grade'].includes(detail['grade']),
+                          'ng-invalid': !enums['grade'].includes(detail['grade'])}"
+            
+            >
+
+            <div class="form-check-inline">
+              <input type="radio" name="EditGrade"
+                class="form-check-input"
+                required
+                id="EditGrade8" [value]="'8'"
+                
+                [(ngModel)]="detail['grade']"
+                #EditGrade="ngModel">
+              <label class="form-check-label">8</label>
+            </div>
+
+            <div class="form-check-inline">
+              <input type="radio" name="EditGrade"
+                class="form-check-input"
+                required
+                id="EditGrade9" [value]="'9'"
+                
+                [(ngModel)]="detail['grade']"
+                #EditGrade="ngModel">
+              <label class="form-check-label">9</label>
+            </div>
+
+            <div class="form-check-inline">
+              <input type="radio" name="EditGrade"
+                class="form-check-input"
+                required
+                id="EditGrade10" [value]="'10'"
+                
+                [(ngModel)]="detail['grade']"
+                #EditGrade="ngModel">
+              <label class="form-check-label">10</label>
+            </div>
+
+            <div class="form-check-inline">
+              <input type="radio" name="EditGrade"
+                class="form-check-input"
+                required
+                id="EditGrade11" [value]="'11'"
+                
+                [(ngModel)]="detail['grade']"
+                #EditGrade="ngModel">
+              <label class="form-check-label">11</label>
+            </div>
+
+            <div class="form-check-inline">
+              <input type="radio" name="EditGrade"
+                class="form-check-input"
+                required
+                id="EditGrade12" [value]="'12'"
+                
+                [(ngModel)]="detail['grade']"
+                #EditGrade="ngModel">
+              <label class="form-check-label">12</label>
+            </div>
+
+            <div class="form-check-inline">
+              <input type="radio" name="EditGrade"
+                class="form-check-input"
+                required
+                id="EditGradeother" [value]="'other'"
+                
+                [(ngModel)]="detail['grade']"
+                #EditGrade="ngModel">
+              <label class="form-check-label">other</label>
+            </div>
+
+          </div>
+
+          <div [hidden]="EditGrade.valid || EditGrade.pristine || EditGrade.errors.minlength"
+           class="alert alert-danger">
+
+            <div *ngIf="EditGrade.errors && EditGrade.errors.required">
+              Grade is required.
+              </div>
+ 
+
+          </div>
+        
+        </fieldset>
+
+    
+</div>
+<div *ngIf="!hiddenFields.includes('team')">
+
+        <fieldset class="form-group">
+          <label for="EditTeam">Team</label>
+          
+          <span><i data-toggle="tooltip" title="which team do you want to join first?" class="far fa-question-circle"></i></span>
+
+          <div class="form-check"
+
+              [ngClass]="{'ng-valid': enums['team'].includes(detail['team']),
+                          'ng-invalid': !enums['team'].includes(detail['team'])}"
+            
+            >
+
+            <div class="form-check-inline">
+              <input type="radio" name="EditTeam"
+                class="form-check-input"
+                required
+                id="EditTeamWeb Development" [value]="'Web Development'"
+                
+                [(ngModel)]="detail['team']"
+                #EditTeam="ngModel">
+              <label class="form-check-label">Web Development</label>
+            </div>
+
+            <div class="form-check-inline">
+              <input type="radio" name="EditTeam"
+                class="form-check-input"
+                required
+                id="EditTeamUI Design" [value]="'UI Design'"
+                
+                [(ngModel)]="detail['team']"
+                #EditTeam="ngModel">
+              <label class="form-check-label">UI Design</label>
+            </div>
+
+          </div>
+
+          <div [hidden]="EditTeam.valid || EditTeam.pristine || EditTeam.errors.minlength"
+           class="alert alert-danger">
+
+            <div *ngIf="EditTeam.errors && EditTeam.errors.required">
+              Team is required.
+              </div>
+ 
+
+          </div>
+        
+        </fieldset>
+
+    
+</div>
+<div *ngIf="!hiddenFields.includes('guardianEmail')">
+
+        <fieldset class="form-group">
+          <label for="EditGuardianEmail">Guardian Email</label>
+          
+          
+
+          <div class="input-group">
+            <input type="text" class="form-control rounded" id="EditGuardianEmail" 
+                    
+                    
+                    maxlength="100"
+                
+                    [(ngModel)]="detail['guardianEmail']" name="EditGuardianEmail"
+                    #EditGuardianEmail="ngModel">
+            <div *ngIf="detail['guardianEmail']"
+                  class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('guardianEmail')">
+                  <i class="fas fa-times-circle" title="Clear"></i>
+            </div>
+          </div>
+
+          <div [hidden]="EditGuardianEmail.valid || EditGuardianEmail.pristine || EditGuardianEmail.errors.minlength"
+           class="alert alert-danger">
+
+ 
+
+            <div *ngIf="EditGuardianEmail.errors && EditGuardianEmail.errors.maxlength">
+                GuardianEmail must be at most 100 characters long.
+              </div>
+          </div>
+        
+        </fieldset>
+
+    
+</div>
+<div *ngIf="!hiddenFields.includes('programmingSkill')">
+
+        <fieldset class="form-group">
+          <label for="EditProgrammingSkill">Programming Skill</label>
+          
+          <span><i data-toggle="tooltip" title="How much do you know about programming? (1 is the lowest, 5 is the highest)" class="far fa-question-circle"></i></span>
+
+          <div class="form-check"
+
+              [ngClass]="{'ng-valid': enums['programmingSkill'].includes(detail['programmingSkill']),
+                          'ng-invalid': !enums['programmingSkill'].includes(detail['programmingSkill'])}"
+            
+            >
+
+            <div class="form-check-inline">
+              <input type="radio" name="EditProgrammingSkill"
+                class="form-check-input"
+                required
+                id="EditProgrammingSkill1" [value]="'1'"
+                
+                [(ngModel)]="detail['programmingSkill']"
+                #EditProgrammingSkill="ngModel">
+              <label class="form-check-label">1</label>
+            </div>
+
+            <div class="form-check-inline">
+              <input type="radio" name="EditProgrammingSkill"
+                class="form-check-input"
+                required
+                id="EditProgrammingSkill2" [value]="'2'"
+                
+                [(ngModel)]="detail['programmingSkill']"
+                #EditProgrammingSkill="ngModel">
+              <label class="form-check-label">2</label>
+            </div>
+
+            <div class="form-check-inline">
+              <input type="radio" name="EditProgrammingSkill"
+                class="form-check-input"
+                required
+                id="EditProgrammingSkill3" [value]="'3'"
+                
+                [(ngModel)]="detail['programmingSkill']"
+                #EditProgrammingSkill="ngModel">
+              <label class="form-check-label">3</label>
+            </div>
+
+            <div class="form-check-inline">
+              <input type="radio" name="EditProgrammingSkill"
+                class="form-check-input"
+                required
+                id="EditProgrammingSkill4" [value]="'4'"
+                
+                [(ngModel)]="detail['programmingSkill']"
+                #EditProgrammingSkill="ngModel">
+              <label class="form-check-label">4</label>
+            </div>
+
+            <div class="form-check-inline">
+              <input type="radio" name="EditProgrammingSkill"
+                class="form-check-input"
+                required
+                id="EditProgrammingSkill5" [value]="'5'"
+                
+                [(ngModel)]="detail['programmingSkill']"
+                #EditProgrammingSkill="ngModel">
+              <label class="form-check-label">5</label>
+            </div>
+
+          </div>
+
+          <div [hidden]="EditProgrammingSkill.valid || EditProgrammingSkill.pristine || EditProgrammingSkill.errors.minlength"
+           class="alert alert-danger">
+
+            <div *ngIf="EditProgrammingSkill.errors && EditProgrammingSkill.errors.required">
+              ProgrammingSkill is required.
+              </div>
+ 
+
+          </div>
+        
+        </fieldset>
+
+    
+</div>
+<div *ngIf="!hiddenFields.includes('designingSkill')">
+
+        <fieldset class="form-group">
+          <label for="EditDesigningSkill">Designing Skill</label>
+          
+          <span><i data-toggle="tooltip" title="How much do you know about designing? (1 is the lowest, 5 is the highest)" class="far fa-question-circle"></i></span>
+
+          <div class="form-check"
+
+              [ngClass]="{'ng-valid': enums['designingSkill'].includes(detail['designingSkill']),
+                          'ng-invalid': !enums['designingSkill'].includes(detail['designingSkill'])}"
+            
+            >
+
+            <div class="form-check-inline">
+              <input type="radio" name="EditDesigningSkill"
+                class="form-check-input"
+                required
+                id="EditDesigningSkill1" [value]="'1'"
+                
+                [(ngModel)]="detail['designingSkill']"
+                #EditDesigningSkill="ngModel">
+              <label class="form-check-label">1</label>
+            </div>
+
+            <div class="form-check-inline">
+              <input type="radio" name="EditDesigningSkill"
+                class="form-check-input"
+                required
+                id="EditDesigningSkill2" [value]="'2'"
+                
+                [(ngModel)]="detail['designingSkill']"
+                #EditDesigningSkill="ngModel">
+              <label class="form-check-label">2</label>
+            </div>
+
+            <div class="form-check-inline">
+              <input type="radio" name="EditDesigningSkill"
+                class="form-check-input"
+                required
+                id="EditDesigningSkill3" [value]="'3'"
+                
+                [(ngModel)]="detail['designingSkill']"
+                #EditDesigningSkill="ngModel">
+              <label class="form-check-label">3</label>
+            </div>
+
+            <div class="form-check-inline">
+              <input type="radio" name="EditDesigningSkill"
+                class="form-check-input"
+                required
+                id="EditDesigningSkill4" [value]="'4'"
+                
+                [(ngModel)]="detail['designingSkill']"
+                #EditDesigningSkill="ngModel">
+              <label class="form-check-label">4</label>
+            </div>
+
+            <div class="form-check-inline">
+              <input type="radio" name="EditDesigningSkill"
+                class="form-check-input"
+                required
+                id="EditDesigningSkill5" [value]="'5'"
+                
+                [(ngModel)]="detail['designingSkill']"
+                #EditDesigningSkill="ngModel">
+              <label class="form-check-label">5</label>
+            </div>
+
+          </div>
+
+          <div [hidden]="EditDesigningSkill.valid || EditDesigningSkill.pristine || EditDesigningSkill.errors.minlength"
+           class="alert alert-danger">
+
+            <div *ngIf="EditDesigningSkill.errors && EditDesigningSkill.errors.required">
+              DesigningSkill is required.
+              </div>
+ 
+
+          </div>
+        
+        </fieldset>
+
+    
+</div>
+<div *ngIf="!hiddenFields.includes('githubExp')">
+
+        <fieldset class="form-group">
+          <label for="EditGithubExp">Github Exp</label>
+          
+          <span><i data-toggle="tooltip" title="which team do you want to join first?" class="far fa-question-circle"></i></span>
+
+          <div class="form-check"
+
+              [ngClass]="{'ng-valid': enums['githubExp'].includes(detail['githubExp']),
+                          'ng-invalid': !enums['githubExp'].includes(detail['githubExp'])}"
+            
+            >
+
+            <div class="form-check-inline">
+              <input type="radio" name="EditGithubExp"
+                class="form-check-input"
+                required
+                id="EditGithubExpNo" [value]="'No'"
+                
+                [(ngModel)]="detail['githubExp']"
+                #EditGithubExp="ngModel">
+              <label class="form-check-label">No</label>
+            </div>
+
+            <div class="form-check-inline">
+              <input type="radio" name="EditGithubExp"
+                class="form-check-input"
+                required
+                id="EditGithubExpYes, web access only" [value]="'Yes, web access only'"
+                
+                [(ngModel)]="detail['githubExp']"
+                #EditGithubExp="ngModel">
+              <label class="form-check-label">Yes, web access only</label>
+            </div>
+
+            <div class="form-check-inline">
+              <input type="radio" name="EditGithubExp"
+                class="form-check-input"
+                required
+                id="EditGithubExpYes, web and git access" [value]="'Yes, web and git access'"
+                
+                [(ngModel)]="detail['githubExp']"
+                #EditGithubExp="ngModel">
+              <label class="form-check-label">Yes, web and git access</label>
+            </div>
+
+          </div>
+
+          <div [hidden]="EditGithubExp.valid || EditGithubExp.pristine || EditGithubExp.errors.minlength"
+           class="alert alert-danger">
+
+            <div *ngIf="EditGithubExp.errors && EditGithubExp.errors.required">
+              GithubExp is required.
+              </div>
+ 
+
+          </div>
+        
+        </fieldset>
+
+    
+</div>
+
+				</div>
+
+				<div class="action-buttons-center">
+					<button type="submit" class="btn btn-success" [disabled]="!editForm.form.valid">Submit</button>
+					<button class="btn btn-outline-success" type="button" (click)="editCancel()">Cancel</button>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+
+<ng-template membership-ref-select></ng-template>

@@ -1,0 +1,32 @@
+
+
+		<div *ngIf="detail && showFields.includes('member')">
+               	  <a routerLink="."  (click)="onDisplayRefClicked('member', detail['member'], $event)">
+	            	{{detail['member']?detail['member']['value']:""}}
+	              </a>
+
+		</div>
+		<div *ngIf="detail && showFields.includes('grade')">
+                    {{detail['grade']}}
+
+		</div>
+		<div *ngIf="detail && showFields.includes('team')">
+                    {{detail['team']}}
+
+		</div>
+		<div *ngIf="detail && showFields.includes('guardianEmail')">
+                    {{detail['guardianEmail']}}
+
+		</div>
+		<div *ngIf="detail && showFields.includes('programmingSkill')">
+                    {{detail['programmingSkill']}}
+
+		</div>
+		<div *ngIf="detail && showFields.includes('designingSkill')">
+                    {{detail['designingSkill']}}
+
+		</div>
+		<div *ngIf="detail && showFields.includes('githubExp')">
+                    {{detail['githubExp']}}
+
+		</div>
