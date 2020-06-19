@@ -1,4 +1,4 @@
-# HiCoder Frontend templates
+# Mmeber Portal Frontend
 
 
 ## IMPORTANT! angular build output directory 
