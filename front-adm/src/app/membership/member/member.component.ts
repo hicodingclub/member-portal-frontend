@@ -93,7 +93,7 @@ export class MemberComponent extends MddsBaseComponent implements OnInit {
 
         
         this.briefFieldsInfo = [];
-        this.briefFieldsInfo.push(['first_name', 'First Name']);this.briefFieldsInfo.push(['last_name', 'Last Name']);this.briefFieldsInfo.push(['photo', 'Photo']);this.briefFieldsInfo.push(['email', 'Email']);this.briefFieldsInfo.push(['phone', 'Phone']);
+        this.briefFieldsInfo.push(['firstname', 'Firstname']);this.briefFieldsInfo.push(['lastname', 'Lastname']);this.briefFieldsInfo.push(['photo', 'Photo']);this.briefFieldsInfo.push(['email', 'Email']);this.briefFieldsInfo.push(['phone', 'Phone']);
 
 
 
@@ -104,7 +104,7 @@ export class MemberComponent extends MddsBaseComponent implements OnInit {
         this.schemaName = 'member';
         
         this.modulePath = 'membership';
-        this.indexFields = ['first_name','last_name', ];
+        this.indexFields = ['firstname','lastname', ];
     }
 
     ngOnInit() {

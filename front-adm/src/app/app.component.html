@@ -1,56 +1,60 @@
 <div class="header fixed-top">
-	<nav class="navbar navbar-light navbar-expand-lg">
-		<a class="navbar-brand" routerLink="/home">
-			<img src="assets/logo.png" align="left" class="logo  mt-1">
-			<div class="d-none d-md-block logo-text mr-5">
-				<div class="h4">(Company Name)</div>
-				<div class="ml-3">
-					<small><i>Administration Portal</i></small>
-				</div>
-			</div>
-		</a>
-		
-		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarItems" aria-controls="navbarItems" aria-expanded="false" aria-label="Toggle navigation">
+    <nav class="navbar navbar-light navbar-expand-lg">
+        <a class="navbar-brand" routerLink="/home">
+            <img src="assets/logo.png" align="left" class="logo  mt-1">
+            <div class="d-none d-md-block logo-text mr-5">
+                <div class="h4">Hicoding Club Member Portal</div>
+                <div class="ml-3">
+                    <small><i>Administration Portal</i></small>
+                </div>
+            </div>
+        </a>
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarItems" aria-controls="navbarItems" aria-expanded="false" aria-label="Toggle navigation">
 		<span class="navbar-toggler-icon"></span>
 		</button>
 
-		<div class="collapse navbar-collapse ml-auto mr-auto" id="navbarItems">
-			<ul class="navbar-nav" data-toggle="collapse" data-target=".navbar-collapse.show">
-			<li class="nav-item">
-				<a class="nav-link" routerLinkActive="active" routerLink="/emailing">Emails</a>
-			</li>
-			<li class="nav-item">
-				<a class="nav-link" routerLinkActive="active" routerLink="/users">Users</a>
-			</li>
-			<li class="nav-item">
-				<a class="nav-link" routerLinkActive="active" routerLink="/files">Pictures</a>
-			</li>
-			<li class="nav-item">
-				<a class="nav-link" routerLinkActive="active" routerLink="/access">Public Access</a>
-			</li>
-			<li class="nav-item">
-				<a class="nav-link" routerLinkActive="active" routerLink="/roles">Administrators</a>
-			</li>
-			</ul>
-		</div>
-	</nav>
+        <div class="collapse navbar-collapse ml-auto mr-auto" id="navbarItems">
+            <ul class="navbar-nav" data-toggle="collapse" data-target=".navbar-collapse.show">
+                <li class="nav-item">
+                    <a class="nav-link" routerLinkActive="active" routerLink="/emailing">Emails</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLinkActive="active" routerLink="/membership">Membership</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLinkActive="active" routerLink="/users">Users</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLinkActive="active" routerLink="/files">Pictures</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLinkActive="active" routerLink="/access">Public Access</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLinkActive="active" routerLink="/roles">Administrators</a>
+                </li>
 
-	<div class="auth-icon">
-		<lib-auth-icon></lib-auth-icon>
-	</div>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="auth-icon">
+        <lib-auth-icon></lib-auth-icon>
+    </div>
 </div>
 
 <div class="content">
-	<div>
-		<router-outlet></router-outlet>
-	</div>
-	<div class="container content-min-height">
-	</div>
+    <div>
+        <router-outlet></router-outlet>
+    </div>
+    <div class="container content-min-height">
+    </div>
 </div>
 
 <nav class="footer footer-font navbar navbar-light">
-  <div class="mx-auto mb-2">
-	  <div>© 2019 (Company Name), Inc. All rights reserved.</div>
-	  <div><i class="fa fa-map-marker" aria-hidden="true"></i> (Address) </div>
-  </div>
+    <div class="mx-auto mb-2">
+        <div>© 2020 Hicoding Club, Inc. All rights reserved.</div>
+        <div><i class="fa fa-map-marker" aria-hidden="true"></i> 1645 Natalie Ct, San Jose, CA, 95118</div>
+    </div>
 </nav>

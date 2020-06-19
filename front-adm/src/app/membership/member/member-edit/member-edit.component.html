@@ -15,34 +15,34 @@
 			<form (ngSubmit)="onSubmit()" #editForm="ngForm">
 
 				<div *ngIf="action == 'Edit'">
-<div *ngIf="!hiddenFields.includes('first_name')">
+<div *ngIf="!hiddenFields.includes('firstname')">
 
         <fieldset class="form-group">
-          <label for="EditFirst_name">First Name</label>
+          <label for="EditFirstname">Firstname</label>
           
           
 
           <div class="input-group">
-            <input type="text" class="form-control rounded" id="EditFirst_name" 
+            <input type="text" class="form-control rounded" id="EditFirstname" 
                     
                     
                     maxlength="100"
                 
-                    [(ngModel)]="detail['first_name']" name="EditFirst_name"
-                    #EditFirst_name="ngModel">
-            <div *ngIf="detail['first_name']"
-                  class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('first_name')">
+                    [(ngModel)]="detail['firstname']" name="EditFirstname"
+                    #EditFirstname="ngModel">
+            <div *ngIf="detail['firstname']"
+                  class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('firstname')">
                   <i class="fas fa-times-circle" title="Clear"></i>
             </div>
           </div>
 
-          <div [hidden]="EditFirst_name.valid || EditFirst_name.pristine || EditFirst_name.errors.minlength"
+          <div [hidden]="EditFirstname.valid || EditFirstname.pristine || EditFirstname.errors.minlength"
            class="alert alert-danger">
 
  
 
-            <div *ngIf="EditFirst_name.errors && EditFirst_name.errors.maxlength">
-                First_name must be at most 100 characters long.
+            <div *ngIf="EditFirstname.errors && EditFirstname.errors.maxlength">
+                Firstname must be at most 100 characters long.
               </div>
           </div>
         
@@ -50,34 +50,34 @@
 
     
 </div>
-<div *ngIf="!hiddenFields.includes('last_name')">
+<div *ngIf="!hiddenFields.includes('lastname')">
 
         <fieldset class="form-group">
-          <label for="EditLast_name">Last Name</label>
+          <label for="EditLastname">Lastname</label>
           
           
 
           <div class="input-group">
-            <input type="text" class="form-control rounded" id="EditLast_name" 
+            <input type="text" class="form-control rounded" id="EditLastname" 
                     
                     
                     maxlength="100"
                 
-                    [(ngModel)]="detail['last_name']" name="EditLast_name"
-                    #EditLast_name="ngModel">
-            <div *ngIf="detail['last_name']"
-                  class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('last_name')">
+                    [(ngModel)]="detail['lastname']" name="EditLastname"
+                    #EditLastname="ngModel">
+            <div *ngIf="detail['lastname']"
+                  class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('lastname')">
                   <i class="fas fa-times-circle" title="Clear"></i>
             </div>
           </div>
 
-          <div [hidden]="EditLast_name.valid || EditLast_name.pristine || EditLast_name.errors.minlength"
+          <div [hidden]="EditLastname.valid || EditLastname.pristine || EditLastname.errors.minlength"
            class="alert alert-danger">
 
  
 
-            <div *ngIf="EditLast_name.errors && EditLast_name.errors.maxlength">
-                Last_name must be at most 100 characters long.
+            <div *ngIf="EditLastname.errors && EditLastname.errors.maxlength">
+                Lastname must be at most 100 characters long.
               </div>
           </div>
         
@@ -191,34 +191,34 @@
 
 				</div>
 				<div *ngIf="action == 'Create' || action == 'Add' ">
-<div *ngIf="!hiddenFields.includes('first_name')">
+<div *ngIf="!hiddenFields.includes('firstname')">
 
         <fieldset class="form-group">
-          <label for="EditFirst_name">First Name</label>
+          <label for="EditFirstname">Firstname</label>
           
           
 
           <div class="input-group">
-            <input type="text" class="form-control rounded" id="EditFirst_name" 
+            <input type="text" class="form-control rounded" id="EditFirstname" 
                     
                     
                     maxlength="100"
                 
-                    [(ngModel)]="detail['first_name']" name="EditFirst_name"
-                    #EditFirst_name="ngModel">
-            <div *ngIf="detail['first_name']"
-                  class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('first_name')">
+                    [(ngModel)]="detail['firstname']" name="EditFirstname"
+                    #EditFirstname="ngModel">
+            <div *ngIf="detail['firstname']"
+                  class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('firstname')">
                   <i class="fas fa-times-circle" title="Clear"></i>
             </div>
           </div>
 
-          <div [hidden]="EditFirst_name.valid || EditFirst_name.pristine || EditFirst_name.errors.minlength"
+          <div [hidden]="EditFirstname.valid || EditFirstname.pristine || EditFirstname.errors.minlength"
            class="alert alert-danger">
 
  
 
-            <div *ngIf="EditFirst_name.errors && EditFirst_name.errors.maxlength">
-                First_name must be at most 100 characters long.
+            <div *ngIf="EditFirstname.errors && EditFirstname.errors.maxlength">
+                Firstname must be at most 100 characters long.
               </div>
           </div>
         
@@ -226,34 +226,34 @@
 
     
 </div>
-<div *ngIf="!hiddenFields.includes('last_name')">
+<div *ngIf="!hiddenFields.includes('lastname')">
 
         <fieldset class="form-group">
-          <label for="EditLast_name">Last Name</label>
+          <label for="EditLastname">Lastname</label>
           
           
 
           <div class="input-group">
-            <input type="text" class="form-control rounded" id="EditLast_name" 
+            <input type="text" class="form-control rounded" id="EditLastname" 
                     
                     
                     maxlength="100"
                 
-                    [(ngModel)]="detail['last_name']" name="EditLast_name"
-                    #EditLast_name="ngModel">
-            <div *ngIf="detail['last_name']"
-                  class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('last_name')">
+                    [(ngModel)]="detail['lastname']" name="EditLastname"
+                    #EditLastname="ngModel">
+            <div *ngIf="detail['lastname']"
+                  class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('lastname')">
                   <i class="fas fa-times-circle" title="Clear"></i>
             </div>
           </div>
 
-          <div [hidden]="EditLast_name.valid || EditLast_name.pristine || EditLast_name.errors.minlength"
+          <div [hidden]="EditLastname.valid || EditLastname.pristine || EditLastname.errors.minlength"
            class="alert alert-danger">
 
  
 
-            <div *ngIf="EditLast_name.errors && EditLast_name.errors.maxlength">
-                Last_name must be at most 100 characters long.
+            <div *ngIf="EditLastname.errors && EditLastname.errors.maxlength">
+                Lastname must be at most 100 characters long.
               </div>
           </div>
         

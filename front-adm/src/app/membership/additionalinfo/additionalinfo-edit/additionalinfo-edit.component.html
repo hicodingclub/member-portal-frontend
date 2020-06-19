@@ -373,7 +373,7 @@
         <fieldset class="form-group">
           <label for="EditGithubExp">Github Exp</label>
           
-          <span><i data-toggle="tooltip" title="which team do you want to join first?" class="far fa-question-circle"></i></span>
+          
 
           <div class="form-check"
 
@@ -446,7 +446,7 @@
               <input class="form-control rounded" id="EditMember" 
                   [ngClass]="{'pointer ref-badge': detail['member']['_id']}"
                   (focus)="onRefSelect('member')"
-                    
+                    required
                  
                   [ngModel]="detail['member']['value']" name="EditMember"
                   #EditMember="ngModel"> 
@@ -458,6 +458,9 @@
           <div [hidden]="EditMember.valid || EditMember.pristine"
                class="alert alert-danger">
 
+            <div *ngIf="EditMember.errors && EditMember.errors.required && !(detail['member']?.date)">
+              Member is required.
+              </div>
  
           </div>
         </fieldset>
@@ -821,7 +824,7 @@
         <fieldset class="form-group">
           <label for="EditGithubExp">Github Exp</label>
           
-          <span><i data-toggle="tooltip" title="which team do you want to join first?" class="far fa-question-circle"></i></span>
+          
 
           <div class="form-check"
 

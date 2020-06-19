@@ -1,3 +1,5 @@
+
+
 import { Routes } from '@angular/router';
 
 import { MembershipComponent } from '../membership/membership.component';
@@ -5,7 +7,9 @@ import { MembershipComponent } from '../membership/membership.component';
 //Import routing paths
 import { 
   memberRoutingCorePath, 
-  additionalinfoRoutingCorePath,  
+  additionalinfoRoutingCorePath, 
+  boardRoutingCorePath, 
+  leadRoutingCorePath,  
 } from '../membership/membership-routing.core.path';
 
 export const MembershipCoreRoutes: Routes = [
@@ -27,6 +31,14 @@ export const MembershipCoreRoutes: Routes = [
       { path: 'additionalinfo',
         children: additionalinfoRoutingCorePath,
         data: {mraLevel: 1, item: 'additionalinfo'}
+      },
+      { path: 'board',
+        children: boardRoutingCorePath,
+        data: {mraLevel: 1, item: 'board'}
+      },
+      { path: 'lead',
+        children: leadRoutingCorePath,
+        data: {mraLevel: 1, item: 'lead'}
       },
     ]
   },
@@ -48,7 +60,7 @@ export const MembershipRoutes: Routes = [
 
 export const membership_server_root_uri: string = '/api/membership';
 /*>>> Please check this recent updates and merge with existing ones***
-**Date: Sat Jun 06 2020 22:45:38 GMT-0700 (Pacific Daylight Time)
+**Date: Tue Jun 16 2020 23:38:06 GMT-0700 (Pacific Daylight Time)
 
 import { Routes } from '@angular/router';
 
@@ -57,7 +69,9 @@ import { MembershipComponent } from '../membership/membership.component';
 //Import routing paths
 import { 
   memberRoutingCorePath, 
-  additionalinfoRoutingCorePath,  
+  additionalinfoRoutingCorePath, 
+  boardRoutingCorePath, 
+  leadRoutingCorePath,  
 } from '../membership/membership-routing.core.path';
 
 export const MembershipCoreRoutes: Routes = [
@@ -79,6 +93,14 @@ export const MembershipCoreRoutes: Routes = [
       { path: 'additionalinfo',
         children: additionalinfoRoutingCorePath,
         data: {mraLevel: 1, item: 'additionalinfo'}
+      },
+      { path: 'board',
+        children: boardRoutingCorePath,
+        data: {mraLevel: 1, item: 'board'}
+      },
+      { path: 'lead',
+        children: leadRoutingCorePath,
+        data: {mraLevel: 1, item: 'lead'}
       },
     ]
   },

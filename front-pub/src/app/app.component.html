@@ -1,49 +1,49 @@
 <div class="header fixed-top">
-	<nav class="navbar navbar-light navbar-expand-lg">
-		<a class="navbar-brand" routerLink="/">
-			<img src="assets/logo.png" align="left" class="logo">
-			<div class="logo-text mt-2">(Organization Name)</div>
-		</a>
-		
-		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarItems" aria-controls="navbarItems" aria-expanded="false" aria-label="Toggle navigation">
+    <nav class="navbar navbar-light navbar-expand-lg">
+        <a class="navbar-brand" routerLink="/">
+            <img src="assets/logo.png" align="left" class="logo">
+            <div class="logo-text mt-2">HCC Member Portal</div>
+        </a>
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarItems" aria-controls="navbarItems" aria-expanded="false" aria-label="Toggle navigation">
 		<span class="navbar-toggler-icon"></span>
 		</button>
-		
-		<div class="collapse navbar-collapse ml-auto mr-auto" id="navbarItems">
-			<ul class="navbar-nav" data-toggle="collapse" data-target=".navbar-collapse.show">
-				<li class="nav-item">
-					<a class="nav-link" [ngClass]="{'active': currentUrl === '' || currentUrl === '/' }" routerLink="/">Home</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" routerLinkActive="active" routerLink="/contact" >Contact</a>
-				</li>
-			</ul>
-		</div>
 
-	</nav>
+        <div class="collapse navbar-collapse ml-auto mr-auto" id="navbarItems">
+            <ul class="navbar-nav" data-toggle="collapse" data-target=".navbar-collapse.show">
+                <li class="nav-item">
+                    <a class="nav-link" [ngClass]="{'active': currentUrl === '' || currentUrl === '/' }" routerLink="/">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLinkActive="active" routerLink="/contact">Contact</a>
+                </li>
+            </ul>
+        </div>
 
-	<div class="auth-icon">
-		<lib-auth-icon></lib-auth-icon>
-	</div>
+    </nav>
+
+    <div class="auth-icon">
+        <lib-auth-icon></lib-auth-icon>
+    </div>
 </div>
 
 <div class="content">
-	<div>
-		<router-outlet></router-outlet>
-	</div>
-	<div class="content-min-height"></div>
+    <div>
+        <router-outlet></router-outlet>
+    </div>
+    <div class="content-min-height"></div>
 </div>
 
 <nav class="footer footer-font navbar navbar-light">
-	<div class="mx-auto mb-2 pt-2">
-		<div>© 2019 (Organization Name), Inc. All rights reserved.</div>
-		<div class="contact-info">
-				<div class="ml-3 mr-5">
-					<i class="fas fa-phone"></i> (tel-number)
-				</div>
-				<div>
-					<i class="fa fa-map-marker" aria-hidden="true"></i> (address)
-				</div>
-		</div>
-	</div>
+    <div class="mx-auto mb-2 pt-2">
+        <div>© 2020 Hicoding Club, Inc. All rights reserved.</div>
+        <div class="contact-info">
+            <div class="ml-3 mr-5">
+                <i class="fas fa-phone"></i> (408) 718-3455
+            </div>
+            <div>
+                <i class="fa fa-map-marker" aria-hidden="true"></i> 1645 Natalie Ct., San Jose, CA, 95118
+            </div>
+        </div>
+    </div>
 </nav>

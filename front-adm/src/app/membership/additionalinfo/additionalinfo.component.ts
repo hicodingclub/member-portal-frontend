@@ -115,7 +115,7 @@ export class AdditionalinfoComponent extends MddsBaseComponent implements OnInit
         this.referenceFieldsMap = {'member': 'member',};
         this.referenceFieldsReverseMap = {'member': 'member',};
         this.emailFields = [['Guardian Email','guardianEmail'],];
-        this.requiredFields = ['grade','team','programmingSkill','designingSkill','githubExp',];
+        this.requiredFields = ['grade','team','programmingSkill','designingSkill','githubExp','member',];
 
 
         this.schemaName = 'additionalinfo';

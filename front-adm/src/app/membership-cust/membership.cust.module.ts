@@ -24,7 +24,7 @@ import { MembershipCoreModule } from '../membership/membership.core.module';
 })
 export class MembershipCustModule { }
 /*>>> Please check this recent updates and merge with existing ones***
-**Date: Sat Jun 06 2020 22:45:38 GMT-0700 (Pacific Daylight Time)
+**Date: Tue Jun 16 2020 23:38:06 GMT-0700 (Pacific Daylight Time)
 
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';

@@ -39,6 +39,24 @@ import { AdditionalinfoEditComponent } from './additionalinfo/additionalinfo-edi
 
 import { AdditionalinfoService } from './additionalinfo/additionalinfo.service';
 
+import { BoardListComponent } from './board/board-list/board-list.component';
+
+import { BoardDetailComponent } from './board/board-detail/board-detail.component';
+
+import { BoardDetailFieldComponent } from './board/board-detail/board-detail-field.component';
+import { BoardEditComponent } from './board/board-edit/board-edit.component';
+
+import { BoardService } from './board/board.service';
+
+import { LeadListComponent } from './lead/lead-list/lead-list.component';
+
+import { LeadDetailComponent } from './lead/lead-detail/lead-detail.component';
+
+import { LeadDetailFieldComponent } from './lead/lead-detail/lead-detail-field.component';
+import { LeadEditComponent } from './lead/lead-edit/lead-edit.component';
+
+import { LeadService } from './lead/lead.service';
+
 
 import { MemberListSelectComponent } from './member/member-list/member-list-select.component';
 
@@ -50,6 +68,8 @@ import { AdditionalinfoDetailSubComponent } from './additionalinfo/additionalinf
 
 import { MembershipMemberDirectiveEmail } from './member/member-edit/member-edit.component';
 import { MembershipMemberDirectivePhone } from './member/member-edit/member-edit.component';
+import { MembershipBoardDirectiveEmail } from './board/board-edit/board-edit.component';
+import { MembershipLeadDirectiveEmail } from './lead/lead-edit/lead-edit.component';
 
 @NgModule({
   imports: [
@@ -80,6 +100,20 @@ import { MembershipMemberDirectivePhone } from './member/member-edit/member-edit
     AdditionalinfoDetailFieldComponent,
     AdditionalinfoEditComponent,
 
+    BoardListComponent,
+
+    BoardDetailComponent,
+
+    BoardDetailFieldComponent,
+    BoardEditComponent,
+
+    LeadListComponent,
+
+    LeadDetailComponent,
+
+    LeadDetailFieldComponent,
+    LeadEditComponent,
+
 
     MemberListSelectComponent,
     
@@ -91,6 +125,8 @@ import { MembershipMemberDirectivePhone } from './member/member-edit/member-edit
 
     MembershipMemberDirectiveEmail,
     MembershipMemberDirectivePhone,
+    MembershipBoardDirectiveEmail,
+    MembershipLeadDirectiveEmail,
 
 
 
@@ -112,6 +148,20 @@ import { MembershipMemberDirectivePhone } from './member/member-edit/member-edit
     AdditionalinfoDetailFieldComponent,
     AdditionalinfoEditComponent,
 
+    BoardListComponent,
+
+    BoardDetailComponent,
+
+    BoardDetailFieldComponent,
+    BoardEditComponent,
+
+    LeadListComponent,
+
+    LeadDetailComponent,
+
+    LeadDetailFieldComponent,
+    LeadEditComponent,
+
 
     MemberListSelectComponent,
     
@@ -123,6 +173,8 @@ import { MembershipMemberDirectivePhone } from './member/member-edit/member-edit
 
       MembershipMemberDirectiveEmail,
       MembershipMemberDirectivePhone,
+      MembershipBoardDirectiveEmail,
+      MembershipLeadDirectiveEmail,
 
 
 
@@ -133,12 +185,16 @@ import { MembershipMemberDirectivePhone } from './member/member-edit/member-edit
 
     MemberService,
     AdditionalinfoService,
+    BoardService,
+    LeadService,
   ],
   entryComponents: [
     MemberListSelectComponent,
     MemberDetailPopComponent,
     MemberDetailSelComponent,
     AdditionalinfoEditComponent,
+    BoardEditComponent,
+    LeadEditComponent,
   ]
 })
 export class MembershipCoreModule { }

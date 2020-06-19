@@ -14,6 +14,20 @@ import { AdditionalinfoDetailComponent } from './additionalinfo/additionalinfo-d
 import { AdditionalinfoEditComponent } from './additionalinfo/additionalinfo-edit/additionalinfo-edit.component';
 import { AdditionalinfoListSubComponent } from './additionalinfo/additionalinfo-list/additionalinfo-list-sub.component';
 
+import { BoardListComponent } from './board/board-list/board-list.component';
+
+import { BoardDetailComponent } from './board/board-detail/board-detail.component';
+
+import { BoardEditComponent } from './board/board-edit/board-edit.component';
+
+
+import { LeadListComponent } from './lead/lead-list/lead-list.component';
+
+import { LeadDetailComponent } from './lead/lead-detail/lead-detail.component';
+
+import { LeadEditComponent } from './lead/lead-edit/lead-edit.component';
+
+
 
 import { AuthGuard } from '@hicoder/angular-auth';
 
@@ -44,6 +58,24 @@ export const additionalinfoRoutingCorePath = [
     {path: 'detail/:id', component: AdditionalinfoDetailComponent, canActivate: [AuthGuard]},
     {path: 'edit/:id', component: AdditionalinfoEditComponent, canActivate: [AuthGuard]},
     {path: 'new', component: AdditionalinfoEditComponent, canActivate: [AuthGuard]},
+    
+    {path: '**', redirectTo: 'list', pathMatch: 'full'}
+];
+
+export const boardRoutingCorePath = [
+    {path: 'list', component: BoardListComponent, canActivate: [AuthGuard]},
+    {path: 'detail/:id', component: BoardDetailComponent, canActivate: [AuthGuard]},
+    {path: 'edit/:id', component: BoardEditComponent, canActivate: [AuthGuard]},
+    {path: 'new', component: BoardEditComponent, canActivate: [AuthGuard]},
+    
+    {path: '**', redirectTo: 'list', pathMatch: 'full'}
+];
+
+export const leadRoutingCorePath = [
+    {path: 'list', component: LeadListComponent, canActivate: [AuthGuard]},
+    {path: 'detail/:id', component: LeadDetailComponent, canActivate: [AuthGuard]},
+    {path: 'edit/:id', component: LeadEditComponent, canActivate: [AuthGuard]},
+    {path: 'new', component: LeadEditComponent, canActivate: [AuthGuard]},
     
     {path: '**', redirectTo: 'list', pathMatch: 'full'}
 ];

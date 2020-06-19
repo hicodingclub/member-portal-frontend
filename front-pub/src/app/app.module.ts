@@ -16,6 +16,8 @@ import { file_upload_uri, file_download_uri } from './injection-tokens/file-uplo
 import { HomepageComponent } from './pages/homepage/homepage.component';
 import { ContactComponent } from './pages/contact/contact.component';
 
+import { MembershipModule } from './membership/membership.module';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,6 +30,7 @@ import { ContactComponent } from './pages/contact/contact.component';
     AppRoutingModule,
     HttpClientModule,
     AuthenticationModule,
+    MembershipModule,
   ],
   providers: [
     { provide: AUTHENTICATION_AUTH_PAGE_ROOT_URI, useValue: authentication_page_root_uri },

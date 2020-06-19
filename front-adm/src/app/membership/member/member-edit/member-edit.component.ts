@@ -128,16 +128,16 @@ export class MemberEditComponent extends MemberEditCustComponent implements OnIn
                 memberService, injector, router, route, location, ViewType.EDIT);
 
           this.fieldDisplayNames = {
-            'first_name': 'First Name',
-            'last_name': 'Last Name',
+            'firstname': 'Firstname',
+            'lastname': 'Lastname',
             'photo': 'Photo',
             'email': 'Email',
             'phone': 'Phone',
           };
 
 
-          this.stringFields.push('first_name');
-          this.stringFields.push('last_name');
+          this.stringFields.push('firstname');
+          this.stringFields.push('lastname');
           this.stringFields.push('photo');
           this.stringFields.push('email');
           this.stringFields.push('phone');

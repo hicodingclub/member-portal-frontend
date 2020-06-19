@@ -26,7 +26,7 @@
 	              <input type="search" class="form-control border border-secondary" id="memberTextSearch" 
 						#memberTextSearch [(ngModel)]="searchText"
 						(keydown.enter)="$event.target.blur();searchList();false"
-					    placeholder="Search for first name, last name, email, phone"> 
+					    placeholder="Search for firstname, lastname, email, phone"> 
 				  <div *ngIf="searchText" class="input-group-append icon-clear-inside">
 					<span >
 					    <i class="fas fa-times-circle" (click)="onSearchTextClear()" title="Clear"></i>
@@ -115,10 +115,10 @@
 							</span>
 						</button>
 						<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-							<a class="dropdown-item pointer" (click)="setListSortAndRefresh('first_name', 'First Name', 'asc')">First Name<i class="fas fa-arrow-up"></i></a>
-							<a class="dropdown-item pointer" (click)="setListSortAndRefresh('first_name', 'First Name', 'desc')">First Name<i class="fas fa-arrow-down"></i></a>
-							<a class="dropdown-item pointer" (click)="setListSortAndRefresh('last_name', 'Last Name', 'asc')">Last Name<i class="fas fa-arrow-up"></i></a>
-							<a class="dropdown-item pointer" (click)="setListSortAndRefresh('last_name', 'Last Name', 'desc')">Last Name<i class="fas fa-arrow-down"></i></a>
+							<a class="dropdown-item pointer" (click)="setListSortAndRefresh('firstname', 'Firstname', 'asc')">Firstname<i class="fas fa-arrow-up"></i></a>
+							<a class="dropdown-item pointer" (click)="setListSortAndRefresh('firstname', 'Firstname', 'desc')">Firstname<i class="fas fa-arrow-down"></i></a>
+							<a class="dropdown-item pointer" (click)="setListSortAndRefresh('lastname', 'Lastname', 'asc')">Lastname<i class="fas fa-arrow-up"></i></a>
+							<a class="dropdown-item pointer" (click)="setListSortAndRefresh('lastname', 'Lastname', 'desc')">Lastname<i class="fas fa-arrow-down"></i></a>
 							<a class="dropdown-item pointer" (click)="setListSortAndRefresh('email', 'Email', 'asc')">Email<i class="fas fa-arrow-up"></i></a>
 							<a class="dropdown-item pointer" (click)="setListSortAndRefresh('email', 'Email', 'desc')">Email<i class="fas fa-arrow-down"></i></a>
 							<a class="dropdown-item pointer" (click)="setListSortAndRefresh('phone', 'Phone', 'asc')">Phone<i class="fas fa-arrow-up"></i></a>
@@ -212,12 +212,12 @@
         <h5>
           <div class="mr-1 d-inline-block">
             
-                    {{detail['first_name']}}
+                    {{detail['firstname']}}
 
           </div>
           <div class="mr-1 d-inline-block">
             
-                    {{detail['last_name']}}
+                    {{detail['lastname']}}
 
           </div>
         </h5>
@@ -271,12 +271,12 @@
           <h5>
             <div class="mr-1 d-inline-block">
               
-                    {{detail['first_name']}}
+                    {{detail['firstname']}}
 
             </div>
             <div class="mr-1 d-inline-block">
               
-                    {{detail['last_name']}}
+                    {{detail['lastname']}}
 
             </div>
           </h5>
@@ -319,16 +319,16 @@
 	    	<tr>
 		        <th scope="col">#</th>
 
-				<th class="pointer" scope="col" (click)="toggleListSort('first_name', 'First Name')">
-					First Name
-					<span *ngIf="listSortField === 'first_name'">
+				<th class="pointer" scope="col" (click)="toggleListSort('firstname', 'Firstname')">
+					Firstname
+					<span *ngIf="listSortField === 'firstname'">
 						<i *ngIf="listSortOrder === 'asc'" class="fas fa-arrow-up th-sort-arrow"></i>
 						<i *ngIf="listSortOrder === 'desc'" class="fas fa-arrow-down th-sort-arrow"></i>
 					</span>
 				</th>
-				<th class="pointer" scope="col" (click)="toggleListSort('last_name', 'Last Name')">
-					Last Name
-					<span *ngIf="listSortField === 'last_name'">
+				<th class="pointer" scope="col" (click)="toggleListSort('lastname', 'Lastname')">
+					Lastname
+					<span *ngIf="listSortField === 'lastname'">
 						<i *ngIf="listSortOrder === 'asc'" class="fas fa-arrow-up th-sort-arrow"></i>
 						<i *ngIf="listSortOrder === 'desc'" class="fas fa-arrow-down th-sort-arrow"></i>
 					</span>
@@ -359,12 +359,12 @@
 
 	            <td (click)="clickOneItem(i)"  [ngClass]="{'pointer': clickItemAction}">
 	            	
-                    {{detail['first_name']}}
+                    {{detail['firstname']}}
 
 	            </td>
 	            <td (click)="clickOneItem(i)"  [ngClass]="{'pointer': clickItemAction}">
 	            	
-                    {{detail['last_name']}}
+                    {{detail['lastname']}}
 
 	            </td>
 	            <td (click)="clickOneItem(i)"  [ngClass]="{'pointer': clickItemAction}">

@@ -53,7 +53,7 @@ export const EmailingRoutes: Routes = [
 
 export const emailing_server_root_uri: string = '/api/emailing';
 /*>>> Please check this recent updates and merge with existing ones***
-**Date: Sat Jun 06 2020 22:45:35 GMT-0700 (Pacific Daylight Time)
+**Date: Tue Jun 16 2020 23:38:03 GMT-0700 (Pacific Daylight Time)
 
 import { Routes } from '@angular/router';
 
