@@ -3,9 +3,9 @@ import { Location } from '@angular/common';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Injector } from '@angular/core';
 
-import { EmaillogListCustComponent } from '../../../emailing-cust/base/emaillog/emaillog-list.cust.component';
-import { ViewType } from '../emaillog.component';
-import { EmaillogService } from '../emaillog.service';
+import { EmailqueueListCustComponent } from '../../../emailing-cust/base/emailqueue/emailqueue-list.cust.component';
+import { ViewType } from '../emailqueue.component';
+import { EmailqueueService } from '../emailqueue.service';
 
 
 
@@ -13,11 +13,11 @@ import { QueryList, ViewChildren } from '@angular/core';
 import { MddsRichTextShowDirective } from '@hicoder/angular-core';
   
 @Component({
-  selector: 'app-emaillog-list',
-  templateUrl: './emaillog-list.component.html',
-  styleUrls: ['./emaillog-list.component.css']
+  selector: 'app-emailqueue-list',
+  templateUrl: './emailqueue-list.component.html',
+  styleUrls: ['./emailqueue-list.component.css']
 })
-export class EmaillogListComponent extends EmaillogListCustComponent implements OnInit {
+export class EmailqueueListComponent extends EmailqueueListCustComponent implements OnInit {
 
   public minDate = {year: (new Date()).getFullYear() - 100, month: 1, day: 1};
 
@@ -37,42 +37,27 @@ export class EmaillogListComponent extends EmaillogListCustComponent implements 
 
   constructor(
       
-      public emaillogService: EmaillogService,
+      public emailqueueService: EmailqueueService,
       public injector: Injector,
       public router: Router,
       public route: ActivatedRoute,
       public location: Location) {
           super(
-                emaillogService, injector, router, route, location, ViewType.LIST);
+                emailqueueService, injector, router, route, location, ViewType.LIST);
 
           this.fieldDisplayNames = {
-            'to': 'To',
-            'module': 'Module',
-            'reason': 'Reason',
-            'result': 'Result',
-            'userId': 'User Id',
+            'subject': 'Subject',
+            'processed': 'Processed',
+            'number': 'Number',
+            'sent': 'Sent',
             'createdAt': 'Created at',
           };
-
-
-          this.stringFields.push('to');
-          this.stringFields.push('module');
-          this.stringFields.push('reason');
-          this.stringFields.push('result');
-          this.stringFields.push('userId');
-
-
+          this.stringFields.push('subject');
           this.dateFields = ['createdAt', ];
-
-
-
-
-
-
-
-
+          this.numberFields = ['number', 'sent', ];
 
           this.listViewFilter = 'list';
+          this.setListSort('createdAt', 'Created at', 'desc');
 
           const listCategories = [];
           this.listCategory1 = listCategories[0] || {};
@@ -121,7 +106,7 @@ export class EmaillogListComponent extends EmaillogListCustComponent implements 
 
   static getInstance() {
     //used by others to call some common functions
-    return new EmaillogListComponent(null, null, null, null, null);
+    return new EmailqueueListComponent(null, null, null, null, null);
   }
 }
 

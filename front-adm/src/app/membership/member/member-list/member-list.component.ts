@@ -48,23 +48,11 @@ export class MemberListComponent extends MemberListCustComponent implements OnIn
             'email': 'Email',
             'phone': 'Phone',
           };
-
-
           this.stringFields.push('firstname');
           this.stringFields.push('lastname');
           this.stringFields.push('photo');
           this.stringFields.push('email');
           this.stringFields.push('phone');
-
-
-
-
-
-
-
-
-
-
 
           this.listViewFilter = 'list';
 

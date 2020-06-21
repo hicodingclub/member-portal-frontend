@@ -22,10 +22,10 @@
 			<div class="col">
 
 			    <div class="input-group">
-	              <input type="search" class="form-control border border-secondary" id="emaillogTextSearch" 
-						#emaillogTextSearch [(ngModel)]="searchText"
+	              <input type="search" class="form-control border border-secondary" id="emailqueueTextSearch" 
+						#emailqueueTextSearch [(ngModel)]="searchText"
 						(keydown.enter)="$event.target.blur();searchList();false"
-					    placeholder="Search for to, module, reason, result, user id"> 
+					    placeholder="Search for subject"> 
 				  <div *ngIf="searchText" class="input-group-append icon-clear-inside">
 					<span >
 					    <i class="fas fa-times-circle" (click)="onSearchTextClear()" title="Clear"></i>
@@ -51,7 +51,109 @@
 	    <div class="single-line-edit">
 	      <div class="row col-gutter">
 			<div class="col-3">
-				<label for="emaillogEditCreatedAt">
+				<label for="emailqueueEditProcessed">
+				Processed
+				</label>
+			</div>
+	        <div class="col-8">
+
+
+	        <div class="form-check-inline">
+		      	<input type="radio" name="emailqueueEditProcessed" 
+		        	class="form-check-input"
+		        	id="emailqueueEditProcessedYes" [value]="true" 
+		        	[(ngModel)]="detail['processed']"
+		        	#emailqueueEditProcessed="ngModel">
+		      	<span class="form-check-label">Yes</span>
+		      </div>
+	        <div class="form-check-inline">
+		        <input type="radio" name="emailqueueEditProcessed" 
+		        	class="form-check-input"
+		        	id="emailqueueEditProcessedNo" [value]="false"
+		        	[(ngModel)]="detail['processed']"
+		        	#emailqueueEditProcessed="ngModel">
+		      	<span class="form-check-label">No</span>
+		      </div>
+
+	      </div>
+	      
+	      <div class="col-1">
+		    <div class="icon-clear" (click)="clearValueFromDetail('processed')"
+		        *ngIf="checkValueDefinedFromDetail('processed')"
+		        ><i class="fas fa-times-circle" title="Clear"></i></div>
+	      </div>
+	    </div>
+      </div>
+      
+ 
+	    <div class="single-line-edit">
+	      <div class="row col-gutter">
+			<div class="col-3">
+				<label for="emailqueueEditNumber">
+				Number
+				</label>
+			</div>
+	        <div class="col-8">
+
+
+			<div class="input-group">
+			  
+		      <input type="number" class="form-control" id="emailqueueEditNumber"
+		             [(ngModel)]="detail['__mra_number_from']" name="emailqueueEditNumber"
+		             #emailqueueEditNumber="ngModel">
+		      <span>&nbsp; ~ &nbsp;</span>
+		      <input type="number" class="form-control" id="emailqueueEditNumber"
+		             [(ngModel)]="detail['__mra_number_to']" name="emailqueueEditNumber"
+		             #emailqueueEditNumber="ngModel">
+		    </div><!-- input group --> 
+
+	      </div>
+	      
+	      <div class="col-1">
+		    <div class="icon-clear" (click)="clearValueFromDetail('number')"
+		        *ngIf="checkValueDefinedFromDetail('number')"
+		        ><i class="fas fa-times-circle" title="Clear"></i></div>
+	      </div>
+	    </div>
+      </div>
+      
+ 
+	    <div class="single-line-edit">
+	      <div class="row col-gutter">
+			<div class="col-3">
+				<label for="emailqueueEditSent">
+				Sent
+				</label>
+			</div>
+	        <div class="col-8">
+
+
+			<div class="input-group">
+			  
+		      <input type="number" class="form-control" id="emailqueueEditSent"
+		             [(ngModel)]="detail['__mra_sent_from']" name="emailqueueEditSent"
+		             #emailqueueEditSent="ngModel">
+		      <span>&nbsp; ~ &nbsp;</span>
+		      <input type="number" class="form-control" id="emailqueueEditSent"
+		             [(ngModel)]="detail['__mra_sent_to']" name="emailqueueEditSent"
+		             #emailqueueEditSent="ngModel">
+		    </div><!-- input group --> 
+
+	      </div>
+	      
+	      <div class="col-1">
+		    <div class="icon-clear" (click)="clearValueFromDetail('sent')"
+		        *ngIf="checkValueDefinedFromDetail('sent')"
+		        ><i class="fas fa-times-circle" title="Clear"></i></div>
+	      </div>
+	    </div>
+      </div>
+      
+ 
+	    <div class="single-line-edit">
+	      <div class="row col-gutter">
+			<div class="col-3">
+				<label for="emailqueueEditCreatedAt">
 				Created at
 				</label>
 			</div>
@@ -59,13 +161,13 @@
 
  
 	        <div class="input-group">
-		      <input class="form-control" id="emaillogEditCreatedAt" placeholder="{{dateFormat}}"
-		             [(ngModel)]="detail['createdAt']['from']" name="emaillogEditCreatedAt"
-		             ngbDatepicker [minDate]="minDate" #emaillogEditCreatedAt="ngModel">
+		      <input class="form-control" id="emailqueueEditCreatedAt" placeholder="{{dateFormat}}"
+		             [(ngModel)]="detail['createdAt']['from']" name="emailqueueEditCreatedAt"
+		             ngbDatepicker [minDate]="minDate" #emailqueueEditCreatedAt="ngModel">
 		      <span>&nbsp; ~ &nbsp;</span>
-		      <input class="form-control" id="emaillogEditCreatedAt" placeholder="{{dateFormat}}"
-		             [(ngModel)]="detail['createdAt']['to']" name="emaillogEditCreatedAt"
-		             ngbDatepicker [minDate]="minDate" #emaillogEditCreatedAt="ngModel">
+		      <input class="form-control" id="emailqueueEditCreatedAt" placeholder="{{dateFormat}}"
+		             [(ngModel)]="detail['createdAt']['to']" name="emailqueueEditCreatedAt"
+		             ngbDatepicker [minDate]="minDate" #emailqueueEditCreatedAt="ngModel">
 
 		      <div class="input-group-append">
 		        <button class="btn btn-outline-secondary" (click)="onDateSelectionToggle('createdAt')" type="button">
@@ -74,16 +176,16 @@
 		      </div>
 		    </div><!-- input group --> 
 		    <div class="date-selection-pop" *ngIf="detail['createdAt']['pop']">
-			    <ngb-datepicker #dp [minDate]="minDate" (select)="onDateSelection('createdAt', $event)" [displayMonths]="2" [dayTemplate]="emaillogEditCreatedAtT">
+			    <ngb-datepicker #dp [minDate]="minDate" (select)="onDateSelection('createdAt', $event)" [displayMonths]="2" [dayTemplate]="emailqueueEditCreatedAtT">
 				</ngb-datepicker>
-				<ng-template #emaillogEditCreatedAtT let-emaillogEditCreatedAtDate="date" let-emaillogEditCreatedAtFocused="focused">
+				<ng-template #emailqueueEditCreatedAtT let-emailqueueEditCreatedAtDate="date" let-emailqueueEditCreatedAtFocused="focused">
 				  <span class="custom-day"
-				        [class.focused]="emaillogEditCreatedAtFocused"
-				        [class.range]="isRange('createdAt', emaillogEditCreatedAtDate)"
-				        [class.faded]="isHovered('createdAt', emaillogEditCreatedAtDate) || isInside('createdAt', emaillogEditCreatedAtDate)"
-				        (mouseenter)="hoveredDate = emaillogEditCreatedAtDate"
+				        [class.focused]="emailqueueEditCreatedAtFocused"
+				        [class.range]="isRange('createdAt', emailqueueEditCreatedAtDate)"
+				        [class.faded]="isHovered('createdAt', emailqueueEditCreatedAtDate) || isInside('createdAt', emailqueueEditCreatedAtDate)"
+				        (mouseenter)="hoveredDate = emailqueueEditCreatedAtDate"
 				        (mouseleave)="hoveredDate = null">
-				    {{ emaillogEditCreatedAtDate.day }}
+				    {{ emailqueueEditCreatedAtDate.day }}
 				  </span>
 				</ng-template>
 		    </div>      
@@ -122,11 +224,6 @@
 		<div class="row" *ngIf="!options['disableActionButtions']">
 			<div class="col">
 		        <div class="action-buttons my-3">
-					
-
-					
-					
-					
 				</div>
 			</div>
 		</div>
@@ -144,16 +241,14 @@
 							</span>
 						</button>
 						<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-							<a class="dropdown-item pointer" (click)="setListSortAndRefresh('to', 'To', 'asc')">To<i class="fas fa-arrow-up"></i></a>
-							<a class="dropdown-item pointer" (click)="setListSortAndRefresh('to', 'To', 'desc')">To<i class="fas fa-arrow-down"></i></a>
-							<a class="dropdown-item pointer" (click)="setListSortAndRefresh('module', 'Module', 'asc')">Module<i class="fas fa-arrow-up"></i></a>
-							<a class="dropdown-item pointer" (click)="setListSortAndRefresh('module', 'Module', 'desc')">Module<i class="fas fa-arrow-down"></i></a>
-							<a class="dropdown-item pointer" (click)="setListSortAndRefresh('reason', 'Reason', 'asc')">Reason<i class="fas fa-arrow-up"></i></a>
-							<a class="dropdown-item pointer" (click)="setListSortAndRefresh('reason', 'Reason', 'desc')">Reason<i class="fas fa-arrow-down"></i></a>
-							<a class="dropdown-item pointer" (click)="setListSortAndRefresh('result', 'Result', 'asc')">Result<i class="fas fa-arrow-up"></i></a>
-							<a class="dropdown-item pointer" (click)="setListSortAndRefresh('result', 'Result', 'desc')">Result<i class="fas fa-arrow-down"></i></a>
-							<a class="dropdown-item pointer" (click)="setListSortAndRefresh('userId', 'User Id', 'asc')">User Id<i class="fas fa-arrow-up"></i></a>
-							<a class="dropdown-item pointer" (click)="setListSortAndRefresh('userId', 'User Id', 'desc')">User Id<i class="fas fa-arrow-down"></i></a>
+							<a class="dropdown-item pointer" (click)="setListSortAndRefresh('subject', 'Subject', 'asc')">Subject<i class="fas fa-arrow-up"></i></a>
+							<a class="dropdown-item pointer" (click)="setListSortAndRefresh('subject', 'Subject', 'desc')">Subject<i class="fas fa-arrow-down"></i></a>
+							<a class="dropdown-item pointer" (click)="setListSortAndRefresh('processed', 'Processed', 'asc')">Processed<i class="fas fa-arrow-up"></i></a>
+							<a class="dropdown-item pointer" (click)="setListSortAndRefresh('processed', 'Processed', 'desc')">Processed<i class="fas fa-arrow-down"></i></a>
+							<a class="dropdown-item pointer" (click)="setListSortAndRefresh('number', 'Number', 'asc')">Number<i class="fas fa-arrow-up"></i></a>
+							<a class="dropdown-item pointer" (click)="setListSortAndRefresh('number', 'Number', 'desc')">Number<i class="fas fa-arrow-down"></i></a>
+							<a class="dropdown-item pointer" (click)="setListSortAndRefresh('sent', 'Sent', 'asc')">Sent<i class="fas fa-arrow-up"></i></a>
+							<a class="dropdown-item pointer" (click)="setListSortAndRefresh('sent', 'Sent', 'desc')">Sent<i class="fas fa-arrow-down"></i></a>
 							<a class="dropdown-item pointer" (click)="setListSortAndRefresh('createdAt', 'Created at', 'asc')">Created at<i class="fas fa-arrow-up"></i></a>
 							<a class="dropdown-item pointer" (click)="setListSortAndRefresh('createdAt', 'Created at', 'desc')">Created at<i class="fas fa-arrow-down"></i></a>
 						</div>
@@ -244,40 +339,44 @@
         <h5>
           <div class="mr-1 d-inline-block">
             
-                    {{detail['module']}}
+                    {{detail['subject']}}
           </div>
         </h5>
-        <div *ngIf="detail['to']" class="mr-3 d-inline-flex flex-wrap">
-          <div><label>To:</label></div>
-          <div class="ml-3">
-                    {{detail['to']}}
-          </div>
+        <div>
+            <div *ngIf="fieldHasValue(detail['processed'])" class="mr-3 d-inline-flex flex-wrap">
+              <div><label>Processed:</label></div>
+              <div class="ml-3">{{detail['processed']}} 
+              </div>
+            </div>
+            <div *ngIf="fieldHasValue(detail['number'])" class="mr-3 d-inline-flex flex-wrap">
+              <div><label>Number:</label></div>
+              <div class="ml-3">
+                    {{detail['number']}}
+              </div>
+            </div>
+            <div *ngIf="fieldHasValue(detail['sent'])" class="mr-3 d-inline-flex flex-wrap">
+              <div><label>Sent:</label></div>
+              <div class="ml-3">
+                    {{detail['sent']}}
+              </div>
+            </div>
+            <div *ngIf="fieldHasValue(detail['createdAt'])" class="mr-3 d-inline-flex flex-wrap">
+              <div><label>Created at:</label></div>
+              <div class="ml-3">  {{detail['createdAt']? (detail['createdAt']['originalValue'] | date:'medium') : ''}}
+              </div>
+            </div>
         </div>
-        <div *ngIf="detail['reason']" class="mr-3 d-inline-flex flex-wrap">
-          <div><label>Reason:</label></div>
-          <div class="ml-3">
-                    {{detail['reason']}}
-          </div>
-        </div>
-        <div *ngIf="detail['result']" class="mr-3 d-inline-flex flex-wrap">
-          <div><label>Result:</label></div>
-          <div class="ml-3">
-                    {{detail['result']}}
-          </div>
-        </div>
-        <div *ngIf="detail['userId']" class="mr-3 d-inline-flex flex-wrap">
-          <div><label>User Id:</label></div>
-          <div class="ml-3">
-                    {{detail['userId']}}
-          </div>
-        </div>
-        <div *ngIf="detail['createdAt']" class="mr-3 d-inline-flex flex-wrap">
-          <div><label>Created at:</label></div>
-          <div class="ml-3">  {{detail['createdAt']?detail['createdAt']['value']:""}}
-          </div>
+        <div class="d-flex flex-row mt-1">
         </div>
       </div>
-
+				</div>
+				<div class="card-action-icons">
+					
+						<a [routerLink]="['../edit', detail['_id'] ]" [skipLocationChange]="false"><i class="fas fa-edit" title="Edit"></i></a>
+					
+					
+					
+					
 				</div>
 			</div>
 			<hr class="list-devider">
@@ -299,38 +398,40 @@
           <h5>
             <div class="mr-1 d-inline-block">
               
-                    {{detail['module']}}
+                    {{detail['subject']}}
             </div>
           </h5>
         </div>
       </div>
       <div class="card-body">
-          <div *ngIf="detail['to']" class="d-flex flex-wrap">
-            <div class=""><label>To:</label></div>
-            <div class="ml-3">
-                    {{detail['to']}}</div>
+          <div *ngIf="fieldHasValue(detail['processed'])" class="d-flex flex-wrap">
+            <div class=""><label>Processed:</label></div>
+            <div class="ml-3">{{detail['processed']}} </div>
           </div>
-          <div *ngIf="detail['reason']" class="d-flex flex-wrap">
-            <div class=""><label>Reason:</label></div>
+          <div *ngIf="fieldHasValue(detail['number'])" class="d-flex flex-wrap">
+            <div class=""><label>Number:</label></div>
             <div class="ml-3">
-                    {{detail['reason']}}</div>
+                    {{detail['number']}}</div>
           </div>
-          <div *ngIf="detail['result']" class="d-flex flex-wrap">
-            <div class=""><label>Result:</label></div>
+          <div *ngIf="fieldHasValue(detail['sent'])" class="d-flex flex-wrap">
+            <div class=""><label>Sent:</label></div>
             <div class="ml-3">
-                    {{detail['result']}}</div>
+                    {{detail['sent']}}</div>
           </div>
-          <div *ngIf="detail['userId']" class="d-flex flex-wrap">
-            <div class=""><label>User Id:</label></div>
-            <div class="ml-3">
-                    {{detail['userId']}}</div>
-          </div>
-          <div *ngIf="detail['createdAt']" class="d-flex flex-wrap">
+          <div *ngIf="fieldHasValue(detail['createdAt'])" class="d-flex flex-wrap">
             <div class=""><label>Created at:</label></div>
-            <div class="ml-3">  {{detail['createdAt']?detail['createdAt']['value']:""}}</div>
+            <div class="ml-3">  {{detail['createdAt']? (detail['createdAt']['originalValue'] | date:'medium') : ''}}</div>
           </div>
       </div>
 
+				</div>
+				<div class="card-action-icons">
+					
+						<a [routerLink]="['../edit', detail['_id'] ]" [skipLocationChange]="false"><i class="fas fa-edit" title="Edit"></i></a>
+					
+					
+					
+					
 				</div>
 			</div>
 		</div>
@@ -342,82 +443,85 @@
 	    	<tr>
 		        <th scope="col">#</th>
 
-				<th class="pointer" scope="col" (click)="toggleListSort('to', 'To')">
-					To
-					<span *ngIf="listSortField === 'to'">
+				<th class="pointer" scope="col" (click)="toggleListSort('subject', 'Subject')" >
+					Subject
+					<span *ngIf="listSortField === 'subject'">
 						<i *ngIf="listSortOrder === 'asc'" class="fas fa-arrow-up th-sort-arrow"></i>
 						<i *ngIf="listSortOrder === 'desc'" class="fas fa-arrow-down th-sort-arrow"></i>
 					</span>
 				</th>
-				<th class="pointer" scope="col" (click)="toggleListSort('module', 'Module')">
-					Module
-					<span *ngIf="listSortField === 'module'">
+				<th class="pointer" scope="col" (click)="toggleListSort('processed', 'Processed')" >
+					Processed
+					<span *ngIf="listSortField === 'processed'">
 						<i *ngIf="listSortOrder === 'asc'" class="fas fa-arrow-up th-sort-arrow"></i>
 						<i *ngIf="listSortOrder === 'desc'" class="fas fa-arrow-down th-sort-arrow"></i>
 					</span>
 				</th>
-				<th class="pointer" scope="col" (click)="toggleListSort('reason', 'Reason')">
-					Reason
-					<span *ngIf="listSortField === 'reason'">
+				<th class="pointer" scope="col" (click)="toggleListSort('number', 'Number')" >
+					Number
+					<span *ngIf="listSortField === 'number'">
 						<i *ngIf="listSortOrder === 'asc'" class="fas fa-arrow-up th-sort-arrow"></i>
 						<i *ngIf="listSortOrder === 'desc'" class="fas fa-arrow-down th-sort-arrow"></i>
 					</span>
 				</th>
-				<th class="pointer" scope="col" (click)="toggleListSort('result', 'Result')">
-					Result
-					<span *ngIf="listSortField === 'result'">
+				<th class="pointer" scope="col" (click)="toggleListSort('sent', 'Sent')" >
+					Sent
+					<span *ngIf="listSortField === 'sent'">
 						<i *ngIf="listSortOrder === 'asc'" class="fas fa-arrow-up th-sort-arrow"></i>
 						<i *ngIf="listSortOrder === 'desc'" class="fas fa-arrow-down th-sort-arrow"></i>
 					</span>
 				</th>
-				<th class="pointer" scope="col" (click)="toggleListSort('userId', 'User Id')">
-					User Id
-					<span *ngIf="listSortField === 'userId'">
-						<i *ngIf="listSortOrder === 'asc'" class="fas fa-arrow-up th-sort-arrow"></i>
-						<i *ngIf="listSortOrder === 'desc'" class="fas fa-arrow-down th-sort-arrow"></i>
-					</span>
-				</th>
-				<th class="pointer" scope="col" (click)="toggleListSort('createdAt', 'Created at')">
+				<th class="pointer" scope="col" (click)="toggleListSort('createdAt', 'Created at')" >
 					Created at
 					<span *ngIf="listSortField === 'createdAt'">
 						<i *ngIf="listSortOrder === 'asc'" class="fas fa-arrow-up th-sort-arrow"></i>
 						<i *ngIf="listSortOrder === 'desc'" class="fas fa-arrow-down th-sort-arrow"></i>
 					</span>
 				</th>
+				<th scope="col" style="width:3.8rem;"></th>
 	    	</tr>
 	    </thead>
 	    <tbody>
-			<tr *ngFor="let detail of list;  let i = index; let list_index = index;"
-				[ngClass]="{'clicked-row': clickedId==detail['_id'],
+			<ng-template ngFor let-detail [ngForOf]="list" let-i="index">
+			<tr [ngClass]="{'clicked-row': clickedId==detail['_id'],
 							'selected-row': clickItemAction === 'select' && checkedItem[i]}">
 	            <td scope="row" (click)="clickOneItem(i)"  class="pointer read-more mt-3">
 	            	{{(page-1)*perPage+i+1}}
 	            </td>
-
-	            <td (click)="clickOneItem(i)"  [ngClass]="{'pointer': clickItemAction}">
+				<td (click)="clickOneItem(i)"  [ngClass]="{'pointer': clickItemAction}"
+					>
 	            	
-                    {{detail['to']}}
-	            </td>
-	            <td (click)="clickOneItem(i)"  [ngClass]="{'pointer': clickItemAction}">
+                    {{detail['subject']}}
+				</td>
+				<td (click)="clickOneItem(i)"  [ngClass]="{'pointer': clickItemAction}"
+					>
+	            	{{detail['processed']}} 
+				</td>
+				<td (click)="clickOneItem(i)"  [ngClass]="{'pointer': clickItemAction}"
+					>
 	            	
-                    {{detail['module']}}
-	            </td>
-	            <td (click)="clickOneItem(i)"  [ngClass]="{'pointer': clickItemAction}">
+                    {{detail['number']}}
+				</td>
+				<td (click)="clickOneItem(i)"  [ngClass]="{'pointer': clickItemAction}"
+					>
 	            	
-                    {{detail['reason']}}
-	            </td>
-	            <td (click)="clickOneItem(i)"  [ngClass]="{'pointer': clickItemAction}">
+                    {{detail['sent']}}
+				</td>
+				<td (click)="clickOneItem(i)"  [ngClass]="{'pointer': clickItemAction}"
+					>
+	            	  {{detail['createdAt']? (detail['createdAt']['originalValue'] | date:'medium') : ''}}
+				</td>
+	            <td>
+					
+						<a [routerLink]="['../edit', detail['_id'] ]" [skipLocationChange]="false"><i class="fas fa-edit" title="Edit"></i></a>
+					
 	            	
-                    {{detail['result']}}
-	            </td>
-	            <td (click)="clickOneItem(i)"  [ngClass]="{'pointer': clickItemAction}">
 	            	
-                    {{detail['userId']}}
+					
+					
 	            </td>
-	            <td (click)="clickOneItem(i)"  [ngClass]="{'pointer': clickItemAction}">
-	            	  {{detail['createdAt']?detail['createdAt']['value']:""}}
-	            </td>
-	        </tr>
+			</tr>
+			</ng-template>
 	    </tbody>
 	</table>
 

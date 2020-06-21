@@ -48,23 +48,11 @@ export class LeadListComponent extends LeadListCustComponent implements OnInit {
             'email': 'Email',
             'order': 'Order',
           };
-
-
           this.stringFields.push('name');
           this.stringFields.push('title');
           this.stringFields.push('photo');
           this.stringFields.push('email');
-
-
-
           this.numberFields = ['order', ];
-
-
-
-
-
-
-
 
           this.listViewFilter = 'list';
           this.setListSort('order', 'Order', 'asc');

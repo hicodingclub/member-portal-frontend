@@ -34,23 +34,11 @@ export class BoardDetailFieldComponent extends BoardComponent
             'email': 'Email',
             'order': 'Order',
           };
-
-
           this.stringFields.push('name');
           this.stringFields.push('title');
           this.stringFields.push('photo');
           this.stringFields.push('email');
-
-
-
           this.numberFields = ['order', ];
-
-
-
-
-
-
-
     }
 
     ngOnInit() {

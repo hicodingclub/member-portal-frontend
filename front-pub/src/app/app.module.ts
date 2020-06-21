@@ -1,30 +1,38 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http';
+import { BrowserModule } from "@angular/platform-browser";
+import { NgModule } from "@angular/core";
+import { HttpClientModule } from "@angular/common/http";
 
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
+import { AppRoutingModule } from "./app-routing.module";
+import { AppComponent } from "./app.component";
 
-import { AuthenticationModule } from '@hicoder/angular-auth';
+import { RouteReuseStrategy } from "@angular/router";
+import { MddsCoreModule, MddsRouteReuseStrategy } from "@hicoder/angular-core";
 
-import { AUTHENTICATION_AUTH_PAGE_ROOT_URI, AUTHENTICATION_SERVER_ROOT_URI, 
-  AUTHENTICATION_INTERFACES, AUTHENTICATION_DROPDOWN_ITEMS, AUTHENTICATION_LOGIN_PIPELINE, AUTHENTICATION_REGISTRATION_PIPELINE, AUTHENTICATION_REGISTRATION_REQUIRED } from '@hicoder/angular-auth';
-import { authentication_page_root_uri, authentication_server_root_uri, 
-  authentication_interfaces, authentication_dropdown_items, authentication_login_pipeline, authentication_registration_pipeline, authentication_reg_required } from './injection-tokens/auth.conf';
-import { FILE_UPLOAD_URI, FILE_DOWNLOAD_URI } from '@hicoder/angular-file';
-import { file_upload_uri, file_download_uri } from './injection-tokens/file-upload.config';
-import { HomepageComponent } from './pages/homepage/homepage.component';
-import { ContactComponent } from './pages/contact/contact.component';
+import { AuthenticationModule } from "@hicoder/angular-auth";
 
-import { MembershipModule } from './membership/membership.module';
+import {
+  AUTHENTICATION_LOGIN_PIPELINE,
+  AUTHENTICATION_INTERFACES,
+  AUTHENTICATION_REGISTRATION_REQUIRED,
+  AUTHENTICATION_REGISTRATION_PIPELINE,
+} from "@hicoder/angular-auth";
+import {
+  authentication_interfaces,
+  authentication_login_pipeline,
+  authentication_registration_pipeline,
+  authentication_reg_required,
+} from "./injection-tokens/auth.conf";
+
+import { MDDS_ROUTE_REUSE_RUIs } from '@hicoder/angular-core';
+import { route_reuse_uris } from './injection-tokens/reuse-strategy.conf';
+
+import { HomepageComponent } from "./pages/homepage/homepage.component";
+import { ContactComponent } from "./pages/contact/contact.component";
+
+import { MembershipModule } from "./membership/membership.module";
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    HomepageComponent,
-    ContactComponent,
-
-  ],
+  declarations: [AppComponent, HomepageComponent, ContactComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -33,16 +41,22 @@ import { MembershipModule } from './membership/membership.module';
     MembershipModule,
   ],
   providers: [
-    { provide: AUTHENTICATION_AUTH_PAGE_ROOT_URI, useValue: authentication_page_root_uri },
-    { provide: AUTHENTICATION_SERVER_ROOT_URI, useValue: authentication_server_root_uri },
     { provide: AUTHENTICATION_INTERFACES, useValue: authentication_interfaces },
-    { provide: AUTHENTICATION_DROPDOWN_ITEMS, useValue: authentication_dropdown_items },
-    { provide: AUTHENTICATION_LOGIN_PIPELINE, useValue: authentication_login_pipeline },
-    { provide: AUTHENTICATION_REGISTRATION_REQUIRED, useValue: authentication_reg_required },
-    { provide: AUTHENTICATION_REGISTRATION_PIPELINE, useValue: authentication_registration_pipeline },
-    { provide: FILE_UPLOAD_URI, useValue: file_upload_uri },
-    { provide: FILE_DOWNLOAD_URI, useValue: file_download_uri },
+    {
+      provide: AUTHENTICATION_LOGIN_PIPELINE,
+      useValue: authentication_login_pipeline,
+    },
+    {
+      provide: AUTHENTICATION_REGISTRATION_REQUIRED,
+      useValue: authentication_reg_required,
+    },
+    {
+      provide: AUTHENTICATION_REGISTRATION_PIPELINE,
+      useValue: authentication_registration_pipeline,
+    },
+    { provide: MDDS_ROUTE_REUSE_RUIs, useValue: route_reuse_uris },
+    { provide: RouteReuseStrategy, useClass: MddsRouteReuseStrategy },
   ],
   bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

@@ -5,7 +5,7 @@ import { MpubmoduleComponent } from '../../../access/mpubmodule/mpubmodule.compo
 export class MpubmoduleEditCustComponent extends MpubmoduleComponent {        
 }
 /*>>> Please check this recent updates and merge with existing ones***
-**Date: Sat Jun 20 2020 21:52:49 GMT-0700 (Pacific Daylight Time)
+**Date: Wed Jun 24 2020 22:34:56 GMT-0700 (Pacific Daylight Time)
 
 import { Input } from '@angular/core';
 

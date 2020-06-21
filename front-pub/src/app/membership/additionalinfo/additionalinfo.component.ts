@@ -93,10 +93,8 @@ export class AdditionalinfoComponent extends MddsBaseComponent implements OnInit
         this.briefFieldsInfo.push(['grade', 'Grade']);this.briefFieldsInfo.push(['team', 'Team']);
 
 
-
-        this.emailFields = [['Guardian Email','guardianEmail'],];
         this.requiredFields = ['grade','programmingSkill','designingSkill','githubExp','team',];
-
+        this.emailFields = [['Guardian Email','guardianEmail'],];
 
         this.schemaName = 'additionalinfo';
         

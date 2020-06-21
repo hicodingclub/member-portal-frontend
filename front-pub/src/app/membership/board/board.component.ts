@@ -93,10 +93,8 @@ export class BoardComponent extends MddsBaseComponent implements OnInit {
         this.briefFieldsInfo.push(['name', 'Name']);this.briefFieldsInfo.push(['title', 'Title']);this.briefFieldsInfo.push(['photo', 'Photo']);this.briefFieldsInfo.push(['email', 'Email']);
 
 
-
-        this.emailFields = [['Email','email'],];
         this.requiredFields = ['name','title','photo','email',];
-
+        this.emailFields = [['Email','email'],];
 
         this.schemaName = 'board';
         

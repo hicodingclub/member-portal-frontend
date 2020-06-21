@@ -93,10 +93,8 @@ export class LeadComponent extends MddsBaseComponent implements OnInit {
         this.briefFieldsInfo.push(['name', 'Name']);this.briefFieldsInfo.push(['title', 'Title']);this.briefFieldsInfo.push(['photo', 'Photo']);this.briefFieldsInfo.push(['email', 'Email']);this.briefFieldsInfo.push(['order', 'Order']);
 
 
-
-        this.emailFields = [['Email','email'],];
         this.requiredFields = ['name','title','photo','email','order',];
-
+        this.emailFields = [['Email','email'],];
 
         this.schemaName = 'lead';
         

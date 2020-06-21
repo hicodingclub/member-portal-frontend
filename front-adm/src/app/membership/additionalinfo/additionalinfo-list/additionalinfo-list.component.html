@@ -118,8 +118,6 @@
 		<div class="row" *ngIf="!options['disableActionButtions']">
 			<div class="col">
 		        <div class="action-buttons my-3">
-					
-
 					<a [routerLink]="['../new' ]" [skipLocationChange]="false" class="btn btn-outline-primary">Create</a>
 					<a routerLink="." class="btn btn-outline-primary" (click)="onDeleteSelected()"
 						[ngClass]="{'disabled': !isItemSelected()}">Delete</a>
@@ -232,51 +230,56 @@
 	    	<tr>
 		        <th scope="col">#</th>
 
-				<th class="pointer" scope="col" (click)="toggleListSort('member', 'Member')">
+				<th class="pointer" scope="col" (click)="toggleListSort('member', 'Member')"
+					*ngIf="referenceFieldsMap['member'] != parentItem"  >
 					Member
 					<span *ngIf="listSortField === 'member'">
 						<i *ngIf="listSortOrder === 'asc'" class="fas fa-arrow-up th-sort-arrow"></i>
 						<i *ngIf="listSortOrder === 'desc'" class="fas fa-arrow-down th-sort-arrow"></i>
 					</span>
 				</th>
-				<th class="pointer" scope="col" (click)="toggleListSort('grade', 'Grade')">
+				<th class="pointer" scope="col" (click)="toggleListSort('grade', 'Grade')" >
 					Grade
 					<span *ngIf="listSortField === 'grade'">
 						<i *ngIf="listSortOrder === 'asc'" class="fas fa-arrow-up th-sort-arrow"></i>
 						<i *ngIf="listSortOrder === 'desc'" class="fas fa-arrow-down th-sort-arrow"></i>
 					</span>
 				</th>
-				<th class="pointer" scope="col" (click)="toggleListSort('team', 'Team')">
+				<th class="pointer" scope="col" (click)="toggleListSort('team', 'Team')" >
 					Team
 					<span *ngIf="listSortField === 'team'">
 						<i *ngIf="listSortOrder === 'asc'" class="fas fa-arrow-up th-sort-arrow"></i>
 						<i *ngIf="listSortOrder === 'desc'" class="fas fa-arrow-down th-sort-arrow"></i>
 					</span>
-				</th><th scope="col" style="width:12.8rem;"></th>
+				</th>
+				<th scope="col" style="width:12.8rem;"></th>
 	    	</tr>
 	    </thead>
 	    <tbody>
-			<tr *ngFor="let detail of list;  let i = index; let list_index = index;"
-				[ngClass]="{'clicked-row': clickedId==detail['_id'],
+			<ng-template ngFor let-detail [ngForOf]="list" let-i="index">
+			<tr [ngClass]="{'clicked-row': clickedId==detail['_id'],
 							'selected-row': clickItemAction === 'select' && checkedItem[i]}">
 	            <td scope="row" (click)="clickOneItem(i)"  class="pointer read-more mt-3">
 	            	{{(page-1)*perPage+i+1}}
 	            </td>
-
-	            <td (click)="clickOneItem(i)"  [ngClass]="{'pointer': clickItemAction}">
+				<td (click)="clickOneItem(i)"  [ngClass]="{'pointer': clickItemAction}"
+					*ngIf="referenceFieldsMap['member'] != parentItem"
+					>
 	            	
                	  <a routerLink="."  (click)="onDisplayRefClicked('member', detail['member'], $event)">
 	            	{{detail['member']?detail['member']['value']:""}}
 	              </a>
-	            </td>
-	            <td (click)="clickOneItem(i)"  [ngClass]="{'pointer': clickItemAction}">
+				</td>
+				<td (click)="clickOneItem(i)"  [ngClass]="{'pointer': clickItemAction}"
+					>
 	            	
                     {{detail['grade']}}
-	            </td>
-	            <td (click)="clickOneItem(i)"  [ngClass]="{'pointer': clickItemAction}">
+				</td>
+				<td (click)="clickOneItem(i)"  [ngClass]="{'pointer': clickItemAction}"
+					>
 	            	
                     {{detail['team']}}
-	            </td>
+				</td>
 	            <td>
 					
 						<a [routerLink]="['../edit', detail['_id'] ]" [skipLocationChange]="false"><i class="fas fa-edit" title="Edit"></i></a>
@@ -289,7 +292,8 @@
 					<input class="list-check-box" type="checkbox"  [ngModel]="checkedItem[i]" (click)="selectOneItem(i)"/>
 					<span class="read-more font-size-75 mt-3" (click)="onDetailLinkClicked(detail['_id'])">Detail <i class="fas fa-arrow-right" ></i></span>
 	            </td>
-	        </tr>
+			</tr>
+			</ng-template>
 	    </tbody>
 	</table>
 
@@ -310,25 +314,30 @@
                     {{detail['grade']}}
           </div>
         </h5>
-        <div *ngIf="detail['member']" class="mr-3 d-inline-flex flex-wrap">
-          <div><label>Member:</label></div>
-          <div class="ml-3">
+        <div>
+          <div *ngIf="referenceFieldsMap['member'] != parentItem">
+            <div *ngIf="fieldHasValue(detail['member'])" class="mr-3 d-inline-flex flex-wrap">
+              <div><label>Member:</label></div>
+              <div class="ml-3">
                	  <a routerLink="."  (click)="onDisplayRefClicked('member', detail['member'], $event)">
 	            	{{detail['member']?detail['member']['value']:""}}
 	              </a>
+              </div>
+            </div>
           </div>
-        </div>
-        <div *ngIf="detail['team']" class="mr-3 d-inline-flex flex-wrap">
-          <div><label>Team:</label></div>
-          <div class="ml-3">
+            <div *ngIf="fieldHasValue(detail['team'])" class="mr-3 d-inline-flex flex-wrap">
+              <div><label>Team:</label></div>
+              <div class="ml-3">
                     {{detail['team']}}
-          </div>
+              </div>
+            </div>
         </div>
-        <div class="read-more mt-3" (click)="onDetailLinkClicked(detail['_id'])">
-        Read more ...
+        <div class="d-flex flex-row mt-1">
+            <div class="read-more" (click)="onDetailLinkClicked(detail['_id'])">
+              Detail <i class="fas fa-arrow-right" ></i>
+            </div>
         </div>
       </div>
-
 				</div>
 				<div class="card-action-icons">
 					
@@ -367,20 +376,20 @@
         </div>
       </div>
       <div class="card-body">
-          <div *ngIf="detail['member']" class="d-flex flex-wrap">
+          <div *ngIf="fieldHasValue(detail['member'])" class="d-flex flex-wrap">
             <div class=""><label>Member:</label></div>
             <div class="ml-3">
                	  <a routerLink="."  (click)="onDisplayRefClicked('member', detail['member'], $event)">
 	            	{{detail['member']?detail['member']['value']:""}}
 	              </a></div>
           </div>
-          <div *ngIf="detail['team']" class="d-flex flex-wrap">
+          <div *ngIf="fieldHasValue(detail['team'])" class="d-flex flex-wrap">
             <div class=""><label>Team:</label></div>
             <div class="ml-3">
                     {{detail['team']}}</div>
           </div>
-        <div class="read-more mt-3" (click)="onDetailLinkClicked(detail['_id'])">
-          Read more ...
+        <div class="read-more mt-1" (click)="onDetailLinkClicked(detail['_id'])">
+          Detail <i class="fas fa-arrow-right" ></i>
         </div>
       </div>
 

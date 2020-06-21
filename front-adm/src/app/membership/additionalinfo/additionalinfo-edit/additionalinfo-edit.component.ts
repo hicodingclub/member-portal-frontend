@@ -61,30 +61,18 @@ export class AdditionalinfoEditComponent extends AdditionalinfoEditCustComponent
             'githubExp': 'Github Exp',
             'member': 'Member',
           };
-
           this.enums['grade'] = ['8', '9', '10', '11', '12', 'other', ];
           this.enums['team'] = ['Web Development', 'UI Design', ];
           this.enums['programmingSkill'] = ['1', '2', '3', '4', '5', ];
           this.enums['designingSkill'] = ['1', '2', '3', '4', '5', ];
           this.enums['githubExp'] = ['No', 'Yes, web access only', 'Yes, web and git access', ];
-
           this.stringFields.push('grade');
           this.stringFields.push('team');
           this.stringFields.push('guardianEmail');
           this.stringFields.push('programmingSkill');
           this.stringFields.push('designingSkill');
           this.stringFields.push('githubExp');
-
           this.referenceFields = ['member', ];
-
-
-
-
-
-
-
-
-
 
           
           const detail = {};

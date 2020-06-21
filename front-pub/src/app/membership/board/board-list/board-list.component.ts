@@ -47,22 +47,10 @@ export class BoardListComponent extends BoardListCustComponent implements OnInit
             'photo': 'Photo',
             'email': 'Email',
           };
-
-
           this.stringFields.push('name');
           this.stringFields.push('title');
           this.stringFields.push('photo');
           this.stringFields.push('email');
-
-
-
-
-
-
-
-
-
-
 
           this.listViewFilter = 'grid';
 

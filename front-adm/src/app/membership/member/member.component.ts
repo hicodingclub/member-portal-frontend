@@ -96,10 +96,8 @@ export class MemberComponent extends MddsBaseComponent implements OnInit {
         this.briefFieldsInfo.push(['firstname', 'Firstname']);this.briefFieldsInfo.push(['lastname', 'Lastname']);this.briefFieldsInfo.push(['photo', 'Photo']);this.briefFieldsInfo.push(['email', 'Email']);this.briefFieldsInfo.push(['phone', 'Phone']);
 
 
-
-        this.emailFields = [['Email','email'],];
         this.requiredFields = ['email',];
-
+        this.emailFields = [['Email','email'],];
 
         this.schemaName = 'member';
         

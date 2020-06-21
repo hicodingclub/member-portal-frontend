@@ -44,23 +44,11 @@ export class MemberDetailComponent extends MemberDetailCustComponent implements 
             'email': 'Email',
             'phone': 'Phone',
           };
-
-
           this.stringFields.push('firstname');
           this.stringFields.push('lastname');
           this.stringFields.push('photo');
           this.stringFields.push('email');
           this.stringFields.push('phone');
-
-
-
-
-
-
-
-
-
-
   }
 
   ngOnInit() {

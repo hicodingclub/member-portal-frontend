@@ -45,22 +45,10 @@ export class AdditionalinfoListComponent extends AdditionalinfoListCustComponent
             'grade': 'Grade',
             'team': 'Team',
           };
-
           this.enums['grade'] = ['8', '9', '10', '11', '12', 'other', ];
           this.enums['team'] = ['Web Development', 'UI Design', ];
-
           this.stringFields.push('grade');
           this.stringFields.push('team');
-
-
-
-
-
-
-
-
-
-
 
           this.listViewFilter = 'list';
 

@@ -3,9 +3,9 @@ import { Location } from '@angular/common';
 import { Router, ActivatedRoute }    from '@angular/router';
 import { Injector } from '@angular/core';
 
-import { EmaillogDetailCustComponent } from '../../../emailing-cust/base/emaillog/emaillog-detail.cust.component';
-import { ViewType } from '../emaillog.component';
-import { EmaillogService } from '../emaillog.service';
+import { EmailqueueDetailCustComponent } from '../../../emailing-cust/base/emailqueue/emailqueue-detail.cust.component';
+import { ViewType } from '../emailqueue.component';
+import { EmailqueueService } from '../emailqueue.service';
 
 
 
@@ -13,11 +13,11 @@ import { QueryList, ViewChildren } from '@angular/core';
 import { MddsRichTextShowDirective } from '@hicoder/angular-core';
 
 @Component({
-  selector: 'app-emaillog-detail',
-  templateUrl: './emaillog-detail.component.html',
-  styleUrls: ['./emaillog-detail.component.css']
+  selector: 'app-emailqueue-detail',
+  templateUrl: './emailqueue-detail.component.html',
+  styleUrls: ['./emailqueue-detail.component.css']
 })
-export class EmaillogDetailComponent extends EmaillogDetailCustComponent implements OnInit, AfterViewInit {
+export class EmailqueueDetailComponent extends EmailqueueDetailCustComponent implements OnInit, AfterViewInit {
   // @Input() 
   // public id:string;
   // @Input()
@@ -32,48 +32,37 @@ export class EmaillogDetailComponent extends EmaillogDetailCustComponent impleme
 
   constructor(
       
-      public emaillogService: EmaillogService,
+      public emailqueueService: EmailqueueService,
       public injector: Injector,
       public router: Router,
       public route: ActivatedRoute,
       public location: Location) {
           super(
-                emaillogService, injector, router, route, location, ViewType.DETAIL);
+                emailqueueService, injector, router, route, location, ViewType.DETAIL);
 
           this.fieldDisplayNames = {
+            'subject': 'Subject',
             'from': 'From',
             'to': 'To',
-            'subject': 'Subject',
-            'content': 'Content',
-            'template': 'Template',
-            'module': 'Module',
-            'reason': 'Reason',
+            'processed': 'Processed',
+            'number': 'Number',
+            'sent': 'Sent',
             'result': 'Result',
-            'userId': 'User Id',
             'createdAt': 'Created at',
+            'updatedAt': 'Updated at',
+            'content': 'Content',
+            'replacements': 'Replacements',
+            'defaultReplacement': 'Default Replacement',
           };
-
-
+          this.stringFields.push('subject');
           this.stringFields.push('from');
           this.stringFields.push('to');
-          this.stringFields.push('subject');
-          this.stringFields.push('content');
-          this.stringFields.push('template');
-          this.stringFields.push('module');
-          this.stringFields.push('reason');
           this.stringFields.push('result');
-          this.stringFields.push('userId');
-
-
-          this.dateFields = ['createdAt', ];
-
-
-
-
-
-
-
-
+          this.stringFields.push('content');
+          this.stringFields.push('replacements');
+          this.stringFields.push('defaultReplacement');
+          this.dateFields = ['createdAt', 'updatedAt', ];
+          this.numberFields = ['number', 'sent', ];
   }
 
   ngOnInit() {

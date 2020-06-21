@@ -3,15 +3,15 @@ import { Location } from '@angular/common';
 import { Router, ActivatedRoute }    from '@angular/router';
 import { Injector } from '@angular/core';
 
-import { EmaillogComponent, ViewType } from '../emaillog.component';
-import { EmaillogService } from '../emaillog.service';
+import { EmailqueueComponent, ViewType } from '../emailqueue.component';
+import { EmailqueueService } from '../emailqueue.service';
 
 @Component({
-  selector: 'app-emaillog-detail-field',
-  templateUrl: './emaillog-detail-field.component.html',
-  styleUrls: ['./emaillog-detail.component.css']
+  selector: 'app-emailqueue-detail-field',
+  templateUrl: './emailqueue-detail-field.component.html',
+  styleUrls: ['./emailqueue-detail.component.css']
 })
-export class EmaillogDetailFieldComponent extends EmaillogComponent
+export class EmailqueueDetailFieldComponent extends EmailqueueComponent
         implements OnInit {
     // @Input() id: string;
     // @Input() detailObj: any;
@@ -19,48 +19,37 @@ export class EmaillogDetailFieldComponent extends EmaillogComponent
     showFields: string[];
     
     constructor(
-        public emaillogService: EmaillogService,
+        public emailqueueService: EmailqueueService,
         public injector: Injector,
         public router: Router,
         public route: ActivatedRoute,
         public location: Location) {
           super(
-                emaillogService, injector, router, route, location, ViewType.DETAIL);
+                emailqueueService, injector, router, route, location, ViewType.DETAIL);
           
           this.fieldDisplayNames = {
+            'subject': 'Subject',
             'from': 'From',
             'to': 'To',
-            'subject': 'Subject',
-            'content': 'Content',
-            'template': 'Template',
-            'module': 'Module',
-            'reason': 'Reason',
+            'processed': 'Processed',
+            'number': 'Number',
+            'sent': 'Sent',
             'result': 'Result',
-            'userId': 'User Id',
             'createdAt': 'Created at',
+            'updatedAt': 'Updated at',
+            'content': 'Content',
+            'replacements': 'Replacements',
+            'defaultReplacement': 'Default Replacement',
           };
-
-
+          this.stringFields.push('subject');
           this.stringFields.push('from');
           this.stringFields.push('to');
-          this.stringFields.push('subject');
-          this.stringFields.push('content');
-          this.stringFields.push('template');
-          this.stringFields.push('module');
-          this.stringFields.push('reason');
           this.stringFields.push('result');
-          this.stringFields.push('userId');
-
-
-          this.dateFields = ['createdAt', ];
-
-
-
-
-
-
-
-
+          this.stringFields.push('content');
+          this.stringFields.push('replacements');
+          this.stringFields.push('defaultReplacement');
+          this.dateFields = ['createdAt', 'updatedAt', ];
+          this.numberFields = ['number', 'sent', ];
     }
 
     ngOnInit() {

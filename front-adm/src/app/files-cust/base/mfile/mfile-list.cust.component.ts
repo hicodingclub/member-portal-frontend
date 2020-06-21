@@ -6,7 +6,7 @@ export class MfileListCustComponent extends MfileComponent {
 }
 
 /*>>> Please check this recent updates and merge with existing ones***
-**Date: Sat Jun 20 2020 21:52:51 GMT-0700 (Pacific Daylight Time)
+**Date: Wed Jun 24 2020 22:34:55 GMT-0700 (Pacific Daylight Time)
 
 import { Input } from '@angular/core';
 

@@ -2,16 +2,16 @@ import { Location } from '@angular/common';
 import { Router, ActivatedRoute } from '@angular/router';
 import { MddsBaseComponent, ViewType } from '@hicoder/angular-core';
 import { OnInit, Injector, Input, Output, EventEmitter } from '@angular/core';
-import { EmaillogService } from './emaillog.service';
+import { EmailqueueService } from './emailqueue.service';
 
-const itemCamelName = 'email Log';
+const itemCamelName = 'email Queue';
 
 export { ViewType };
 
 
 
 
-export class EmaillogComponent extends MddsBaseComponent implements OnInit {
+export class EmailqueueComponent extends MddsBaseComponent implements OnInit {
     // *** common input fields
     @Input()
     public style: any; // {}
@@ -79,29 +79,26 @@ export class EmaillogComponent extends MddsBaseComponent implements OnInit {
 
     constructor(
       
-      public emaillogService: EmaillogService,
+      public emailqueueService: EmailqueueService,
       public injector: Injector,
       public router: Router,
       public route: ActivatedRoute,
       public location: Location,
       public view: ViewType ) {
 
-        super(emaillogService, injector, router, route, location, view, itemCamelName);
+        super(emailqueueService, injector, router, route, location, view, itemCamelName);
 
         
         this.briefFieldsInfo = [];
-        this.briefFieldsInfo.push(['to', 'To']);this.briefFieldsInfo.push(['module', 'Module']);this.briefFieldsInfo.push(['reason', 'Reason']);this.briefFieldsInfo.push(['result', 'Result']);this.briefFieldsInfo.push(['userId', 'User Id']);this.briefFieldsInfo.push(['createdAt', 'Created at']);
+        this.briefFieldsInfo.push(['subject', 'Subject']);this.briefFieldsInfo.push(['processed', 'Processed']);this.briefFieldsInfo.push(['number', 'Number']);this.briefFieldsInfo.push(['sent', 'Sent']);this.briefFieldsInfo.push(['createdAt', 'Created at']);
 
 
 
-        this.requiredFields = ['module','reason','result',];
-
-
-        this.schemaName = 'emaillog';
+        this.schemaName = 'emailqueue';
         this.dateFormat = 'MM-DD-YYYY';
         this.timeFormat = 'hh:mm:ss';
         this.modulePath = 'emailing';
-        this.indexFields = ['module', ];
+        this.indexFields = ['subject', ];
     }
 
     ngOnInit() {

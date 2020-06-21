@@ -5,10 +5,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { RouteReuseStrategy } from '@angular/router';
 import { MddsCoreModule, MddsRouteReuseStrategy } from '@hicoder/angular-core';
 
-import { AuthenticationModule, AUTHENTICATION_DROPDOWN_ITEMS, AUTHENTICATION_LOGIN_PIPELINE } from '@hicoder/angular-auth';
-import { AUTHENTICATION_AUTH_PAGE_ROOT_URI, AUTHENTICATION_SERVER_ROOT_URI,
-  AUTHENTICATION_INTERFACES, AUTHENTICATION_REGISTRATION_REQUIRED, AUTHENTICATION_REGISTRATION_PIPELINE } from '@hicoder/angular-auth';
-import { FILE_UPLOAD_URI, FILE_DOWNLOAD_URI, FILE_MANAGE_ROOT_URI } from '@hicoder/angular-file';
+import { AuthenticationModule, AUTHENTICATION_INTERFACES } from '@hicoder/angular-auth';
 
 import { MDDS_ROUTE_REUSE_RUIs } from '@hicoder/angular-core';
 import { route_reuse_uris } from './injection-tokens/reuse-strategy.conf';
@@ -20,12 +17,7 @@ import { HomeModule } from './home/home.module';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
-import {
-  authentication_page_root_uri, authentication_server_root_uri, authentication_interfaces,
-  authentication_dropdown_items, authentication_login_pipeline,
-  authentication_reg_required,
-} from './injection-tokens/auth.conf';
-import { file_upload_uri, file_download_uri, file_manage_root_uri } from './injection-tokens/file-upload.config';
+import { authentication_interfaces } from './injection-tokens/auth.conf';
 
 @NgModule({
   declarations: [
@@ -41,16 +33,7 @@ import { file_upload_uri, file_download_uri, file_manage_root_uri } from './inje
     HomeModule,
   ],
   providers: [
-    { provide: AUTHENTICATION_AUTH_PAGE_ROOT_URI, useValue: authentication_page_root_uri },
-    { provide: AUTHENTICATION_SERVER_ROOT_URI, useValue: authentication_server_root_uri },
     { provide: AUTHENTICATION_INTERFACES, useValue: authentication_interfaces },
-    { provide: AUTHENTICATION_DROPDOWN_ITEMS, useValue: authentication_dropdown_items },
-    { provide: AUTHENTICATION_LOGIN_PIPELINE, useValue: authentication_login_pipeline },
-    { provide: AUTHENTICATION_REGISTRATION_REQUIRED, useValue: authentication_reg_required },
-    { provide: AUTHENTICATION_REGISTRATION_PIPELINE, useValue: undefined },
-    { provide: FILE_UPLOAD_URI, useValue: file_upload_uri },
-    { provide: FILE_DOWNLOAD_URI, useValue: file_download_uri },
-    { provide: FILE_MANAGE_ROOT_URI, useValue: file_manage_root_uri },
     { provide: MDDS_ROUTE_REUSE_RUIs, useValue: route_reuse_uris },
     { provide: RouteReuseStrategy, useClass: MddsRouteReuseStrategy },
   ],

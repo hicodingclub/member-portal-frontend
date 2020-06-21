@@ -4,9 +4,9 @@ import { EmailingComponent } from '../emailing/emailing.component';
 
 //Import routing paths
 import { 
-  emailtemplateRoutingCorePath, 
-  emailsettingsRoutingCorePath, 
-  emaillogRoutingCorePath,  
+  emailtemplateRoutingCorePath,
+  emailsettingsRoutingCorePath,
+  emailqueueRoutingCorePath,  
 } from '../emailing/emailing-routing.core.path';
 
 export const EmailingCoreRoutes: Routes = [
@@ -29,9 +29,9 @@ export const EmailingCoreRoutes: Routes = [
         children: emailsettingsRoutingCorePath,
         data: {mraLevel: 1, item: 'emailsettings'}
       },
-      { path: 'emaillog',
-        children: emaillogRoutingCorePath,
-        data: {mraLevel: 1, item: 'emaillog'}
+      { path: 'emailqueue',
+        children: emailqueueRoutingCorePath,
+        data: {mraLevel: 1, item: 'emailqueue'}
       },
     ]
   },
@@ -53,7 +53,7 @@ export const EmailingRoutes: Routes = [
 
 export const emailing_server_root_uri: string = '/api/emailing';
 /*>>> Please check this recent updates and merge with existing ones***
-**Date: Sat Jun 20 2020 21:52:48 GMT-0700 (Pacific Daylight Time)
+**Date: Wed Jun 24 2020 22:32:33 GMT-0700 (Pacific Daylight Time)
 
 import { Routes } from '@angular/router';
 
@@ -63,7 +63,7 @@ import { EmailingComponent } from '../emailing/emailing.component';
 import { 
   emailtemplateRoutingCorePath,
   emailsettingsRoutingCorePath,
-  emaillogRoutingCorePath,
+  emailqueueRoutingCorePath,
 } from '../emailing/emailing-routing.core.path';
 
 export const EmailingCoreRoutes: Routes = [
@@ -86,9 +86,9 @@ export const EmailingCoreRoutes: Routes = [
         children: emailsettingsRoutingCorePath,
         data: {mraLevel: 1, item: 'emailsettings'}
       },
-      { path: 'emaillog',
-        children: emaillogRoutingCorePath,
-        data: {mraLevel: 1, item: 'emaillog'}
+      { path: 'emailqueue',
+        children: emailqueueRoutingCorePath,
+        data: {mraLevel: 1, item: 'emailqueue'}
       },
     ]
   },
