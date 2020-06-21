@@ -3,7 +3,9 @@ import { HttpClient } from '@angular/common/http';
 import { LeadBaseService } from './lead.base.service';
 import { Membership_SERVER_ROOT_URI } from '../membership.tokens';
 
-@Injectable()
+@Injectable({
+    providedIn: 'root',
+})
 export class LeadService extends LeadBaseService implements OnDestroy {
     constructor(
         http: HttpClient,

@@ -1,7 +1,6 @@
 
 <div class="detail" *ngIf="detail">
-	<div *ngIf="!options['disableActionButtions']"><div *ngIf="!disableActionButtions" class="action-buttons">
-    <!--<a href="javascript:void(0)" (click)="goBack()"><i class="fas fa-angle-double-left" title="Back"></i></a>-->
+	<div *ngIf="!options['disableActionButtions']"><div *ngIf="!disableActionButtions" class="action-buttons my-3">
     <a routerLink="../../list"><i class="fas fa-list" title="List"></i><!--  span>&nbsp;&nbsp;{{ItemCamelName}} List</span--></a>
     <a [routerLink]="['../../edit', detail['_id'] ]" [skipLocationChange]="false" class="btn btn-outline-primary">Edit</a>
     <a [routerLink]="['../../new']" [queryParams]="{cid: detail['_id']}" [skipLocationChange]="false" class="btn btn-outline-primary">New</a>
@@ -23,7 +22,6 @@
                	  <a routerLink="."  (click)="onDisplayRefClicked('role', detail['role'], $event)">
 	            	{{detail['role']?detail['role']['value']:""}}
 	              </a>
-
             </div>
           </h5>
         </div>
@@ -35,16 +33,14 @@
                 <div class="ml-3">
                	  <a routerLink="."  (click)="onDisplayRefClicked('module', detail['module'], $event)">
 	            	{{detail['module']?detail['module']['value']:""}}
-	              </a>
-</div>
+	              </a></div>
             </div>
           </div>
           <div>
             <div class="d-inline-flex flex-wrap mr-5" style="min-width: 200px;">
                 <div><label>Module Permission:</label></div>
                 <div class="ml-3">
-                    {{detail['modulePermission']}}
-</div>
+                    {{detail['modulePermission']}}</div>
             </div>
           </div>
           <div>
@@ -58,8 +54,7 @@
                                 <div>{{detail['resourcePermission']['selection'][element]}}</div>
                             </div>
                         </ng-template>
-                    </div>
-</div>
+                    </div></div>
             </div>
           </div>
       </div>

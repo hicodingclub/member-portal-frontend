@@ -1,6 +1,5 @@
 <div class="edit" *ngIf="detail">
-	<div *ngIf="!embeddedView" class="action-buttons">
-		<!-- <a href="javascript:void(0)" (click)="goBack()" ><i class="fas fa-angle-double-left" title="Back"></i></a> -->
+	<div *ngIf="!embeddedView" class="action-buttons my-3">
 	</div>
 
 	<div class="card" style="text-align: left;">
@@ -13,21 +12,14 @@
 				{{options['subtitle']}}
 			</p>
 			<form (ngSubmit)="onSubmit()" #editForm="ngForm">
-
-				<div *ngIf="action == 'Edit'">
-<div *ngIf="!hiddenFields.includes('templateName')">
-
-        <fieldset class="form-group">
-          <label for="EditTemplateName">Template Name</label>
-          
-          
-
+				<ng-template [ngIf]="action == 'Edit'">
+					<ng-template [ngIf]="!hiddenFields.includes('templateName')">
+				<fieldset class="form-group">
+					<label for="EditTemplateName">Template Name</label>
+						
           <div class="input-group">
             <input type="text" class="form-control rounded" id="EditTemplateName" 
                     required
-                    
-                    
-                
                     [(ngModel)]="detail['templateName']" name="EditTemplateName"
                     #EditTemplateName="ngModel">
             <div *ngIf="detail['templateName']"
@@ -35,34 +27,21 @@
                   <i class="fas fa-times-circle" title="Clear"></i>
             </div>
           </div>
-
           <div [hidden]="EditTemplateName.valid || EditTemplateName.pristine || EditTemplateName.errors.minlength"
            class="alert alert-danger">
-
             <div *ngIf="EditTemplateName.errors && EditTemplateName.errors.required">
               TemplateName is required.
-              </div>
- 
-
+            </div>
           </div>
-        
-        </fieldset>
 
-    
-</div>
-<div *ngIf="!hiddenFields.includes('fromEmail')">
-
-        <fieldset class="form-group">
-          <label for="EditFromEmail">From Email</label>
-          
-          <span><i data-toggle="tooltip" title="Leave it blank if default sender email address in email settings is used" class="far fa-question-circle"></i></span>
-
+				</fieldset>
+					</ng-template>
+					<ng-template [ngIf]="!hiddenFields.includes('fromEmail')">
+				<fieldset class="form-group">
+					<label for="EditFromEmail">From Email</label><span><i data-toggle="tooltip" title="Leave it blank if default sender email address in email settings is used" class="far fa-question-circle"></i></span>
+						
           <div class="input-group">
             <input type="text" class="form-control rounded" id="EditFromEmail" 
-                    
-                    
-                    
-                
                     [(ngModel)]="detail['fromEmail']" name="EditFromEmail"
                     #EditFromEmail="ngModel">
             <div *ngIf="detail['fromEmail']"
@@ -70,31 +49,19 @@
                   <i class="fas fa-times-circle" title="Clear"></i>
             </div>
           </div>
-
           <div [hidden]="EditFromEmail.valid || EditFromEmail.pristine || EditFromEmail.errors.minlength"
            class="alert alert-danger">
-
- 
-
           </div>
-        
-        </fieldset>
 
-    
-</div>
-<div *ngIf="!hiddenFields.includes('subject')">
-
-        <fieldset class="form-group">
-          <label for="EditSubject">Subject</label>
-          
-          
-
+				</fieldset>
+					</ng-template>
+					<ng-template [ngIf]="!hiddenFields.includes('subject')">
+				<fieldset class="form-group">
+					<label for="EditSubject">Subject</label>
+						
           <div class="input-group">
             <input type="text" class="form-control rounded" id="EditSubject" 
                     required
-                    
-                    
-                
                     [(ngModel)]="detail['subject']" name="EditSubject"
                     #EditSubject="ngModel">
             <div *ngIf="detail['subject']"
@@ -102,59 +69,40 @@
                   <i class="fas fa-times-circle" title="Clear"></i>
             </div>
           </div>
-
           <div [hidden]="EditSubject.valid || EditSubject.pristine || EditSubject.errors.minlength"
            class="alert alert-danger">
-
             <div *ngIf="EditSubject.errors && EditSubject.errors.required">
               Subject is required.
-              </div>
- 
-
+            </div>
           </div>
-        
-        </fieldset>
 
-    
-</div>
-<div *ngIf="!hiddenFields.includes('content')">
-
-        <fieldset class="form-group">
-          <label for="EditContent">Content</label>
-          
-          
+				</fieldset>
+					</ng-template>
+					<ng-template [ngIf]="!hiddenFields.includes('content')">
+				<fieldset class="form-group">
+					<label for="EditContent">Content</label>
+						
           <div libMddsRichtext="EditContent" [content]="detail['content']"></div>
-          <div class="action-buttons" style="margin-top: 10px;">
+          <div class="action-buttons my-3" style="margin-top: 10px;">
             <button type="button" class="btn btn-outline-success" (click)="onEdtiorPreview('EditContent')">Preview</button>
           </div>
         
           <div [hidden]="EditContent.valid"
            class="alert alert-danger">
-
             <div *ngIf="EditContent.errors && EditContent.errors.required">
               Content is required.
-              </div>
- 
-
-        
+            </div>        
           </div>
-        </fieldset>
 
-    
-</div>
-<div *ngIf="!hiddenFields.includes('tag')">
-
-        <fieldset class="form-group">
-          <label for="EditTag">Tag</label>
-          
-          
-
+				</fieldset>
+					</ng-template>
+					<ng-template [ngIf]="!hiddenFields.includes('tag')">
+				<fieldset class="form-group">
+					<label for="EditTag">Tag</label>
+						
           <div class="input-group">
             <input type="text" class="form-control rounded" id="EditTag" 
                     required
-                    
-                    
-                
                     [(ngModel)]="detail['tag']" name="EditTag"
                     #EditTag="ngModel">
             <div *ngIf="detail['tag']"
@@ -162,37 +110,24 @@
                   <i class="fas fa-times-circle" title="Clear"></i>
             </div>
           </div>
-
           <div [hidden]="EditTag.valid || EditTag.pristine || EditTag.errors.minlength"
            class="alert alert-danger">
-
             <div *ngIf="EditTag.errors && EditTag.errors.required">
               Tag is required.
-              </div>
- 
-
+            </div>
           </div>
-        
-        </fieldset>
 
-    
-</div>
-
-				</div>
-				<div *ngIf="action == 'Create' || action == 'Add' ">
-<div *ngIf="!hiddenFields.includes('templateName')">
-
-        <fieldset class="form-group">
-          <label for="EditTemplateName">Template Name</label>
-          
-          
-
+				</fieldset>
+					</ng-template>
+				</ng-template>
+				<ng-template [ngIf]="action == 'Create' || action == 'Add' ">
+					<ng-template [ngIf]="!hiddenFields.includes('templateName')">
+				<fieldset class="form-group">
+					<label for="EditTemplateName">Template Name</label>
+						
           <div class="input-group">
             <input type="text" class="form-control rounded" id="EditTemplateName" 
                     required
-                    
-                    
-                
                     [(ngModel)]="detail['templateName']" name="EditTemplateName"
                     #EditTemplateName="ngModel">
             <div *ngIf="detail['templateName']"
@@ -200,34 +135,22 @@
                   <i class="fas fa-times-circle" title="Clear"></i>
             </div>
           </div>
-
           <div [hidden]="EditTemplateName.valid || EditTemplateName.pristine || EditTemplateName.errors.minlength"
            class="alert alert-danger">
-
             <div *ngIf="EditTemplateName.errors && EditTemplateName.errors.required">
               TemplateName is required.
-              </div>
- 
-
+            </div>
           </div>
-        
-        </fieldset>
 
-    
-</div>
-<div *ngIf="!hiddenFields.includes('fromEmail')">
-
-        <fieldset class="form-group">
-          <label for="EditFromEmail">From Email</label>
-          
-          <span><i data-toggle="tooltip" title="Leave it blank if default sender email address in email settings is used" class="far fa-question-circle"></i></span>
-
+				</fieldset>
+					</ng-template>
+					<ng-template [ngIf]="!hiddenFields.includes('fromEmail')">
+				<fieldset class="form-group">
+					<label for="EditFromEmail">From Email</label>
+					<span><i data-toggle="tooltip" title="Leave it blank if default sender email address in email settings is used" class="far fa-question-circle"></i></span>
+						
           <div class="input-group">
             <input type="text" class="form-control rounded" id="EditFromEmail" 
-                    
-                    
-                    
-                
                     [(ngModel)]="detail['fromEmail']" name="EditFromEmail"
                     #EditFromEmail="ngModel">
             <div *ngIf="detail['fromEmail']"
@@ -235,31 +158,19 @@
                   <i class="fas fa-times-circle" title="Clear"></i>
             </div>
           </div>
-
           <div [hidden]="EditFromEmail.valid || EditFromEmail.pristine || EditFromEmail.errors.minlength"
            class="alert alert-danger">
-
- 
-
           </div>
-        
-        </fieldset>
 
-    
-</div>
-<div *ngIf="!hiddenFields.includes('subject')">
-
-        <fieldset class="form-group">
-          <label for="EditSubject">Subject</label>
-          
-          
-
+				</fieldset>
+					</ng-template>
+					<ng-template [ngIf]="!hiddenFields.includes('subject')">
+				<fieldset class="form-group">
+					<label for="EditSubject">Subject</label>
+						
           <div class="input-group">
             <input type="text" class="form-control rounded" id="EditSubject" 
                     required
-                    
-                    
-                
                     [(ngModel)]="detail['subject']" name="EditSubject"
                     #EditSubject="ngModel">
             <div *ngIf="detail['subject']"
@@ -267,59 +178,40 @@
                   <i class="fas fa-times-circle" title="Clear"></i>
             </div>
           </div>
-
           <div [hidden]="EditSubject.valid || EditSubject.pristine || EditSubject.errors.minlength"
            class="alert alert-danger">
-
             <div *ngIf="EditSubject.errors && EditSubject.errors.required">
               Subject is required.
-              </div>
- 
-
+            </div>
           </div>
-        
-        </fieldset>
 
-    
-</div>
-<div *ngIf="!hiddenFields.includes('content')">
-
-        <fieldset class="form-group">
-          <label for="EditContent">Content</label>
-          
-          
+				</fieldset>
+					</ng-template>
+					<ng-template [ngIf]="!hiddenFields.includes('content')">
+				<fieldset class="form-group">
+					<label for="EditContent">Content</label>
+						
           <div libMddsRichtext="EditContent" [content]="detail['content']"></div>
-          <div class="action-buttons" style="margin-top: 10px;">
+          <div class="action-buttons my-3" style="margin-top: 10px;">
             <button type="button" class="btn btn-outline-success" (click)="onEdtiorPreview('EditContent')">Preview</button>
           </div>
         
           <div [hidden]="EditContent.valid"
            class="alert alert-danger">
-
             <div *ngIf="EditContent.errors && EditContent.errors.required">
               Content is required.
-              </div>
- 
-
-        
+            </div>        
           </div>
-        </fieldset>
 
-    
-</div>
-<div *ngIf="!hiddenFields.includes('tag')">
-
-        <fieldset class="form-group">
-          <label for="EditTag">Tag</label>
-          
-          
-
+				</fieldset>
+					</ng-template>
+					<ng-template [ngIf]="!hiddenFields.includes('tag')">
+				<fieldset class="form-group">
+					<label for="EditTag">Tag</label>
+						
           <div class="input-group">
             <input type="text" class="form-control rounded" id="EditTag" 
                     required
-                    
-                    
-                
                     [(ngModel)]="detail['tag']" name="EditTag"
                     #EditTag="ngModel">
             <div *ngIf="detail['tag']"
@@ -327,25 +219,17 @@
                   <i class="fas fa-times-circle" title="Clear"></i>
             </div>
           </div>
-
           <div [hidden]="EditTag.valid || EditTag.pristine || EditTag.errors.minlength"
            class="alert alert-danger">
-
             <div *ngIf="EditTag.errors && EditTag.errors.required">
               Tag is required.
-              </div>
- 
-
+            </div>
           </div>
-        
-        </fieldset>
 
-    
-</div>
-
-				</div>
-
-				<div class="action-buttons-center">
+				</fieldset>
+					</ng-template>
+				</ng-template>
+				<div class="action-buttons-center my-3">
 					<button type="submit" class="btn btn-success" [disabled]="!editForm.form.valid">Submit</button>
 					<button class="btn btn-outline-success" type="button" (click)="editCancel()">Cancel</button>
 				</div>

@@ -5,7 +5,7 @@ import { AdditionalinfoComponent } from '../../../membership/additionalinfo/addi
 export class AdditionalinfoDetailCustComponent extends AdditionalinfoComponent {
 }
 /*>>> Please check this recent updates and merge with existing ones***
-**Date: Tue Jun 16 2020 23:23:09 GMT-0700 (Pacific Daylight Time)
+**Date: Sat Jun 20 2020 21:52:35 GMT-0700 (Pacific Daylight Time)
 
 import { Input } from '@angular/core';
 

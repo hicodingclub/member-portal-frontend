@@ -48,7 +48,7 @@ export const FilesRoutes: Routes = [
 
 export const files_server_root_uri: string = '/api/files';
 /*>>> Please check this recent updates and merge with existing ones***
-**Date: Tue Jun 16 2020 23:38:06 GMT-0700 (Pacific Daylight Time)
+**Date: Sat Jun 20 2020 21:52:51 GMT-0700 (Pacific Daylight Time)
 
 import { Routes } from '@angular/router';
 
@@ -56,13 +56,13 @@ import { FilesComponent } from '../files/files.component';
 
 //Import routing paths
 import { 
-  mfileRoutingCorePath, 
-  mfilegroupRoutingCorePath,  
+  mfileRoutingCorePath,
+  mfilegroupRoutingCorePath,
 } from '../files/files-routing.core.path';
 
 export const FilesCoreRoutes: Routes = [
   { 
-    // Lazy Load: and add to app routing: 
+    // Lazy Load: and add to app routing:
     //     { path: 'files', loadChildren: () => import('./files/files.module').then(m => m.FilesModule) },
     path: '',
     // non lazy load config. Include module in app module.
@@ -88,7 +88,7 @@ import { FilesRoutingCustPath } from './files-routing.cust.path';
 
 export const FilesRoutes: Routes = [
   {
-    // Lazy Load: and add to app routing: 
+    // Lazy Load: and add to app routing:
     //     { path: 'files', loadChildren: () => import('./files/files.module').then(m => m.FilesModule) },
     path: 'cust',
     // non lazy load config. Include module in app module.
@@ -96,7 +96,4 @@ export const FilesRoutes: Routes = [
 
     children: FilesRoutingCustPath,
   },
-];
-
-export const files_server_root_uri: string = '/api/files';
-**** End of recent updates.<<<*/
+];**** End of recent updates.<<<*/

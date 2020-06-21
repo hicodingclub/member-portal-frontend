@@ -14,7 +14,7 @@
 
 
 <div class="detail" *ngIf="detail">
-	<div class="action-buttons">
+	<div class="action-buttons my-3">
         <a routerLink="." (click)="detailSelBack()"><i class="fas fa-angle-double-left" title="Back to list">&nbsp; {{ItemCamelName}} List</i></a>
 		<a routerLink="." class="btn btn-outline-primary" (click)="detailSelSelected()">Select</a>
 	</div>
@@ -30,7 +30,6 @@
             <div class="mr-1 d-inline-block">
               
                     {{detail['name']}}
-
             </div>
           </h5>
         </div>
@@ -39,8 +38,7 @@
           <div>
             <div class="d-inline-flex flex-wrap mr-5" style="min-width: 200px;">
                 <div><label>Created at:</label></div>
-                <div class="ml-3">  {{detail['createdAt']?detail['createdAt']['value']:""}}
-</div>
+                <div class="ml-3">  {{detail['createdAt']?detail['createdAt']['value']:""}}</div>
             </div>
           </div>
       </div>

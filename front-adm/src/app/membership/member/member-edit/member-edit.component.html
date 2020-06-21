@@ -1,6 +1,5 @@
 <div class="edit" *ngIf="detail">
-	<div *ngIf="!embeddedView" class="action-buttons">
-		<!-- <a href="javascript:void(0)" (click)="goBack()" ><i class="fas fa-angle-double-left" title="Back"></i></a> -->
+	<div *ngIf="!embeddedView" class="action-buttons my-3">
 	</div>
 
 	<div class="card" style="text-align: left;">
@@ -13,21 +12,14 @@
 				{{options['subtitle']}}
 			</p>
 			<form (ngSubmit)="onSubmit()" #editForm="ngForm">
-
-				<div *ngIf="action == 'Edit'">
-<div *ngIf="!hiddenFields.includes('firstname')">
-
-        <fieldset class="form-group">
-          <label for="EditFirstname">Firstname</label>
-          
-          
-
+				<ng-template [ngIf]="action == 'Edit'">
+					<ng-template [ngIf]="!hiddenFields.includes('firstname')">
+				<fieldset class="form-group">
+					<label for="EditFirstname">Firstname</label>
+						
           <div class="input-group">
             <input type="text" class="form-control rounded" id="EditFirstname" 
-                    
-                    
                     maxlength="100"
-                
                     [(ngModel)]="detail['firstname']" name="EditFirstname"
                     #EditFirstname="ngModel">
             <div *ngIf="detail['firstname']"
@@ -35,34 +27,22 @@
                   <i class="fas fa-times-circle" title="Clear"></i>
             </div>
           </div>
-
           <div [hidden]="EditFirstname.valid || EditFirstname.pristine || EditFirstname.errors.minlength"
            class="alert alert-danger">
-
- 
-
             <div *ngIf="EditFirstname.errors && EditFirstname.errors.maxlength">
                 Firstname must be at most 100 characters long.
-              </div>
+            </div>
           </div>
-        
-        </fieldset>
 
-    
-</div>
-<div *ngIf="!hiddenFields.includes('lastname')">
-
-        <fieldset class="form-group">
-          <label for="EditLastname">Lastname</label>
-          
-          
-
+				</fieldset>
+					</ng-template>
+					<ng-template [ngIf]="!hiddenFields.includes('lastname')">
+				<fieldset class="form-group">
+					<label for="EditLastname">Lastname</label>
+						
           <div class="input-group">
             <input type="text" class="form-control rounded" id="EditLastname" 
-                    
-                    
                     maxlength="100"
-                
                     [(ngModel)]="detail['lastname']" name="EditLastname"
                     #EditLastname="ngModel">
             <div *ngIf="detail['lastname']"
@@ -70,29 +50,20 @@
                   <i class="fas fa-times-circle" title="Clear"></i>
             </div>
           </div>
-
           <div [hidden]="EditLastname.valid || EditLastname.pristine || EditLastname.errors.minlength"
            class="alert alert-danger">
-
- 
-
             <div *ngIf="EditLastname.errors && EditLastname.errors.maxlength">
                 Lastname must be at most 100 characters long.
-              </div>
+            </div>
           </div>
-        
-        </fieldset>
 
-    
-</div>
-<div *ngIf="!hiddenFields.includes('photo')">
-
-        <fieldset class="form-group">
-          <label for="EditPhoto">Photo</label>
-          
-          
+				</fieldset>
+					</ng-template>
+					<ng-template [ngIf]="!hiddenFields.includes('photo')">
+				<fieldset class="form-group">
+					<label for="EditPhoto">Photo</label>
+						
           <div class="form-check"
-
                 [ngClass]="{'ng-valid': true} "
               >
               <input type="text" class="form-control rounded" id="EditPhoto" style="display: none;"
@@ -109,25 +80,18 @@
           </div>
           <div [hidden]="EditPhoto.valid || EditPhoto.pristine"
             class="alert alert-danger">
-
           </div>
-        </fieldset>				
 
-    
-</div>
-<div *ngIf="!hiddenFields.includes('email')">
-
-        <fieldset class="form-group">
-          <label for="EditEmail">Email</label>
-          
-          
-
+				</fieldset>
+					</ng-template>
+					<ng-template [ngIf]="!hiddenFields.includes('email')">
+				<fieldset class="form-group">
+					<label for="EditEmail">Email</label>
+						
           <div class="input-group">
             <input type="text" class="form-control rounded" id="EditEmail" 
                     required
-                    
-                    
-                membershipMemberDirectiveEmail=""
+                    membershipMemberDirectiveEmail=""
                     [(ngModel)]="detail['email']" name="EditEmail"
                     #EditEmail="ngModel">
             <div *ngIf="detail['email']"
@@ -135,37 +99,25 @@
                   <i class="fas fa-times-circle" title="Clear"></i>
             </div>
           </div>
-
           <div [hidden]="EditEmail.valid || EditEmail.pristine || EditEmail.errors.minlength"
            class="alert alert-danger">
-
             <div *ngIf="EditEmail.errors && EditEmail.errors.required">
               Email is required.
-              </div>
-
+            </div>
             <div *ngIf="EditEmail.errors && EditEmail.errors.membershipMemberDirectiveEmail">
                 {{EditEmail.errors.membershipMemberDirectiveEmail}}
-              </div> 
-
+              </div>
           </div>
-        
-        </fieldset>
 
-    
-</div>
-<div *ngIf="!hiddenFields.includes('phone')">
-
-        <fieldset class="form-group">
-          <label for="EditPhone">Phone</label>
-          
-          
-
+				</fieldset>
+					</ng-template>
+					<ng-template [ngIf]="!hiddenFields.includes('phone')">
+				<fieldset class="form-group">
+					<label for="EditPhone">Phone</label>
+						
           <div class="input-group">
             <input type="text" class="form-control rounded" id="EditPhone" 
-                    
-                    
-                    
-                membershipMemberDirectivePhone=""
+                    membershipMemberDirectivePhone=""
                     [(ngModel)]="detail['phone']" name="EditPhone"
                     #EditPhone="ngModel">
             <div *ngIf="detail['phone']"
@@ -173,37 +125,24 @@
                   <i class="fas fa-times-circle" title="Clear"></i>
             </div>
           </div>
-
           <div [hidden]="EditPhone.valid || EditPhone.pristine || EditPhone.errors.minlength"
            class="alert alert-danger">
-
-
             <div *ngIf="EditPhone.errors && EditPhone.errors.membershipMemberDirectivePhone">
                 {{EditPhone.errors.membershipMemberDirectivePhone}}
-              </div> 
-
+              </div>
           </div>
-        
-        </fieldset>
 
-    
-</div>
-
-				</div>
-				<div *ngIf="action == 'Create' || action == 'Add' ">
-<div *ngIf="!hiddenFields.includes('firstname')">
-
-        <fieldset class="form-group">
-          <label for="EditFirstname">Firstname</label>
-          
-          
-
+				</fieldset>
+					</ng-template>
+				</ng-template>
+				<ng-template [ngIf]="action == 'Create' || action == 'Add' ">
+					<ng-template [ngIf]="!hiddenFields.includes('firstname')">
+				<fieldset class="form-group">
+					<label for="EditFirstname">Firstname</label>
+						
           <div class="input-group">
             <input type="text" class="form-control rounded" id="EditFirstname" 
-                    
-                    
                     maxlength="100"
-                
                     [(ngModel)]="detail['firstname']" name="EditFirstname"
                     #EditFirstname="ngModel">
             <div *ngIf="detail['firstname']"
@@ -211,34 +150,22 @@
                   <i class="fas fa-times-circle" title="Clear"></i>
             </div>
           </div>
-
           <div [hidden]="EditFirstname.valid || EditFirstname.pristine || EditFirstname.errors.minlength"
            class="alert alert-danger">
-
- 
-
             <div *ngIf="EditFirstname.errors && EditFirstname.errors.maxlength">
                 Firstname must be at most 100 characters long.
-              </div>
+            </div>
           </div>
-        
-        </fieldset>
 
-    
-</div>
-<div *ngIf="!hiddenFields.includes('lastname')">
-
-        <fieldset class="form-group">
-          <label for="EditLastname">Lastname</label>
-          
-          
-
+				</fieldset>
+					</ng-template>
+					<ng-template [ngIf]="!hiddenFields.includes('lastname')">
+				<fieldset class="form-group">
+					<label for="EditLastname">Lastname</label>
+						
           <div class="input-group">
             <input type="text" class="form-control rounded" id="EditLastname" 
-                    
-                    
                     maxlength="100"
-                
                     [(ngModel)]="detail['lastname']" name="EditLastname"
                     #EditLastname="ngModel">
             <div *ngIf="detail['lastname']"
@@ -246,29 +173,20 @@
                   <i class="fas fa-times-circle" title="Clear"></i>
             </div>
           </div>
-
           <div [hidden]="EditLastname.valid || EditLastname.pristine || EditLastname.errors.minlength"
            class="alert alert-danger">
-
- 
-
             <div *ngIf="EditLastname.errors && EditLastname.errors.maxlength">
                 Lastname must be at most 100 characters long.
-              </div>
+            </div>
           </div>
-        
-        </fieldset>
 
-    
-</div>
-<div *ngIf="!hiddenFields.includes('photo')">
-
-        <fieldset class="form-group">
-          <label for="EditPhoto">Photo</label>
-          
-          
+				</fieldset>
+					</ng-template>
+					<ng-template [ngIf]="!hiddenFields.includes('photo')">
+				<fieldset class="form-group">
+					<label for="EditPhoto">Photo</label>
+						
           <div class="form-check"
-
                 [ngClass]="{'ng-valid': true} "
               >
               <input type="text" class="form-control rounded" id="EditPhoto" style="display: none;"
@@ -285,25 +203,18 @@
           </div>
           <div [hidden]="EditPhoto.valid || EditPhoto.pristine"
             class="alert alert-danger">
-
           </div>
-        </fieldset>				
 
-    
-</div>
-<div *ngIf="!hiddenFields.includes('email')">
-
-        <fieldset class="form-group">
-          <label for="EditEmail">Email</label>
-          
-          
-
+				</fieldset>
+					</ng-template>
+					<ng-template [ngIf]="!hiddenFields.includes('email')">
+				<fieldset class="form-group">
+					<label for="EditEmail">Email</label>
+						
           <div class="input-group">
             <input type="text" class="form-control rounded" id="EditEmail" 
                     required
-                    
-                    
-                membershipMemberDirectiveEmail=""
+                    membershipMemberDirectiveEmail=""
                     [(ngModel)]="detail['email']" name="EditEmail"
                     #EditEmail="ngModel">
             <div *ngIf="detail['email']"
@@ -311,37 +222,25 @@
                   <i class="fas fa-times-circle" title="Clear"></i>
             </div>
           </div>
-
           <div [hidden]="EditEmail.valid || EditEmail.pristine || EditEmail.errors.minlength"
            class="alert alert-danger">
-
             <div *ngIf="EditEmail.errors && EditEmail.errors.required">
               Email is required.
-              </div>
-
+            </div>
             <div *ngIf="EditEmail.errors && EditEmail.errors.membershipMemberDirectiveEmail">
                 {{EditEmail.errors.membershipMemberDirectiveEmail}}
-              </div> 
-
+              </div>
           </div>
-        
-        </fieldset>
 
-    
-</div>
-<div *ngIf="!hiddenFields.includes('phone')">
-
-        <fieldset class="form-group">
-          <label for="EditPhone">Phone</label>
-          
-          
-
+				</fieldset>
+					</ng-template>
+					<ng-template [ngIf]="!hiddenFields.includes('phone')">
+				<fieldset class="form-group">
+					<label for="EditPhone">Phone</label>
+						
           <div class="input-group">
             <input type="text" class="form-control rounded" id="EditPhone" 
-                    
-                    
-                    
-                membershipMemberDirectivePhone=""
+                    membershipMemberDirectivePhone=""
                     [(ngModel)]="detail['phone']" name="EditPhone"
                     #EditPhone="ngModel">
             <div *ngIf="detail['phone']"
@@ -349,25 +248,17 @@
                   <i class="fas fa-times-circle" title="Clear"></i>
             </div>
           </div>
-
           <div [hidden]="EditPhone.valid || EditPhone.pristine || EditPhone.errors.minlength"
            class="alert alert-danger">
-
-
             <div *ngIf="EditPhone.errors && EditPhone.errors.membershipMemberDirectivePhone">
                 {{EditPhone.errors.membershipMemberDirectivePhone}}
-              </div> 
-
+              </div>
           </div>
-        
-        </fieldset>
 
-    
-</div>
-
-				</div>
-
-				<div class="action-buttons-center">
+				</fieldset>
+					</ng-template>
+				</ng-template>
+				<div class="action-buttons-center my-3">
 					<button type="submit" class="btn btn-success" [disabled]="!editForm.form.valid">Submit</button>
 					<button class="btn btn-outline-success" type="button" (click)="editCancel()">Cancel</button>
 				</div>

@@ -2,21 +2,16 @@
 
 		<div *ngIf="detail && showFields.includes('name')">
                     {{detail['name']}}
-
 		</div>
 		<div *ngIf="detail && showFields.includes('title')">
                     {{detail['title']}}
-
 		</div>
 		<div *ngIf="detail && showFields.includes('photo')">
                     <lib-mdds-file-display [downloadUrl]="detail['photo']" [isLarge]="false" [aspectRatio]=""></lib-mdds-file-display>
-
 		</div>
 		<div *ngIf="detail && showFields.includes('email')">
                     {{detail['email']}}
-
 		</div>
 		<div *ngIf="detail && showFields.includes('order')">
                     {{detail['order']}}
-
 		</div>

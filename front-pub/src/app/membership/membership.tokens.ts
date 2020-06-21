@@ -1,3 +1,11 @@
 import { InjectionToken } from '@angular/core';
 
-export const Membership_SERVER_ROOT_URI = new InjectionToken('Membership_SERVER_ROOT_URI');
+import { membership_server_root_uri } from '../membership-cust/membership.tokens.value';
+
+export const Membership_SERVER_ROOT_URI = new InjectionToken<string>(
+    'Membership_SERVER_ROOT_URI',
+    {
+        factory: (): string => membership_server_root_uri,
+        providedIn: 'root',
+    },
+);

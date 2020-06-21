@@ -63,7 +63,7 @@ export const RolesRoutes: Routes = [
 
 export const roles_server_root_uri: string = '/api/roles';
 /*>>> Please check this recent updates and merge with existing ones***
-**Date: Tue Jun 16 2020 23:38:05 GMT-0700 (Pacific Daylight Time)
+**Date: Sat Jun 20 2020 21:52:50 GMT-0700 (Pacific Daylight Time)
 
 import { Routes } from '@angular/router';
 
@@ -71,16 +71,16 @@ import { RolesComponent } from '../roles/roles.component';
 
 //Import routing paths
 import { 
-  mroleRoutingCorePath, 
-  mmoduleRoutingCorePath, 
-  mpermissionRoutingCorePath, 
-  maccountRoutingCorePath, 
-  maccountroleRoutingCorePath,  
+  mroleRoutingCorePath,
+  mmoduleRoutingCorePath,
+  mpermissionRoutingCorePath,
+  maccountRoutingCorePath,
+  maccountroleRoutingCorePath,
 } from '../roles/roles-routing.core.path';
 
 export const RolesCoreRoutes: Routes = [
   { 
-    // Lazy Load: and add to app routing: 
+    // Lazy Load: and add to app routing:
     //     { path: 'roles', loadChildren: () => import('./roles/roles.module').then(m => m.RolesModule) },
     path: '',
     // non lazy load config. Include module in app module.
@@ -118,7 +118,7 @@ import { RolesRoutingCustPath } from './roles-routing.cust.path';
 
 export const RolesRoutes: Routes = [
   {
-    // Lazy Load: and add to app routing: 
+    // Lazy Load: and add to app routing:
     //     { path: 'roles', loadChildren: () => import('./roles/roles.module').then(m => m.RolesModule) },
     path: 'cust',
     // non lazy load config. Include module in app module.
@@ -126,7 +126,4 @@ export const RolesRoutes: Routes = [
 
     children: RolesRoutingCustPath,
   },
-];
-
-export const roles_server_root_uri: string = '/api/roles';
-**** End of recent updates.<<<*/
+];**** End of recent updates.<<<*/

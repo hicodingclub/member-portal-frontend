@@ -13,7 +13,7 @@
 
 
 <div class="detail" *ngIf="detail">
-	<div class="action-buttons">
+	<div class="action-buttons my-3">
 	</div>
 	
 	<div class="card text-left">
@@ -23,19 +23,16 @@
       <div class="card-header grid-head">
         <div class="grid-head-picture">
                     <lib-mdds-file-display [downloadUrl]="detail['photo']" [isLarge]="false" [aspectRatio]=""></lib-mdds-file-display>
-
         </div>
         <div class="ml-1">
           <h5>
             <div class="mr-1 d-inline-block">
               
                     {{detail['firstname']}}
-
             </div>
             <div class="mr-1 d-inline-block">
               
                     {{detail['lastname']}}
-
             </div>
           </h5>
         </div>
@@ -45,16 +42,14 @@
             <div class="d-inline-flex flex-wrap mr-5" style="min-width: 200px;">
                 <div><label>Email:</label></div>
                 <div class="ml-3">
-                    {{detail['email']}}
-</div>
+                    {{detail['email']}}</div>
             </div>
           </div>
           <div>
             <div class="d-inline-flex flex-wrap mr-5" style="min-width: 200px;">
                 <div><label>Phone:</label></div>
                 <div class="ml-3">
-                    {{detail['phone']}}
-</div>
+                    {{detail['phone']}}</div>
             </div>
           </div>
       </div>

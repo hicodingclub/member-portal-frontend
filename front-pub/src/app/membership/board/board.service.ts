@@ -3,7 +3,9 @@ import { HttpClient } from '@angular/common/http';
 import { BoardBaseService } from './board.base.service';
 import { Membership_SERVER_ROOT_URI } from '../membership.tokens';
 
-@Injectable()
+@Injectable({
+    providedIn: 'root',
+})
 export class BoardService extends BoardBaseService implements OnDestroy {
     constructor(
         http: HttpClient,

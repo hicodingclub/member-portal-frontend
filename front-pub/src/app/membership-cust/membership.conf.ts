@@ -52,7 +52,7 @@ export const MembershipRoutes: Routes = [
 ];
 
 export const membership_server_root_uri: string = '/api/membership';/*>>> Please check this recent updates and merge with existing ones***
-**Date: Tue Jun 16 2020 23:23:09 GMT-0700 (Pacific Daylight Time)
+**Date: Sat Jun 20 2020 21:52:35 GMT-0700 (Pacific Daylight Time)
 
 import { Routes } from '@angular/router';
 
@@ -60,14 +60,14 @@ import { MembershipComponent } from '../membership/membership.component';
 
 //Import routing paths
 import { 
-  additionalinfoRoutingCorePath, 
-  boardRoutingCorePath, 
-  leadRoutingCorePath,  
+  additionalinfoRoutingCorePath,
+  boardRoutingCorePath,
+  leadRoutingCorePath,
 } from '../membership/membership-routing.core.path';
 
 export const MembershipCoreRoutes: Routes = [
   { 
-    // Lazy Load: and add to app routing: 
+    // Lazy Load: and add to app routing:
     //     { path: 'membership', loadChildren: () => import('./membership/membership.module').then(m => m.MembershipModule) },
     path: '',
     // non lazy load config. Include module in app module.
@@ -97,7 +97,7 @@ import { MembershipRoutingCustPath } from './membership-routing.cust.path';
 
 export const MembershipRoutes: Routes = [
   {
-    // Lazy Load: and add to app routing: 
+    // Lazy Load: and add to app routing:
     //     { path: 'membership', loadChildren: () => import('./membership/membership.module').then(m => m.MembershipModule) },
     path: 'cust',
     // non lazy load config. Include module in app module.
@@ -105,7 +105,4 @@ export const MembershipRoutes: Routes = [
 
     children: MembershipRoutingCustPath,
   },
-];
-
-export const membership_server_root_uri: string = '/api/membership';
-**** End of recent updates.<<<*/
+];**** End of recent updates.<<<*/
