@@ -10,3 +10,9 @@ export const authentication_dropdown_items: DropdownItem[] = [
     // {displayName: 'Student Profiles', routerLink: '/academics/student'},
     // {displayName: 'Class Enrollments', routerLink: '/academics/classenroll'},
 ] 
+
+export const authentication_reg_required: any = {
+    firstName: true,
+    lastName: true,
+    phone: false,
+}
