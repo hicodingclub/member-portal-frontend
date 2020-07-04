@@ -25,7 +25,8 @@ export class AdditionalinfoDetailFieldComponent extends AdditionalinfoComponent
         public route: ActivatedRoute,
         public location: Location) {
           super(null,
-                additionalinfoService, injector, router, route, location, ViewType.DETAIL);
+                additionalinfoService, injector, router, route, location);
+          this.view = ViewType.DETAIL;
           
           this.fieldDisplayNames = {
             'member': 'Member',
@@ -36,18 +37,46 @@ export class AdditionalinfoDetailFieldComponent extends AdditionalinfoComponent
             'designingSkill': 'Designing Skill',
             'githubExp': 'Github Exp',
           };
-          this.enums['grade'] = ['8', '9', '10', '11', '12', 'other', ];
-          this.enums['team'] = ['Web Development', 'UI Design', ];
-          this.enums['programmingSkill'] = ['1', '2', '3', '4', '5', ];
-          this.enums['designingSkill'] = ['1', '2', '3', '4', '5', ];
-          this.enums['githubExp'] = ['No', 'Yes, web access only', 'Yes, web and git access', ];
+          this.enums['grade'] = [
+            '8',
+            '9',
+            '10',
+            '11',
+            '12',
+            'other',
+          ];
+          this.enums['team'] = [
+            'Web Development',
+            'UI Design',
+          ];
+          this.enums['programmingSkill'] = [
+            '1',
+            '2',
+            '3',
+            '4',
+            '5',
+          ];
+          this.enums['designingSkill'] = [
+            '1',
+            '2',
+            '3',
+            '4',
+            '5',
+          ];
+          this.enums['githubExp'] = [
+            'No',
+            'Yes, web access only',
+            'Yes, web and git access',
+          ];
           this.stringFields.push('grade');
           this.stringFields.push('team');
           this.stringFields.push('guardianEmail');
           this.stringFields.push('programmingSkill');
           this.stringFields.push('designingSkill');
           this.stringFields.push('githubExp');
-          this.referenceFields = ['member', ];
+          this.referenceFields = [
+            'member',
+          ];
     }
 
     ngOnInit() {

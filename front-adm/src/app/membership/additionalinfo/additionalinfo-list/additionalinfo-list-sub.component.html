@@ -110,7 +110,7 @@
 					>
 	            	
                	  <a routerLink="."  (click)="onDisplayRefClicked('member', detail['member'], $event)">
-	            	{{detail['member']?detail['member']['value']:""}}
+	            	{{detail['member']?detail['member']['valueMedium']:""}}
 	              </a>
 				</td>
 				<td (click)="clickOneItem(i)"  [ngClass]="{'pointer': clickItemAction}"
@@ -167,7 +167,7 @@
               <div><label>Member:</label></div>
               <div class="ml-3">
                	  <a routerLink="."  (click)="onDisplayRefClicked('member', detail['member'], $event)">
-	            	{{detail['member']?detail['member']['value']:""}}
+	            	{{detail['member']?detail['member']['valueMedium']:""}}
 	              </a>
               </div>
             </div>

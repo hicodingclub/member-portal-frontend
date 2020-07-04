@@ -50,7 +50,8 @@ export class MpubaccessEditComponent extends MpubaccessEditCustComponent impleme
       public route: ActivatedRoute,
       public location: Location) {
           super(componentFactoryResolver,
-                mpubaccessService, injector, router, route, location, ViewType.EDIT);
+                mpubaccessService, injector, router, route, location);
+          this.view = ViewType.EDIT;
 
           this.fieldDisplayNames = {
             'group': 'Group',
@@ -59,7 +60,10 @@ export class MpubaccessEditComponent extends MpubaccessEditCustComponent impleme
             'resourcePermission': 'Resource Permission',
           };
           this.stringFields.push('modulePermission');
-          this.referenceFields = ['group', 'module', ];
+          this.referenceFields = [
+            'group',
+            'module',
+          ];
           this.mapFields = [
               ['resourcePermission', 'SchemaString', '', '', , ''],
           ];

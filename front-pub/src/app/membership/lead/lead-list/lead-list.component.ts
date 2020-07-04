@@ -39,7 +39,8 @@ export class LeadListComponent extends LeadListCustComponent implements OnInit {
       public route: ActivatedRoute,
       public location: Location) {
           super(
-                leadService, injector, router, route, location, ViewType.LIST);
+                leadService, injector, router, route, location);
+          this.view = ViewType.LIST;
 
           this.fieldDisplayNames = {
             'name': 'Name',

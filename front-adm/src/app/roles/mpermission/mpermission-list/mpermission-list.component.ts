@@ -40,7 +40,8 @@ export class MpermissionListComponent extends MpermissionListCustComponent imple
       public route: ActivatedRoute,
       public location: Location) {
           super(componentFactoryResolver,
-                mpermissionService, injector, router, route, location, ViewType.LIST);
+                mpermissionService, injector, router, route, location);
+          this.view = ViewType.LIST;
 
           this.fieldDisplayNames = {
             'role': 'Role',
@@ -48,9 +49,12 @@ export class MpermissionListComponent extends MpermissionListCustComponent imple
             'modulePermission': 'Module Permission',
           };
           this.stringFields.push('modulePermission');
-          this.referenceFields = ['role', 'module', ];
+          this.referenceFields = [
+            'role',
+            'module',
+          ];
 
-          this.listViewFilter = 'list';
+          this.listViewFilter = 'table';
 
           const listCategories = [];
           this.listCategory1 = listCategories[0] || {};

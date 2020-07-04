@@ -35,14 +35,17 @@ export class MpubmoduleDetailComponent extends MpubmoduleDetailCustComponent imp
       public route: ActivatedRoute,
       public location: Location) {
           super(
-                mpubmoduleService, injector, router, route, location, ViewType.DETAIL);
+                mpubmoduleService, injector, router, route, location);
+          this.view = ViewType.DETAIL;
 
           this.fieldDisplayNames = {
             'module': 'Module',
             'resources': 'Resources',
           };
           this.stringFields.push('module');
-          this.arrayFields = [['resources', 'SchemaString'],];
+          this.arrayFields = [
+            ['resources', 'SchemaString'],
+          ];
   }
 
   ngOnInit() {

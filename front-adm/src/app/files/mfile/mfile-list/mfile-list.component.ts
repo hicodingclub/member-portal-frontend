@@ -41,7 +41,8 @@ export class MfileListComponent extends MfileListCustComponent implements OnInit
       public route: ActivatedRoute,
       public location: Location) {
           super(componentFactoryResolver,
-                mfileService, injector, router, route, location, ViewType.LIST);
+                mfileService, injector, router, route, location);
+          this.view = ViewType.LIST;
 
           this.fieldDisplayNames = {
             'name': 'Name',
@@ -56,10 +57,18 @@ export class MfileListComponent extends MfileListCustComponent implements OnInit
           this.stringFields.push('name');
           this.stringFields.push('type');
           this.stringFields.push('link');
-          this.referenceFields = ['group', ];
-          this.dateFields = ['createdAt', ];
-          this.numberFields = ['size', ];
-          this.arrayFields = [['labels', 'SchemaString'],];
+          this.referenceFields = [
+            'group',
+          ];
+          this.dateFields = [
+            'createdAt',
+          ];
+          this.numberFields = [
+            'size',
+          ];
+          this.arrayFields = [
+            ['labels', 'SchemaString'],
+          ];
 
           this.listViewFilter = 'list';
 

@@ -25,7 +25,8 @@ export class MfileDetailFieldComponent extends MfileComponent
         public route: ActivatedRoute,
         public location: Location) {
           super(null,
-                mfileService, injector, router, route, location, ViewType.DETAIL);
+                mfileService, injector, router, route, location);
+          this.view = ViewType.DETAIL;
           
           this.fieldDisplayNames = {
             'name': 'Name',
@@ -40,10 +41,18 @@ export class MfileDetailFieldComponent extends MfileComponent
           this.stringFields.push('name');
           this.stringFields.push('type');
           this.stringFields.push('link');
-          this.referenceFields = ['group', ];
-          this.dateFields = ['createdAt', ];
-          this.numberFields = ['size', ];
-          this.arrayFields = [['labels', 'SchemaString'],];
+          this.referenceFields = [
+            'group',
+          ];
+          this.dateFields = [
+            'createdAt',
+          ];
+          this.numberFields = [
+            'size',
+          ];
+          this.arrayFields = [
+            ['labels', 'SchemaString'],
+          ];
     }
 
     ngOnInit() {

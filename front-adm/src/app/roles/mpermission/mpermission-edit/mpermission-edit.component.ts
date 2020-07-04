@@ -50,7 +50,8 @@ export class MpermissionEditComponent extends MpermissionEditCustComponent imple
       public route: ActivatedRoute,
       public location: Location) {
           super(componentFactoryResolver,
-                mpermissionService, injector, router, route, location, ViewType.EDIT);
+                mpermissionService, injector, router, route, location);
+          this.view = ViewType.EDIT;
 
           this.fieldDisplayNames = {
             'role': 'Role',
@@ -59,7 +60,10 @@ export class MpermissionEditComponent extends MpermissionEditCustComponent imple
             'resourcePermission': 'Resource Permission',
           };
           this.stringFields.push('modulePermission');
-          this.referenceFields = ['role', 'module', ];
+          this.referenceFields = [
+            'role',
+            'module',
+          ];
           this.mapFields = [
               ['resourcePermission', 'SchemaString', '', '', , ''],
           ];

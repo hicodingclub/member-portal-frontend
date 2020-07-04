@@ -1,7 +1,4 @@
 <div class="edit" *ngIf="detail">
-	<div *ngIf="!embeddedView" class="action-buttons my-3">
-	</div>
-
 	<div class="card" style="text-align: left;">
 		<div class="card-body">
 			<h4 class="card-title" *ngIf="!embeddedView && !options['title']">{{action}} Account Role</h4>
@@ -24,9 +21,9 @@
                   [ngClass]="{'pointer ref-badge': detail['account']['_id']}"
                   (focus)="onRefSelect('account')"
                   required 
-                  [ngModel]="detail['account']['value']" name="EditAccount"
+                  [ngModel]="detail['account']['valueMedium']" name="EditAccount"
                   #EditAccount="ngModel"> 
-              <div *ngIf="detail['account']['value']" 
+              <div *ngIf="detail['account']['valueMedium']" 
                 class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('account')">
                 <i class="fas fa-times-circle" title="Clear"></i>
               </div>
@@ -50,7 +47,7 @@
           >
             <ng-template [ngIf]="detail['role'] && detail['role']['selection']">
                   <div class="badge badge-pill badge-secondary" *ngFor="let element of detail['role']['selection']; let i = index;">
-                    {{element.value}}
+                    {{element.valueMedium}}
                   <i class="fas fa-times-circle icon-clear-badge" (click)="clearValueFromArrayField('role', i)" title="Remove"></i>
                 </div>
             </ng-template>
@@ -87,9 +84,9 @@
                   [ngClass]="{'pointer ref-badge': detail['account']['_id']}"
                   (focus)="onRefSelect('account')"
                   required 
-                  [ngModel]="detail['account']['value']" name="EditAccount"
+                  [ngModel]="detail['account']['valueMedium']" name="EditAccount"
                   #EditAccount="ngModel"> 
-              <div *ngIf="detail['account']['value']" 
+              <div *ngIf="detail['account']['valueMedium']" 
                 class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('account')">
                 <i class="fas fa-times-circle" title="Clear"></i>
               </div>
@@ -113,7 +110,7 @@
           >
             <ng-template [ngIf]="detail['role'] && detail['role']['selection']">
                   <div class="badge badge-pill badge-secondary" *ngFor="let element of detail['role']['selection']; let i = index;">
-                    {{element.value}}
+                    {{element.valueMedium}}
                   <i class="fas fa-times-circle icon-clear-badge" (click)="clearValueFromArrayField('role', i)" title="Remove"></i>
                 </div>
             </ng-template>
@@ -138,7 +135,7 @@
 				</fieldset>
 					</ng-template>
 				</ng-template>
-				<div class="action-buttons-center my-3">
+				<div class="action-buttons-center">
 					<button type="submit" class="btn btn-success" [disabled]="!editForm.form.valid">Submit</button>
 					<button class="btn btn-outline-success" type="button" (click)="editCancel()">Cancel</button>
 				</div>

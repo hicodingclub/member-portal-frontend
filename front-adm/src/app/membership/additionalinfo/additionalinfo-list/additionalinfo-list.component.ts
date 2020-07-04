@@ -40,18 +40,31 @@ export class AdditionalinfoListComponent extends AdditionalinfoListCustComponent
       public route: ActivatedRoute,
       public location: Location) {
           super(componentFactoryResolver,
-                additionalinfoService, injector, router, route, location, ViewType.LIST);
+                additionalinfoService, injector, router, route, location);
+          this.view = ViewType.LIST;
 
           this.fieldDisplayNames = {
             'member': 'Member',
             'grade': 'Grade',
             'team': 'Team',
           };
-          this.enums['grade'] = ['8', '9', '10', '11', '12', 'other', ];
-          this.enums['team'] = ['Web Development', 'UI Design', ];
+          this.enums['grade'] = [
+            '8',
+            '9',
+            '10',
+            '11',
+            '12',
+            'other',
+          ];
+          this.enums['team'] = [
+            'Web Development',
+            'UI Design',
+          ];
           this.stringFields.push('grade');
           this.stringFields.push('team');
-          this.referenceFields = ['member', ];
+          this.referenceFields = [
+            'member',
+          ];
 
           this.listViewFilter = 'table';
 

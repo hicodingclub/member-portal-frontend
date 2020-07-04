@@ -1,7 +1,7 @@
 import { Location } from '@angular/common';
 import { Router, ActivatedRoute } from '@angular/router';
 import { MddsBaseComponent, ViewType } from '@hicoder/angular-core';
-import { OnInit, Injector, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Injector, Input, Output, EventEmitter } from '@angular/core';
 import { AdditionalinfoService } from './additionalinfo.service';
 
 const itemCamelName = 'additionalInfo';
@@ -19,6 +19,9 @@ import { MemberDetailPopComponent } from '../member/member-detail/member-detail-
 import { MemberListSelectComponent } from '../member/member-list/member-list-select.component';
 
 
+@Component({
+    template: '',
+})
 export class AdditionalinfoComponent extends MddsBaseComponent implements OnInit {
     // *** common input fields
     @Input()
@@ -101,10 +104,10 @@ export class AdditionalinfoComponent extends MddsBaseComponent implements OnInit
       public injector: Injector,
       public router: Router,
       public route: ActivatedRoute,
-      public location: Location,
-      public view: ViewType ) {
+      public location: Location) {
 
-        super(additionalinfoService, injector, router, route, location, view, itemCamelName);
+        super(additionalinfoService, injector, router, route, location);
+        this.setItemNames(itemCamelName);
 
         
         this.briefFieldsInfo = [];

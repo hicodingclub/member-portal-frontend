@@ -40,7 +40,8 @@ export class MpubaccessListComponent extends MpubaccessListCustComponent impleme
       public route: ActivatedRoute,
       public location: Location) {
           super(componentFactoryResolver,
-                mpubaccessService, injector, router, route, location, ViewType.LIST);
+                mpubaccessService, injector, router, route, location);
+          this.view = ViewType.LIST;
 
           this.fieldDisplayNames = {
             'group': 'Group',
@@ -48,9 +49,12 @@ export class MpubaccessListComponent extends MpubaccessListCustComponent impleme
             'modulePermission': 'Module Permission',
           };
           this.stringFields.push('modulePermission');
-          this.referenceFields = ['group', 'module', ];
+          this.referenceFields = [
+            'group',
+            'module',
+          ];
 
-          this.listViewFilter = 'list';
+          this.listViewFilter = 'table';
 
           const listCategories = [];
           this.listCategory1 = listCategories[0] || {};

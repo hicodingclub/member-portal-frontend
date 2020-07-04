@@ -36,14 +36,19 @@ export class MaccountroleDetailComponent extends MaccountroleDetailCustComponent
       public route: ActivatedRoute,
       public location: Location) {
           super(componentFactoryResolver,
-                maccountroleService, injector, router, route, location, ViewType.DETAIL);
+                maccountroleService, injector, router, route, location);
+          this.view = ViewType.DETAIL;
 
           this.fieldDisplayNames = {
             'account': 'Account',
             'role': 'Role',
           };
-          this.referenceFields = ['account', ];
-          this.arrayFields = [['role', 'ObjectId'],];
+          this.referenceFields = [
+            'account',
+          ];
+          this.arrayFields = [
+            ['role', 'ObjectId'],
+          ];
           this.referenceFieldsMap['role'] = 'mrole';
           this.referenceFieldsReverseMap['mrole'] = 'role';
   }

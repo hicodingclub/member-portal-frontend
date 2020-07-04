@@ -48,14 +48,17 @@ export class MmoduleEditComponent extends MmoduleEditCustComponent implements On
       public route: ActivatedRoute,
       public location: Location) {
           super(
-                mmoduleService, injector, router, route, location, ViewType.EDIT);
+                mmoduleService, injector, router, route, location);
+          this.view = ViewType.EDIT;
 
           this.fieldDisplayNames = {
             'module': 'Module',
             'resources': 'Resources',
           };
           this.stringFields.push('module');
-          this.arrayFields = [['resources', 'SchemaString'],];
+          this.arrayFields = [
+            ['resources', 'SchemaString'],
+          ];
 
           
           const detail = {};

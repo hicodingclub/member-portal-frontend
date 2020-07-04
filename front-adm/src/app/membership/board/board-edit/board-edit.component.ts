@@ -88,7 +88,8 @@ export class BoardEditComponent extends BoardEditCustComponent implements OnInit
       public route: ActivatedRoute,
       public location: Location) {
           super(
-                boardService, injector, router, route, location, ViewType.EDIT);
+                boardService, injector, router, route, location);
+          this.view = ViewType.EDIT;
 
           this.fieldDisplayNames = {
             'name': 'Name',
@@ -101,7 +102,9 @@ export class BoardEditComponent extends BoardEditCustComponent implements OnInit
           this.stringFields.push('title');
           this.stringFields.push('photo');
           this.stringFields.push('email');
-          this.numberFields = ['order', ];
+          this.numberFields = [
+            'order',
+          ];
 
           
           const detail = {};

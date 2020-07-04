@@ -40,7 +40,8 @@ export class MaccountListComponent extends MaccountListCustComponent implements 
       public route: ActivatedRoute,
       public location: Location) {
           super(
-                maccountService, injector, router, route, location, ViewType.LIST);
+                maccountService, injector, router, route, location);
+          this.view = ViewType.LIST;
 
           this.fieldDisplayNames = {
             'username': 'Username',
@@ -51,16 +52,22 @@ export class MaccountListComponent extends MaccountListCustComponent implements 
             'since': 'Since',
             'status': 'Status',
           };
-          this.enums['status'] = ['Enabled', 'Disabled', 'Pending', ];
+          this.enums['status'] = [
+            'Enabled',
+            'Disabled',
+            'Pending',
+          ];
           this.stringFields.push('username');
           this.stringFields.push('email');
           this.stringFields.push('phone');
           this.stringFields.push('firstname');
           this.stringFields.push('lastname');
           this.stringFields.push('status');
-          this.dateFields = ['since', ];
+          this.dateFields = [
+            'since',
+          ];
 
-          this.listViewFilter = 'list';
+          this.listViewFilter = 'table';
 
           const listCategories = [];
           this.listCategory1 = listCategories[0] || {};

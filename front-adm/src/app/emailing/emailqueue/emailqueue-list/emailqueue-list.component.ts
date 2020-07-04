@@ -43,7 +43,8 @@ export class EmailqueueListComponent extends EmailqueueListCustComponent impleme
       public route: ActivatedRoute,
       public location: Location) {
           super(
-                emailqueueService, injector, router, route, location, ViewType.LIST);
+                emailqueueService, injector, router, route, location);
+          this.view = ViewType.LIST;
 
           this.fieldDisplayNames = {
             'subject': 'Subject',
@@ -53,8 +54,13 @@ export class EmailqueueListComponent extends EmailqueueListCustComponent impleme
             'createdAt': 'Created at',
           };
           this.stringFields.push('subject');
-          this.dateFields = ['createdAt', ];
-          this.numberFields = ['number', 'sent', ];
+          this.dateFields = [
+            'createdAt',
+          ];
+          this.numberFields = [
+            'number',
+            'sent',
+          ];
 
           this.listViewFilter = 'list';
           this.setListSort('createdAt', 'Created at', 'desc');

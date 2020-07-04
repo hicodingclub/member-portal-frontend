@@ -39,7 +39,8 @@ export class MroleListComponent extends MroleListCustComponent implements OnInit
       public route: ActivatedRoute,
       public location: Location) {
           super(
-                mroleService, injector, router, route, location, ViewType.LIST);
+                mroleService, injector, router, route, location);
+          this.view = ViewType.LIST;
 
           this.fieldDisplayNames = {
             'role': 'Role',
@@ -48,7 +49,7 @@ export class MroleListComponent extends MroleListCustComponent implements OnInit
           this.stringFields.push('role');
           this.stringFields.push('description');
 
-          this.listViewFilter = 'list';
+          this.listViewFilter = 'table';
 
           const listCategories = [];
           this.listCategory1 = listCategories[0] || {};

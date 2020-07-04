@@ -36,7 +36,8 @@ export class MpubaccessDetailComponent extends MpubaccessDetailCustComponent imp
       public route: ActivatedRoute,
       public location: Location) {
           super(componentFactoryResolver,
-                mpubaccessService, injector, router, route, location, ViewType.DETAIL);
+                mpubaccessService, injector, router, route, location);
+          this.view = ViewType.DETAIL;
 
           this.fieldDisplayNames = {
             'group': 'Group',
@@ -45,7 +46,10 @@ export class MpubaccessDetailComponent extends MpubaccessDetailCustComponent imp
             'resourcePermission': 'Resource Permission',
           };
           this.stringFields.push('modulePermission');
-          this.referenceFields = ['group', 'module', ];
+          this.referenceFields = [
+            'group',
+            'module',
+          ];
           this.mapFields = [
               ['resourcePermission', 'SchemaString', '', '', , ''],
           ];

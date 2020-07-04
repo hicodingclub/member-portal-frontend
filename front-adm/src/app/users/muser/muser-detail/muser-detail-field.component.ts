@@ -25,8 +25,9 @@ export class MuserDetailFieldComponent extends MuserComponent
         public route: ActivatedRoute,
         public location: Location) {
           super(
-                muserService, injector, router, route, location, ViewType.DETAIL);
-          
+                muserService, injector, router, route, location);
+          this.view = ViewType.DETAIL;
+
           this.enums['status'] = ['Enabled', 'Disabled', 'Pending', ];
 
           this.stringFields.push('username');

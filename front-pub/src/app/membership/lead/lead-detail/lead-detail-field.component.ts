@@ -25,7 +25,8 @@ export class LeadDetailFieldComponent extends LeadComponent
         public route: ActivatedRoute,
         public location: Location) {
           super(
-                leadService, injector, router, route, location, ViewType.DETAIL);
+                leadService, injector, router, route, location);
+          this.view = ViewType.DETAIL;
           
           this.fieldDisplayNames = {
             'name': 'Name',
@@ -38,7 +39,9 @@ export class LeadDetailFieldComponent extends LeadComponent
           this.stringFields.push('title');
           this.stringFields.push('photo');
           this.stringFields.push('email');
-          this.numberFields = ['order', ];
+          this.numberFields = [
+            'order',
+          ];
     }
 
     ngOnInit() {

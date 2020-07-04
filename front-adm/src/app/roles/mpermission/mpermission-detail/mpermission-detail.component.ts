@@ -36,7 +36,8 @@ export class MpermissionDetailComponent extends MpermissionDetailCustComponent i
       public route: ActivatedRoute,
       public location: Location) {
           super(componentFactoryResolver,
-                mpermissionService, injector, router, route, location, ViewType.DETAIL);
+                mpermissionService, injector, router, route, location);
+          this.view = ViewType.DETAIL;
 
           this.fieldDisplayNames = {
             'role': 'Role',
@@ -45,7 +46,10 @@ export class MpermissionDetailComponent extends MpermissionDetailCustComponent i
             'resourcePermission': 'Resource Permission',
           };
           this.stringFields.push('modulePermission');
-          this.referenceFields = ['role', 'module', ];
+          this.referenceFields = [
+            'role',
+            'module',
+          ];
           this.mapFields = [
               ['resourcePermission', 'SchemaString', '', '', , ''],
           ];

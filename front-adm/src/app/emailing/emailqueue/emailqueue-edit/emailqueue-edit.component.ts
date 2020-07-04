@@ -54,7 +54,8 @@ export class EmailqueueEditComponent extends EmailqueueEditCustComponent impleme
       public route: ActivatedRoute,
       public location: Location) {
           super(
-                emailqueueService, injector, router, route, location, ViewType.EDIT);
+                emailqueueService, injector, router, route, location);
+          this.view = ViewType.EDIT;
 
           this.fieldDisplayNames = {
             'subject': 'Subject',
@@ -75,7 +76,10 @@ export class EmailqueueEditComponent extends EmailqueueEditCustComponent impleme
           this.stringFields.push('content');
           this.stringFields.push('replacements');
           this.stringFields.push('defaultReplacement');
-          this.numberFields = ['number', 'sent', ];
+          this.numberFields = [
+            'number',
+            'sent',
+          ];
 
           this.textEditorMap['EditContent'] = {
             required:  false ,

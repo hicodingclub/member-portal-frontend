@@ -48,7 +48,8 @@ export class MaccountEditComponent extends MaccountEditCustComponent implements 
       public route: ActivatedRoute,
       public location: Location) {
           super(
-                maccountService, injector, router, route, location, ViewType.EDIT);
+                maccountService, injector, router, route, location);
+          this.view = ViewType.EDIT;
 
           this.fieldDisplayNames = {
             'username': 'Username',
@@ -59,7 +60,11 @@ export class MaccountEditComponent extends MaccountEditCustComponent implements 
             'status': 'Status',
             'password': 'Password',
           };
-          this.enums['status'] = ['Enabled', 'Disabled', 'Pending', ];
+          this.enums['status'] = [
+            'Enabled',
+            'Disabled',
+            'Pending',
+          ];
           this.stringFields.push('username');
           this.stringFields.push('email');
           this.stringFields.push('phone');

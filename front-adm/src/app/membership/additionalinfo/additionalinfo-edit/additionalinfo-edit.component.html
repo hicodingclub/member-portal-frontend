@@ -1,7 +1,4 @@
 <div class="edit" *ngIf="detail">
-	<div *ngIf="!embeddedView" class="action-buttons my-3">
-	</div>
-
 	<div class="card" style="text-align: left;">
 		<div class="card-body">
 			<h4 class="card-title" *ngIf="!embeddedView && !options['title']">{{action}} AdditionalInfo</h4>
@@ -349,9 +346,9 @@
                   [ngClass]="{'pointer ref-badge': detail['member']['_id']}"
                   (focus)="onRefSelect('member')"
                   required 
-                  [ngModel]="detail['member']['value']" name="EditMember"
+                  [ngModel]="detail['member']['valueMedium']" name="EditMember"
                   #EditMember="ngModel"> 
-              <div *ngIf="detail['member']['value']" 
+              <div *ngIf="detail['member']['valueMedium']" 
                 class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('member')">
                 <i class="fas fa-times-circle" title="Clear"></i>
               </div>
@@ -692,7 +689,7 @@
 				</fieldset>
 					</ng-template>
 				</ng-template>
-				<div class="action-buttons-center my-3">
+				<div class="action-buttons-center">
 					<button type="submit" class="btn btn-success" [disabled]="!editForm.form.valid">Submit</button>
 					<button class="btn btn-outline-success" type="button" (click)="editCancel()">Cancel</button>
 				</div>

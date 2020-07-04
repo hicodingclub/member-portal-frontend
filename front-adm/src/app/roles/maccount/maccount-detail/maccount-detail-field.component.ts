@@ -25,7 +25,8 @@ export class MaccountDetailFieldComponent extends MaccountComponent
         public route: ActivatedRoute,
         public location: Location) {
           super(
-                maccountService, injector, router, route, location, ViewType.DETAIL);
+                maccountService, injector, router, route, location);
+          this.view = ViewType.DETAIL;
           
           this.fieldDisplayNames = {
             'username': 'Username',
@@ -36,14 +37,20 @@ export class MaccountDetailFieldComponent extends MaccountComponent
             'since': 'Since',
             'status': 'Status',
           };
-          this.enums['status'] = ['Enabled', 'Disabled', 'Pending', ];
+          this.enums['status'] = [
+            'Enabled',
+            'Disabled',
+            'Pending',
+          ];
           this.stringFields.push('username');
           this.stringFields.push('email');
           this.stringFields.push('phone');
           this.stringFields.push('firstname');
           this.stringFields.push('lastname');
           this.stringFields.push('status');
-          this.dateFields = ['since', ];
+          this.dateFields = [
+            'since',
+          ];
     }
 
     ngOnInit() {

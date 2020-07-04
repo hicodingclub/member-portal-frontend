@@ -38,7 +38,8 @@ export class EmailqueueDetailComponent extends EmailqueueDetailCustComponent imp
       public route: ActivatedRoute,
       public location: Location) {
           super(
-                emailqueueService, injector, router, route, location, ViewType.DETAIL);
+                emailqueueService, injector, router, route, location);
+          this.view = ViewType.DETAIL;
 
           this.fieldDisplayNames = {
             'subject': 'Subject',
@@ -61,8 +62,14 @@ export class EmailqueueDetailComponent extends EmailqueueDetailCustComponent imp
           this.stringFields.push('content');
           this.stringFields.push('replacements');
           this.stringFields.push('defaultReplacement');
-          this.dateFields = ['createdAt', 'updatedAt', ];
-          this.numberFields = ['number', 'sent', ];
+          this.dateFields = [
+            'createdAt',
+            'updatedAt',
+          ];
+          this.numberFields = [
+            'number',
+            'sent',
+          ];
   }
 
   ngOnInit() {

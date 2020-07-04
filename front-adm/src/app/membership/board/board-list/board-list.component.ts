@@ -39,7 +39,8 @@ export class BoardListComponent extends BoardListCustComponent implements OnInit
       public route: ActivatedRoute,
       public location: Location) {
           super(
-                boardService, injector, router, route, location, ViewType.LIST);
+                boardService, injector, router, route, location);
+          this.view = ViewType.LIST;
 
           this.fieldDisplayNames = {
             'name': 'Name',
@@ -52,7 +53,9 @@ export class BoardListComponent extends BoardListCustComponent implements OnInit
           this.stringFields.push('title');
           this.stringFields.push('photo');
           this.stringFields.push('email');
-          this.numberFields = ['order', ];
+          this.numberFields = [
+            'order',
+          ];
 
           this.listViewFilter = 'list';
           this.setListSort('order', 'Order', 'asc');

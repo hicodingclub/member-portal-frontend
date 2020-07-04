@@ -35,7 +35,8 @@ export class MemberDetailComponent extends MemberDetailCustComponent implements 
       public route: ActivatedRoute,
       public location: Location) {
           super(
-                memberService, injector, router, route, location, ViewType.DETAIL);
+                memberService, injector, router, route, location);
+          this.view = ViewType.DETAIL;
 
           this.fieldDisplayNames = {
             'firstname': 'Firstname',

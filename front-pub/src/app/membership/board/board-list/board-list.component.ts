@@ -39,7 +39,8 @@ export class BoardListComponent extends BoardListCustComponent implements OnInit
       public route: ActivatedRoute,
       public location: Location) {
           super(
-                boardService, injector, router, route, location, ViewType.LIST);
+                boardService, injector, router, route, location);
+          this.view = ViewType.LIST;
 
           this.fieldDisplayNames = {
             'name': 'Name',

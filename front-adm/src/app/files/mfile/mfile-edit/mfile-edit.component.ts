@@ -50,7 +50,8 @@ export class MfileEditComponent extends MfileEditCustComponent implements OnInit
       public route: ActivatedRoute,
       public location: Location) {
           super(componentFactoryResolver,
-                mfileService, injector, router, route, location, ViewType.EDIT);
+                mfileService, injector, router, route, location);
+          this.view = ViewType.EDIT;
 
           this.fieldDisplayNames = {
             'name': 'Name',
@@ -58,8 +59,12 @@ export class MfileEditComponent extends MfileEditCustComponent implements OnInit
             'labels': 'Labels',
           };
           this.stringFields.push('name');
-          this.referenceFields = ['group', ];
-          this.arrayFields = [['labels', 'SchemaString'],];
+          this.referenceFields = [
+            'group',
+          ];
+          this.arrayFields = [
+            ['labels', 'SchemaString'],
+          ];
 
           
           const detail = {};

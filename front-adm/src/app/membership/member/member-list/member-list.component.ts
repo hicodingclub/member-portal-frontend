@@ -39,7 +39,8 @@ export class MemberListComponent extends MemberListCustComponent implements OnIn
       public route: ActivatedRoute,
       public location: Location) {
           super(
-                memberService, injector, router, route, location, ViewType.LIST);
+                memberService, injector, router, route, location);
+          this.view = ViewType.LIST;
 
           this.fieldDisplayNames = {
             'firstname': 'Firstname',

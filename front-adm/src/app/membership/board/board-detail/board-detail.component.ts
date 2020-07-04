@@ -35,7 +35,8 @@ export class BoardDetailComponent extends BoardDetailCustComponent implements On
       public route: ActivatedRoute,
       public location: Location) {
           super(
-                boardService, injector, router, route, location, ViewType.DETAIL);
+                boardService, injector, router, route, location);
+          this.view = ViewType.DETAIL;
 
           this.fieldDisplayNames = {
             'name': 'Name',
@@ -48,7 +49,9 @@ export class BoardDetailComponent extends BoardDetailCustComponent implements On
           this.stringFields.push('title');
           this.stringFields.push('photo');
           this.stringFields.push('email');
-          this.numberFields = ['order', ];
+          this.numberFields = [
+            'order',
+          ];
   }
 
   ngOnInit() {

@@ -125,7 +125,8 @@ export class MemberEditComponent extends MemberEditCustComponent implements OnIn
       public route: ActivatedRoute,
       public location: Location) {
           super(
-                memberService, injector, router, route, location, ViewType.EDIT);
+                memberService, injector, router, route, location);
+          this.view = ViewType.EDIT;
 
           this.fieldDisplayNames = {
             'firstname': 'Firstname',
