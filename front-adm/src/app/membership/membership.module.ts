@@ -1,23 +1,27 @@
-import { NgModule } from '@angular/core';
-import { MembershipRoutingModule } from './membership-routing.module';
-import { MembershipCoreModule } from './membership.core.module';
-import { MembershipCustModule } from '../membership-cust/membership.cust.module'
-
+import {
+  NgModule
+} from '@angular/core';
+import {
+  MembershipRoutingModule
+} from './membership-routing.module';
+import {
+  MembershipCoreModule
+} from './membership.core.module';
+import {
+  MembershipCustModule
+} from '../membership-cust/membership.cust.module'
 @NgModule({
   imports: [
     MembershipRoutingModule,
     MembershipCoreModule,
     MembershipCustModule,
   ],
-  declarations: [
-  ],
+  declarations: [],
   exports: [
     MembershipCoreModule,
     MembershipCustModule,
   ],
-  providers: [
-  ],
-  entryComponents: [
-  ]
+  providers: [],
+  entryComponents: []
 })
-export class MembershipModule { }
+export class MembershipModule {}

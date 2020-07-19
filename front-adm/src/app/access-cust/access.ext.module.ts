@@ -4,6 +4,8 @@ import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 
 
+import { NgbModule, NgbDateParserFormatter } from '@ng-bootstrap/ng-bootstrap';
+import { MraNgbDateFormatterService } from '../access/access.directive';
 
 @NgModule({
   imports: [
@@ -12,6 +14,7 @@ import { FormsModule } from '@angular/forms';
     RouterModule,
     
 
+    NgbModule,
   ],
   declarations: [
   ],
@@ -19,38 +22,47 @@ import { FormsModule } from '@angular/forms';
   ],
   providers: [
 
+    { provide: NgbDateParserFormatter, useClass: MraNgbDateFormatterService },
   ],
   entryComponents: [
   ],
 })
 export class AccessExtModule { }
 /*>>> Please check this recent updates and merge with existing ones***
-**Date: Fri Jul 03 2020 18:12:38 GMT-0700 (Pacific Daylight Time)
+**Date: Sun Jul 19 2020 15:08:50 GMT-0700 (Pacific Daylight Time)
 
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { RouterModule } from '@angular/router';
-import { FormsModule } from '@angular/forms';
-
-
-
+import {
+  NgModule
+} from '@angular/core';
+import {
+  CommonModule
+} from '@angular/common';
+import {
+  RouterModule
+} from '@angular/router';
+import {
+  FormsModule
+} from '@angular/forms';
+import {
+  NgbModule,
+  NgbDateParserFormatter
+} from '@ng-bootstrap/ng-bootstrap';
+import {
+  MraNgbDateFormatterService
+} from '../access/access.directive';
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     RouterModule,
-    
-
+    NgbModule,
   ],
-  declarations: [
-  ],
-  exports: [
-  ],
-  providers: [
-
-  ],
-  entryComponents: [
-  ],
+  declarations: [],
+  exports: [],
+  providers: [{
+    provide: NgbDateParserFormatter,
+    useClass: MraNgbDateFormatterService
+  }, ],
+  entryComponents: [],
 })
-export class AccessExtModule { }
-**** End of recent updates.<<<*/
+export class AccessExtModule {}**** End of recent updates.<<<*/

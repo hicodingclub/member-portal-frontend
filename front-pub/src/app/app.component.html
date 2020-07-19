@@ -14,7 +14,7 @@
                 <li class="nav-item">
                     <a class="nav-link" [ngClass]="{'active': currentUrl === '' || currentUrl === '/' }" routerLink="/">Home</a>
                 </li>
-                <li class="nav-item">
+                <li [libMddsUiRoleCheck]="['ui-pages', 'contact']" [libMddsUiRolePerm]="'R'" class="nav-item">
                     <a class="nav-link" routerLinkActive="active" routerLink="/contact">Contact</a>
                 </li>
             </ul>
@@ -37,13 +37,5 @@
 <nav class="footer footer-font navbar navbar-light">
     <div class="mx-auto mb-2 pt-2">
         <div>© 2020 Hicoding Club, Inc. All rights reserved.</div>
-        <div class="contact-info">
-            <div class="ml-3 mr-5">
-                <i class="fas fa-phone"></i> (408) 718-3455
-            </div>
-            <div>
-                <i class="fa fa-map-marker" aria-hidden="true"></i> 1645 Natalie Ct., San Jose, CA, 95118
-            </div>
-        </div>
     </div>
 </nav>

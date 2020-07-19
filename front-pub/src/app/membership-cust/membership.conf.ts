@@ -52,57 +52,62 @@ export const MembershipRoutes: Routes = [
 ];
 
 export const membership_server_root_uri: string = '/api/membership';/*>>> Please check this recent updates and merge with existing ones***
-**Date: Fri Jul 03 2020 18:03:11 GMT-0700 (Pacific Daylight Time)
+**Date: Sun Jul 19 2020 15:08:04 GMT-0700 (Pacific Daylight Time)
 
-import { Routes } from '@angular/router';
-
-import { MembershipComponent } from '../membership/membership.component';
-
+import {
+  Routes
+} from '@angular/router';
+import {
+  MembershipComponent
+} from '../membership/membership.component';
 //Import routing paths
-import { 
+import {
   additionalinfoRoutingCorePath,
   boardRoutingCorePath,
   leadRoutingCorePath,
 } from '../membership/membership-routing.core.path';
-
-export const MembershipCoreRoutes: Routes = [
-  { 
-    // Lazy Load: and add to app routing:
-    //     { path: 'membership', loadChildren: () => import('./membership/membership.module').then(m => m.MembershipModule) },
+export const MembershipCoreRoutes: Routes = [{
+  // Lazy Load: and add to app routing:
+  //     { path: 'membership', loadChildren: () => import('./membership/membership.module').then(m => m.MembershipModule) },
+  path: '',
+  // non lazy load config. Include module in app module.
+  // path: 'membership',
+  component: MembershipComponent,
+  children: [{
     path: '',
-    // non lazy load config. Include module in app module.
-    // path: 'membership',
-
-    component: MembershipComponent,
-    children: [
-      {path: '',  redirectTo: 'additionalinfo', pathMatch: 'full'},
-
-      { path: 'additionalinfo',
-        children: additionalinfoRoutingCorePath,
-        data: {mraLevel: 1, item: 'additionalinfo'}
-      },
-      { path: 'board',
-        children: boardRoutingCorePath,
-        data: {mraLevel: 1, item: 'board'}
-      },
-      { path: 'lead',
-        children: leadRoutingCorePath,
-        data: {mraLevel: 1, item: 'lead'}
-      },
-    ]
-  },
-];
-
-import { MembershipRoutingCustPath } from './membership-routing.cust.path';
-
-export const MembershipRoutes: Routes = [
-  {
-    // Lazy Load: and add to app routing:
-    //     { path: 'membership', loadChildren: () => import('./membership/membership.module').then(m => m.MembershipModule) },
-    path: 'cust',
-    // non lazy load config. Include module in app module.
-    // path: 'membership/cust',
-
-    children: MembershipRoutingCustPath,
-  },
-];**** End of recent updates.<<<*/
+    redirectTo: 'additionalinfo',
+    pathMatch: 'full'
+  }, {
+    path: 'additionalinfo',
+    children: additionalinfoRoutingCorePath,
+    data: {
+      mraLevel: 1,
+      item: 'additionalinfo'
+    }
+  }, {
+    path: 'board',
+    children: boardRoutingCorePath,
+    data: {
+      mraLevel: 1,
+      item: 'board'
+    }
+  }, {
+    path: 'lead',
+    children: leadRoutingCorePath,
+    data: {
+      mraLevel: 1,
+      item: 'lead'
+    }
+  }, ]
+}, ];
+import {
+  MembershipRoutingCustPath
+} from './membership-routing.cust.path';
+export const MembershipRoutes: Routes = [{
+  // Lazy Load: and add to app routing:
+  //     { path: 'membership', loadChildren: () => import('./membership/membership.module').then(m => m.MembershipModule) },
+  path: 'cust',
+  // non lazy load config. Include module in app module.
+  // path: 'membership/cust',
+  children: MembershipRoutingCustPath,
+}, ];**** End of recent updates.<<<*/

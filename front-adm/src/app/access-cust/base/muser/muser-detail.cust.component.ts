@@ -1,0 +1,23 @@
+import { Input, Component } from '@angular/core';
+
+import { MuserComponent } from '../../../access/muser/muser.component';
+
+@Component({
+    template: '',
+})
+export class MuserDetailCustComponent extends MuserComponent {
+}
+/*>>> Please check this recent updates and merge with existing ones***
+**Date: Sun Jul 19 2020 15:08:51 GMT-0700 (Pacific Daylight Time)
+
+import {
+  Input,
+  Component
+} from '@angular/core';
+import {
+  MuserComponent
+} from '../../../access/muser/muser.component';
+@Component({
+  template: '',
+})
+export class MuserDetailCustComponent extends MuserComponent {}**** End of recent updates.<<<*/

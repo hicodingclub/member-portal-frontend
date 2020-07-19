@@ -10,16 +10,16 @@ export class LeadListCustComponent extends LeadComponent {
 }
 
 /*>>> Please check this recent updates and merge with existing ones***
-**Date: Fri Jul 03 2020 18:03:11 GMT-0700 (Pacific Daylight Time)
+**Date: Sun Jul 19 2020 15:08:04 GMT-0700 (Pacific Daylight Time)
 
-import { Input, Component } from '@angular/core';
-
-import { LeadComponent } from '../../../membership/lead/lead.component';
-
+import {
+  Input,
+  Component
+} from '@angular/core';
+import {
+  LeadComponent
+} from '../../../membership/lead/lead.component';
 @Component({
-    template: '',
+  template: '',
 })
-export class LeadListCustComponent extends LeadComponent {
-}
-
-**** End of recent updates.<<<*/
+export class LeadListCustComponent extends LeadComponent {}**** End of recent updates.<<<*/

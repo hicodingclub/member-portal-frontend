@@ -8,3 +8,17 @@ import { AdditionalinfoComponent } from '../../../membership/additionalinfo/addi
 export class AdditionalinfoListCustComponent extends AdditionalinfoComponent {
 }
 
+/*>>> Please check this recent updates and merge with existing ones***
+**Date: Sun Jul 19 2020 15:08:04 GMT-0700 (Pacific Daylight Time)
+
+import {
+  Input,
+  Component
+} from '@angular/core';
+import {
+  AdditionalinfoComponent
+} from '../../../membership/additionalinfo/additionalinfo.component';
+@Component({
+  template: '',
+})
+export class AdditionalinfoListCustComponent extends AdditionalinfoComponent {}**** End of recent updates.<<<*/

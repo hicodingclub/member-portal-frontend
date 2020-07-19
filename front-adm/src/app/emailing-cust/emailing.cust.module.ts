@@ -22,31 +22,33 @@ import { EmailingCoreModule } from '../emailing/emailing.core.module';
 })
 export class EmailingCustModule { }
 /*>>> Please check this recent updates and merge with existing ones***
-**Date: Fri Jul 03 2020 18:12:36 GMT-0700 (Pacific Daylight Time)
+**Date: Sun Jul 19 2020 15:08:48 GMT-0700 (Pacific Daylight Time)
 
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { RouterModule } from '@angular/router';
-import { FormsModule } from '@angular/forms';
-
-import { EmailingCoreModule } from '../emailing/emailing.core.module';
-
+import {
+  NgModule
+} from '@angular/core';
+import {
+  CommonModule
+} from '@angular/common';
+import {
+  RouterModule
+} from '@angular/router';
+import {
+  FormsModule
+} from '@angular/forms';
+import {
+  EmailingCoreModule
+} from '../emailing/emailing.core.module';
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     RouterModule,
-
     EmailingCoreModule,
   ],
-  declarations: [
-  ],
-  exports: [
-  ],
-  providers: [
-  ],
-  entryComponents: [
-  ],
+  declarations: [],
+  exports: [],
+  providers: [],
+  entryComponents: [],
 })
-export class EmailingCustModule { }
-**** End of recent updates.<<<*/
+export class EmailingCustModule {}**** End of recent updates.<<<*/

@@ -1,17 +1,15 @@
-
-
-		<div *ngIf="detail && showFields.includes('firstname')">
-                    {{detail['firstname']}}
-		</div>
-		<div *ngIf="detail && showFields.includes('lastname')">
-                    {{detail['lastname']}}
-		</div>
-		<div *ngIf="detail && showFields.includes('photo')">
-                    <lib-mdds-file-display [downloadUrl]="detail['photo']" [isLarge]="false" [aspectRatio]=""></lib-mdds-file-display>
-		</div>
-		<div *ngIf="detail && showFields.includes('email')">
-                    {{detail['email']}}
-		</div>
-		<div *ngIf="detail && showFields.includes('phone')">
-                    {{detail['phone']}}
-		</div>
+<div *ngIf="detail && showFields.includes('firstname')">
+  {{detail['firstname']}}
+</div>
+<div *ngIf="detail && showFields.includes('lastname')">
+  {{detail['lastname']}}
+</div>
+<div *ngIf="detail && showFields.includes('photo')">
+  <lib-mdds-file-display [downloadUrl]="detail['photo']" [isLarge]="false" [aspectRatio]=""></lib-mdds-file-display>
+</div>
+<div *ngIf="detail && showFields.includes('email')">
+  {{detail['email']}}
+</div>
+<div *ngIf="detail && showFields.includes('phone')">
+  {{detail['phone']}}
+</div>
