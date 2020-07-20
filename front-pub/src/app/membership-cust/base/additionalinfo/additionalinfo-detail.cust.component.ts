@@ -6,9 +6,13 @@ import { AdditionalinfoComponent } from '../../../membership/additionalinfo/addi
     template: '',
 })
 export class AdditionalinfoDetailCustComponent extends AdditionalinfoComponent {
+  public options: any = {
+    disableActionList: true,
+    disableActionNew: true,
+  }
 }
 /*>>> Please check this recent updates and merge with existing ones***
-**Date: Sun Jul 19 2020 15:08:04 GMT-0700 (Pacific Daylight Time)
+**Date: Sun Jul 19 2020 22:23:44 GMT-0700 (Pacific Daylight Time)
 
 import {
   Input,

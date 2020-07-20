@@ -5,7 +5,6 @@ import { FormsModule } from '@angular/forms';
 
 import { MembershipCoreModule } from '../membership/membership.core.module';
 import { MembershipCheckingComponent } from './cust/membership-checking.component';
-
 @NgModule({
   imports: [
     CommonModule,
@@ -15,7 +14,7 @@ import { MembershipCheckingComponent } from './cust/membership-checking.componen
     MembershipCoreModule,
   ],
   declarations: [
-    MembershipCheckingComponent
+    MembershipCheckingComponent,
   ],
   exports: [
   ],
@@ -26,7 +25,7 @@ import { MembershipCheckingComponent } from './cust/membership-checking.componen
 })
 export class MembershipCustModule { }
 /*>>> Please check this recent updates and merge with existing ones***
-**Date: Sun Jul 19 2020 15:08:04 GMT-0700 (Pacific Daylight Time)
+**Date: Sun Jul 19 2020 22:23:44 GMT-0700 (Pacific Daylight Time)
 
 import {
   NgModule

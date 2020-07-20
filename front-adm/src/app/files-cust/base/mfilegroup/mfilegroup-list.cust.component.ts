@@ -9,7 +9,7 @@ export class MfilegroupListCustComponent extends MfilegroupComponent {
 }
 
 /*>>> Please check this recent updates and merge with existing ones***
-**Date: Sun Jul 19 2020 15:08:50 GMT-0700 (Pacific Daylight Time)
+**Date: Sun Jul 19 2020 22:23:54 GMT-0700 (Pacific Daylight Time)
 
 import {
   Input,

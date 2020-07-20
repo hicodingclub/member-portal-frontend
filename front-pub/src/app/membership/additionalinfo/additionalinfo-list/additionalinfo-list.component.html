@@ -110,11 +110,14 @@
           <div class="list-fields" [ngClass]="{pointer: clickItemAction}" (click)="clickOneItem(i)">
             <div class="list-body-fields">
               <h5>
-                <div class="mr-1 d-inline-block">
-                  {{detail['grade']}}
-                </div>
               </h5>
               <div>
+                <div *ngIf="fieldHasValue(detail['grade'])" class="mr-3 d-inline-flex flex-wrap">
+                  <div><label>Grade:</label></div>
+                  <div class="ml-3">
+                    {{detail['grade']}}
+                  </div>
+                </div>
                 <div *ngIf="fieldHasValue(detail['team'])" class="mr-3 d-inline-flex flex-wrap">
                   <div><label>Team:</label></div>
                   <div class="ml-3">
@@ -142,13 +145,15 @@
             <div class="card-header grid-head">
               <div>
                 <h5>
-                  <div class="mr-1 d-inline-block">
-                    {{detail['grade']}}
-                  </div>
                 </h5>
               </div>
             </div>
             <div class="card-body">
+              <div *ngIf="fieldHasValue(detail['grade'])" class="d-flex flex-wrap">
+                <div class=""><label>Grade:</label></div>
+                <div class="ml-3">
+                  {{detail['grade']}}</div>
+              </div>
               <div *ngIf="fieldHasValue(detail['team'])" class="d-flex flex-wrap">
                 <div class=""><label>Team:</label></div>
                 <div class="ml-3">

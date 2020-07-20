@@ -25,7 +25,7 @@ import { FormsModule } from '@angular/forms';
 })
 export class MembershipExtModule { }
 /*>>> Please check this recent updates and merge with existing ones***
-**Date: Sun Jul 19 2020 15:08:53 GMT-0700 (Pacific Daylight Time)
+**Date: Sun Jul 19 2020 22:23:57 GMT-0700 (Pacific Daylight Time)
 
 import {
   NgModule

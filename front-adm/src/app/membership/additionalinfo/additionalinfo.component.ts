@@ -122,7 +122,7 @@ export class AdditionalinfoComponent extends MddsBaseComponent implements OnInit
     this.referenceFieldsReverseMap = {
       'member': 'member',
     };
-    this.requiredFields = ['grade', 'team', 'programmingSkill', 'designingSkill', 'githubExp', 'member', ];
+    this.requiredFields = ['grade', 'team', 'guardianEmail', 'programmingSkill', 'designingSkill', 'githubExp', 'member', ];
     this.emailFields = [
       ['Guardian Email', 'guardianEmail'],
     ];

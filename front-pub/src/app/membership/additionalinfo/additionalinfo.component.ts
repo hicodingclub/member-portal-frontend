@@ -86,13 +86,13 @@ export class AdditionalinfoComponent extends MddsBaseComponent implements OnInit
     this.briefFieldsInfo = [];
     this.briefFieldsInfo.push(['grade', 'Grade']);
     this.briefFieldsInfo.push(['team', 'Team']);
-    this.requiredFields = ['grade', 'programmingSkill', 'designingSkill', 'githubExp', 'team', ];
+    this.requiredFields = ['grade', 'guardianEmail', 'programmingSkill', 'designingSkill', 'githubExp', 'team', ];
     this.emailFields = [
       ['Guardian Email', 'guardianEmail'],
     ];
     this.schemaName = 'additionalinfo';
     this.modulePath = 'membership';
-    this.indexFields = ['grade', ];
+    this.indexFields = [];
   }
   ngOnInit() {
     this.style = this.style || {};

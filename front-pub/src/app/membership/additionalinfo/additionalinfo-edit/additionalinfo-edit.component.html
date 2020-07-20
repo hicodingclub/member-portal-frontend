@@ -49,12 +49,13 @@
             <fieldset class="form-group">
               <label for="EditGuardianEmail">Guardian Email</label>
               <div class="input-group">
-                <input type="text" class="form-control rounded" id="EditGuardianEmail" maxlength="100" [(ngModel)]="detail['guardianEmail']" name="EditGuardianEmail" #EditGuardianEmail="ngModel">
+                <input type="text" class="form-control rounded" id="EditGuardianEmail" required maxlength="100" [(ngModel)]="detail['guardianEmail']" name="EditGuardianEmail" #EditGuardianEmail="ngModel">
                 <div *ngIf="detail['guardianEmail']" class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('guardianEmail')">
                   <i class="fas fa-times-circle" title="Clear"></i>
                 </div>
               </div>
               <div [hidden]="EditGuardianEmail.valid || EditGuardianEmail.pristine || EditGuardianEmail.errors.minlength" class="alert alert-danger">
+                <div *ngIf="EditGuardianEmail.errors && EditGuardianEmail.errors.required"> GuardianEmail is required. </div>
                 <div *ngIf="EditGuardianEmail.errors && EditGuardianEmail.errors.maxlength"> GuardianEmail must be at most 100 characters long. </div>
               </div>
             </fieldset>
@@ -205,12 +206,13 @@
             <fieldset class="form-group">
               <label for="EditGuardianEmail">Guardian Email</label>
               <div class="input-group">
-                <input type="text" class="form-control rounded" id="EditGuardianEmail" maxlength="100" [(ngModel)]="detail['guardianEmail']" name="EditGuardianEmail" #EditGuardianEmail="ngModel">
+                <input type="text" class="form-control rounded" id="EditGuardianEmail" required maxlength="100" [(ngModel)]="detail['guardianEmail']" name="EditGuardianEmail" #EditGuardianEmail="ngModel">
                 <div *ngIf="detail['guardianEmail']" class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('guardianEmail')">
                   <i class="fas fa-times-circle" title="Clear"></i>
                 </div>
               </div>
               <div [hidden]="EditGuardianEmail.valid || EditGuardianEmail.pristine || EditGuardianEmail.errors.minlength" class="alert alert-danger">
+                <div *ngIf="EditGuardianEmail.errors && EditGuardianEmail.errors.required"> GuardianEmail is required. </div>
                 <div *ngIf="EditGuardianEmail.errors && EditGuardianEmail.errors.maxlength"> GuardianEmail must be at most 100 characters long. </div>
               </div>
             </fieldset>

@@ -7,9 +7,10 @@ export const authentication_registration_pipeline = '/membership/additionalinfo/
 
 
 export const authentication_dropdown_items: DropdownItem[] = [
+    {displayName: 'Member Information', routerLink: '/membership/cust/viewinfo'},
     // {displayName: 'Student Profiles', routerLink: '/academics/student'},
     // {displayName: 'Class Enrollments', routerLink: '/academics/classenroll'},
-] 
+];
 
 export const authentication_reg_required: any = {
     firstName: true,

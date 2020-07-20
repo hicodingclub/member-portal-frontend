@@ -15,12 +15,14 @@ import {
   AUTHENTICATION_INTERFACES,
   AUTHENTICATION_REGISTRATION_REQUIRED,
   AUTHENTICATION_REGISTRATION_PIPELINE,
+  AUTHENTICATION_DROPDOWN_ITEMS,
 } from "@hicoder/angular-auth";
 import {
   authentication_interfaces,
   authentication_login_pipeline,
   authentication_registration_pipeline,
   authentication_reg_required,
+  authentication_dropdown_items,
 } from "./injection-tokens/auth.conf";
 
 import { MDDS_ROUTE_REUSE_RUIs } from '@hicoder/angular-core';
@@ -53,6 +55,10 @@ import { MembershipModule } from "./membership/membership.module";
     {
       provide: AUTHENTICATION_REGISTRATION_PIPELINE,
       useValue: authentication_registration_pipeline,
+    },
+    {
+      provide: AUTHENTICATION_DROPDOWN_ITEMS,
+      useValue: authentication_dropdown_items,
     },
     { provide: MDDS_ROUTE_REUSE_RUIs, useValue: route_reuse_uris },
     { provide: RouteReuseStrategy, useClass: MddsRouteReuseStrategy },
