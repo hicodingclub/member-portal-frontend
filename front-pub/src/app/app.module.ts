@@ -42,7 +42,7 @@ import { MembershipModule } from "./membership/membership.module";
     AuthenticationModule,
     MembershipModule,
   ],
-  providers: [
+  providers: [  
     { provide: AUTHENTICATION_INTERFACES, useValue: authentication_interfaces },
     {
       provide: AUTHENTICATION_LOGIN_PIPELINE,

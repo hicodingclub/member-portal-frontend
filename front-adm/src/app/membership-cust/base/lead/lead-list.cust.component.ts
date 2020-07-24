@@ -9,7 +9,7 @@ export class LeadListCustComponent extends LeadComponent {
 }
 
 /*>>> Please check this recent updates and merge with existing ones***
-**Date: Sun Jul 19 2020 22:23:57 GMT-0700 (Pacific Daylight Time)
+**Date: Thu Jul 23 2020 23:36:05 GMT-0700 (Pacific Daylight Time)
 
 import {
   Input,
